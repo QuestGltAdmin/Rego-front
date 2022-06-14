@@ -1336,73 +1336,73 @@ export default function Dashboard() {
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain1.png" />
+                          <img src={gain1} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain2.png" />
+                          <img src={gain2} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain3.png" />
+                          <img src={gain3} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain4.png" />
+                          <img src={gain4} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain5.png" />
+                          <img src={gain5} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain6.png" />
+                          <img src={gain6} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain1.png" />
+                          <img src={gain1} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain2.png" />
+                          <img src={gain2} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain3.png" />
+                          <img src={gain3} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain4.png" />
+                          <img src={gain4} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain5.png" />
+                          <img src={gain5} />
                           <p>BTC</p>
                         </div>
                       </div>
                       <div className="col-md-2 col-3">
                         <div className="mini-box">
-                          <img src="assets/images/gain6.png" />
+                          <img src={gain6} />
                           <p>BTC</p>
                         </div>
                       </div>
