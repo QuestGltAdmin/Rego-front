@@ -18,8 +18,13 @@ import gain4 from '../../assets/images/gain4.png';
 import gain5 from '../../assets/images/gain5.png';
 import gain6 from '../../assets/images/gain6.png';
 import share from '../../assets/images/share.png'; 
- 
-
+import share2 from '../../assets/images/share-2.png';
+import facebook from '../../assets/images/Facebook.svg';
+import instagram from '../../assets/images/Instagram.svg';
+import twitter from '../../assets/images/Twitter.svg';
+import bookmark from '../../assets/images/bookmark.png';
+import wallet from '../../assets/images/wallet.png'
+import triangle from '../../assets/images/triangle.png'
 
 
 
@@ -460,7 +465,7 @@ export default function Dashboard() {
                 <div className="row">
                   <div className="col-md-8">
                     <div className="graph-head">
-                      <img src="assets/images/gain1.png" />
+                      <img src={gain1} />
                       <div className="des">
                         <p>Bitcoin</p>
                       </div>
@@ -473,14 +478,14 @@ export default function Dashboard() {
                         <a className="change-price">About Coin</a>
                       </p>
                       <div className="share-icon-box">
-                        <img src="assets/images/share-2.png" />
+                        <img src={share2} />           
                         <ul className="icon-list">
-                          <li><a href><img src="assets/images/Facebook.svg" /></a></li>
-                          <li><a href><img src="assets/images/Instagram.svg" /></a></li>
-                          <li><a href><img src="assets/images/Twitter.svg" /></a></li>
+                          <li><a href><img src={facebook} /></a></li>
+                          <li><a href><img src={instagram} /></a></li>
+                          <li><a href><img src={twitter} /></a></li>
                         </ul>
                       </div>
-                      <img src="assets/images/bookmark.png" />
+                      <img src={bookmark}/>
                     </div>
                   </div>
                   <div className="col-md-12">
@@ -546,7 +551,7 @@ export default function Dashboard() {
                             <h5>Balance</h5>
                             <div className="des">
                               <p>
-                                <img src="assets/images/wallet.png" />
+                                <img src={wallet} />
                                 ₹0.00
                               </p>
                             </div>
@@ -602,7 +607,7 @@ export default function Dashboard() {
                             <h5>Balance</h5>
                             <div className="des">
                               <p>
-                                <img src="assets/images/wallet.png" />
+                                <img src={wallet} />
                                 ₹0.00
                               </p>
                             </div>
@@ -630,7 +635,7 @@ export default function Dashboard() {
                         <div className="col-md-12">
                           <div className="buy-modal">
                             <div className="img">
-                              <img src="assets/images/triangle.png" />
+                              <img src={triangle} />
                             </div>
                             <div className="des">
                               <h4>Attention</h4>
@@ -663,7 +668,7 @@ export default function Dashboard() {
                     </div>
                     <div className="cards">
                       <div className="img">
-                        <img src="assets/images/nft.png" />
+                        <img src={nft} />
                       </div>
                       <div className="profile-flex">
                         <img src="assets/images/nft-profile.png" />
