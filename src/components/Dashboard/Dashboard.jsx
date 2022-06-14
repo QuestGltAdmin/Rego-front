@@ -27,7 +27,9 @@ import wallet from '../../assets/images/wallet.png'
 import triangle from '../../assets/images/triangle.png'
 import nftprofile from '../../assets/images/nft-profile.png'
 import drop1 from '../../assets/images/drop1.png'
-
+import alert from '../../assets/images/alert.png'
+import frame1 from '../../assets/images/frame1.png'
+import frame3 from '../../assets/images/frame3.png'
 
 
 export default function Dashboard() {
@@ -1050,7 +1052,7 @@ export default function Dashboard() {
                         <div className="lefty">
                           <div className="body-bg">
                             <div className="flex">
-                              <img src="assets/images/gain1.png" />
+                              <img src={gain1} />
                               <p>Bitcoin</p>
                             </div>
                             <div className="one">
@@ -1169,7 +1171,7 @@ export default function Dashboard() {
                             <p>2022-04-17 18:17</p>
                           </div>
                           <div className="info-txt">
-                            <img src="assets/images/alert.png" />
+                            <img src={alert} />
                             <p>Lorem ipsum dolor sit amet,adipiscing elit. Quisque luctus accumsan vulputate. Aenean pretium mauris at diam</p>
                           </div>
                           <div className="des">
@@ -1209,7 +1211,7 @@ export default function Dashboard() {
                       </div>
                       <div className="basket-box">
                         <div className="icon">
-                          <img src="assets/images/frame1.png" />
+                          <img src={frame1} />
                         </div>
                         <div className="des">
                           <h4>Ideal for new investors</h4>
@@ -1218,7 +1220,7 @@ export default function Dashboard() {
                       </div>
                       <div className="basket-box">
                         <div className="icon">
-                          <img src="assets/images/frame3.png" />
+                          <img src={frame3} />
                         </div>
                         <div className="des">
                           <h4>Trackers</h4>
@@ -1227,7 +1229,7 @@ export default function Dashboard() {
                       </div>
                       <div className="basket-box">
                         <div className="icon">
-                          <img src="assets/images/frame3.png" />
+                          <img src={frame3} />
                         </div>
                         <div className="des">
                           <h4>Trackers</h4>
@@ -1238,7 +1240,7 @@ export default function Dashboard() {
                     <div className="col-md-6">
                       <div className="basket-box">
                         <div className="icon">
-                          <img src="assets/images/frame1.png" />
+                          <img src={frame1} />
                         </div>
                         <div className="des">
                           <h4>Ideal for new investors</h4>
@@ -1247,7 +1249,7 @@ export default function Dashboard() {
                       </div>
                       <div className="basket-box">
                         <div className="icon">
-                          <img src="assets/images/frame3.png" />
+                          <img src={frame3} />
                         </div>
                         <div className="des">
                           <h4>Trackers</h4>
@@ -1256,7 +1258,7 @@ export default function Dashboard() {
                       </div>
                       <div className="basket-box">
                         <div className="icon">
-                          <img src="assets/images/frame3.png" />
+                          <img src={frame3} />
                         </div>
                         <div className="des">
                           <h4>Trackers</h4>
@@ -1265,7 +1267,7 @@ export default function Dashboard() {
                       </div>
                       <div className="basket-box">
                         <div className="icon">
-                          <img src="assets/images/frame3.png" />
+                          <img src={frame3} />
                         </div>
                         <div className="des">
                           <h4>Trackers</h4>
