@@ -325,7 +325,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain1.png" />
+                            <img src={gain1} />
                             <div className="des">
                               <h5>Bitcoin</h5>
                               <span>BTC</span>
@@ -334,7 +334,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -345,7 +345,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain2.png" />
+                            <img src={gain2} />
                             <div className="des">
                               <h5>Ethereum</h5>
                               <span>ETH</span>
@@ -354,7 +354,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -365,7 +365,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain3.png" />
+                            <img src={gain3} />
                             <div className="des">
                               <h5>Tether</h5>
                               <span>USDT</span>
@@ -374,7 +374,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -385,7 +385,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain4.png" />
+                            <img src={gain4} />
                             <div className="des">
                               <h5>Binance Coin</h5>
                               <span>USDT</span>
@@ -394,7 +394,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -405,7 +405,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain5.png" />
+                            <img src={gain5} />
                             <div className="des">
                               <h5>Cardano</h5>
                               <span>USDT</span>
@@ -414,7 +414,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -425,7 +425,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain6.png" />
+                            <img src={gain6} />
                             <div className="des">
                               <h5>USD Coin</h5>
                               <span>USDT</span>
@@ -434,7 +434,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
