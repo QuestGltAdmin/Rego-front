@@ -40,6 +40,15 @@ import trad1 from '../../assets/images/trad1.svg'
 import trad2 from '../../assets/images/trad2.svg'
 import trad3 from '../../assets/images/trad3.svg'
 import bell from '../../assets/images/bell.svg'
+import blog from '../../assets/images/blog.jpg'
+import blog1 from '../../assets/images/blog1.png'
+import blog2 from '../../assets/images/blog2.png'
+import blog3 from '../../assets/images/blog3.png'
+import blog4 from '../../assets/images/blog4.png'
+import blog5 from '../../assets/images/blog5.png'
+
+
+
 
    
 
@@ -3932,7 +3941,7 @@ export default function Dashboard() {
                     <a href>
                       <div className="img-cont">
                         <div className="overlay" />
-                        <img src="assets/images/blog1.png" />
+                        <img src={blog1} />
                         <div className="bottom-right">
                           <h5>What is Blockchain? What is Cryptocurrency?</h5>
                         </div>
@@ -3943,7 +3952,7 @@ export default function Dashboard() {
                     <a href>
                       <div className="img-cont">
                         <div className="overlay" />
-                        <img src="assets/images/blog2.png" />
+                        <img src={blog2} />
                         <div className="bottom-right">
                           <h5>What is Blockchain? What is Cryptocurrency?</h5>
                         </div>
@@ -3954,7 +3963,7 @@ export default function Dashboard() {
                     <a href>
                       <div className="img-cont">
                         <div className="overlay" />
-                        <img src="assets/images/blog3.png" />
+                        <img src={blog3} />
                         <div className="bottom-right">
                           <h5>What is Blockchain? What is Cryptocurrency?</h5>
                         </div>
@@ -3965,7 +3974,7 @@ export default function Dashboard() {
                     <a href>
                       <div className="img-cont">
                         <div className="overlay" />
-                        <img src="assets/images/blog4.png" />
+                        <img src={blog4} />
                         <div className="bottom-right">
                           <h5>What is Blockchain? What is Cryptocurrency?</h5>
                         </div>
@@ -3976,7 +3985,7 @@ export default function Dashboard() {
                     <a href>
                       <div className="img-cont">
                         <div className="overlay" />
-                        <img src="assets/images/blog4.png" />
+                        <img src={blog4} />
                         <div className="bottom-right">
                           <h5>What is Blockchain? What is Cryptocurrency?</h5>
                         </div>
@@ -3989,7 +3998,7 @@ export default function Dashboard() {
                     <a href>
                       <div className="img-cont">
                         <div className="overlay" />
-                        <img src="assets/images/blog1.png" />
+                        <img src={blog1} />
                         <div className="bottom-right">
                           <h5>What is Blockchain? What is Cryptocurrency?</h5>
                         </div>
