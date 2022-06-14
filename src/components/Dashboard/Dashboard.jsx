@@ -3,6 +3,27 @@ import '../../assets/css/custom.css';
 import '../../assets/css/style.css';
 import '../../assets/css/dash-inner.css';
 import '../../assets/css/nice-select.css';
+import icone1 from '../../assets/images/icon1.png';
+import icone2 from '../../assets/images/icon2.png';
+import icone3 from '../../assets/images/icon3.png';
+import icone4 from '../../assets/images/icon4.png';
+import icone5 from '../../assets/images/icon5.png';
+import nft from '../../assets/images/nft.jpg';
+import nft2 from '../../assets/images/nft2.jpg';
+// import gain from '../../assets/images/gain.png';
+import gain1 from '../../assets/images/gain1.png';
+import gain2 from '../../assets/images/gain2.png';
+import gain3 from '../../assets/images/gain3.png';
+import gain4 from '../../assets/images/gain4.png';
+import gain5 from '../../assets/images/gain5.png';
+import gain6 from '../../assets/images/gain6.png';
+import share from '../../assets/images/share.png'; 
+ 
+
+
+
+
+
 
 
 
@@ -89,30 +110,30 @@ export default function Dashboard() {
                       </thead>
                       <tbody>
                         <tr className="selected-row">
-                          <td><div><img src="assets/images/icon1.png" /> INR</div></td>
+                          <td><div><img src={icone1}/> INR</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
                         <tr>
-                          <td><div><img src="assets/images/icon5.png" /> USDT</div></td>
+                          <td><div><img src={icone5} /> USDT</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
                         <tr>
-                          <td><div><img src="assets/images/icon2.png" /> BTC</div></td>
+                          <td><div><img src={icone2} /> BTC</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
                         <tr>
-                          <td><div><img src="assets/images/icon3.png" /> ETH</div></td>
+                          <td><div><img src={icone3} /> ETH</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
                         <tr>
-                          <td><div><img src="assets/images/icon4.png" /> ETH</div></td>
+                          <td><div><img src={icone4} /> ETH</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
                         <tr>
-                          <td><div><img src="assets/images/icon2.png" /> ETH</div></td>
+                          <td><div><img src={icone2} /> ETH</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
-                      </tbody>
+                      </tbody>     
                     </table>
                   </div>
                   <div className="text-center">
@@ -127,7 +148,7 @@ export default function Dashboard() {
                     <li>
                       <a href>
                         <div className="nft-list">
-                          <img src="assets/images/nft.jpg" />
+                          <img src={nft} />
                           Lorem Ipsum is simply dummy text of the printing and typesetting industry...
                         </div>
                       </a>
@@ -135,7 +156,7 @@ export default function Dashboard() {
                     <li>
                       <a href>
                         <div className="nft-list">
-                          <img src="assets/images/nft.jpg" />
+                          <img src={nft} />
                           Lorem Ipsum is simply dummy text of the printing and typesetting industry...
                         </div>
                       </a>
@@ -143,7 +164,7 @@ export default function Dashboard() {
                     <li>
                       <a href>
                         <div className="nft-list">
-                          <img src="assets/images/nft.jpg" />
+                          <img src={nft}/>
                           Lorem Ipsum is simply dummy text of the printing and typesetting industry...
                         </div>
                       </a>
@@ -152,16 +173,16 @@ export default function Dashboard() {
                   <div>
                     <div className="slider-nft">
                       <div className="item">
-                        <img src="assets/images/nft.jpg" />
+                        <img src={nft} />
                       </div>
                       <div className="item">
-                        <img src="assets/images/nft2.jpg" />
+                        <img src={nft2} />
                       </div>
                       <div className="item">
-                        <img src="assets/images/nft.jpg" />
+                        <img src={nft} />
                       </div>
                       <div className="item">
-                        <img src="assets/images/nft2.jpg" />
+                        <img src={nft2} />
                       </div>
                     </div>
                   </div>
@@ -182,7 +203,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain1.png" />
+                            <img src={gain1} />
                             <div className="des">
                               <h5>Bitcoin</h5>
                               <span>BTC</span>
@@ -191,7 +212,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -202,7 +223,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain2.png" />
+                            <img src={gain2} />
                             <div className="des">
                               <h5>Ethereum</h5>
                               <span>ETH</span>
@@ -211,7 +232,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -222,7 +243,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain3.png" />
+                            <img src={gain3} />
                             <div className="des">
                               <h5>Tether</h5>
                               <span>USDT</span>
@@ -231,7 +252,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -242,7 +263,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain4.png" />
+                            <img src={gain4} />
                             <div className="des">
                               <h5>Binance Coin</h5>
                               <span>USDT</span>
@@ -251,7 +272,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -262,7 +283,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain5.png" />
+                            <img src={gain5} />
                             <div className="des">
                               <h5>Cardano</h5>
                               <span>USDT</span>
@@ -271,7 +292,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -282,7 +303,7 @@ export default function Dashboard() {
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
-                            <img src="assets/images/gain6.png" />
+                            <img src={gain6} />
                             <div className="des">
                               <h5>USD Coin</h5>
                               <span>USDT</span>
@@ -291,7 +312,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src="assets/images/share.png" />
+                            <img src={share} />
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -787,7 +808,7 @@ export default function Dashboard() {
                             <div className="select">
                               <span>Bitshares</span>
                               <i className="fa fa-chevron-down" />
-                            </div>
+                            </div>     
                             <input type="hidden" name="gender" />
                             <ul className="dropdown-menu">
                               <li id><img src="assets/images/gain1.png" />Bitcon</li>
