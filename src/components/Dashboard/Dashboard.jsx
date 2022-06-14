@@ -25,7 +25,7 @@ import twitter from '../../assets/images/Twitter.svg';
 import bookmark from '../../assets/images/bookmark.png';
 import wallet from '../../assets/images/wallet.png'
 import triangle from '../../assets/images/triangle.png'
-
+import nftprofile from '../../assets/images/nft-profile.png'
 
 
 
@@ -669,9 +669,22 @@ export default function Dashboard() {
                     <div className="cards">
                       <div className="img">
                         <img src={nft} />
+                      </div>                    
+                      <div className="profile-flex">
+                        <img src={nftprofile} />
+                        <p>Metamarse</p>             
+                      </div>
+                      <div className="des">
+                        <h4>Cartoon NFT</h4>
+                        <p>28.00 BNB <span>($11,650.80)</span></p>
+                      </div>
+                    </div>
+                    <div className="cards"> 
+                      <div className="img">
+                        <img src={nft} />
                       </div>
                       <div className="profile-flex">
-                        <img src="assets/images/nft-profile.png" />
+                        <img src={nftprofile} />
                         <p>Metamarse</p>
                       </div>
                       <div className="des">
@@ -681,10 +694,10 @@ export default function Dashboard() {
                     </div>
                     <div className="cards">
                       <div className="img">
-                        <img src="assets/images/nft.png" />
+                        <img src={nft} />
                       </div>
                       <div className="profile-flex">
-                        <img src="assets/images/nft-profile.png" />
+                        <img src={nftprofile} />
                         <p>Metamarse</p>
                       </div>
                       <div className="des">
@@ -694,23 +707,10 @@ export default function Dashboard() {
                     </div>
                     <div className="cards">
                       <div className="img">
-                        <img src="assets/images/nft.png" />
+                        <img src={nft}/>
                       </div>
                       <div className="profile-flex">
-                        <img src="assets/images/nft-profile.png" />
-                        <p>Metamarse</p>
-                      </div>
-                      <div className="des">
-                        <h4>Cartoon NFT</h4>
-                        <p>28.00 BNB <span>($11,650.80)</span></p>
-                      </div>
-                    </div>
-                    <div className="cards">
-                      <div className="img">
-                        <img src="assets/images/nft.png" />
-                      </div>
-                      <div className="profile-flex">
-                        <img src="assets/images/nft-profile.png" />
+                        <img src={nftprofile} />
                         <p>Metamarse</p>
                       </div>
                       <div className="des">
@@ -724,10 +724,10 @@ export default function Dashboard() {
                     </div>
                     <div className="cards">
                       <div className="img">
-                        <img src="assets/images/nft.png" />
+                        <img src={nft} />
                       </div>
                       <div className="profile-flex">
-                        <img src="assets/images/nft-profile.png" />
+                        <img src={nftprofile} />
                         <p>Metamarse</p>
                       </div>
                       <div className="des">
@@ -737,10 +737,10 @@ export default function Dashboard() {
                     </div>
                     <div className="cards">
                       <div className="img">
-                        <img src="assets/images/nft.png" />
+                        <img src={nft} />
                       </div>
                       <div className="profile-flex">
-                        <img src="assets/images/nft-profile.png" />
+                        <img src={nftprofile} />
                         <p>Metamarse</p>
                       </div>
                       <div className="des">
@@ -750,10 +750,10 @@ export default function Dashboard() {
                     </div>
                     <div className="cards">
                       <div className="img">
-                        <img src="assets/images/nft.png" />
+                        <img src={nft}/>
                       </div>
                       <div className="profile-flex">
-                        <img src="assets/images/nft-profile.png" />
+                        <img src={nftprofile} />
                         <p>Metamarse</p>
                       </div>
                       <div className="des">
@@ -763,10 +763,10 @@ export default function Dashboard() {
                     </div>
                     <div className="cards">
                       <div className="img">
-                        <img src="assets/images/nft.png" />
+                        <img src={nft} />
                       </div>
                       <div className="profile-flex">
-                        <img src="assets/images/nft-profile.png" />
+                        <img src={nftprofile} />
                         <p>Metamarse</p>
                       </div>
                       <div className="des">
