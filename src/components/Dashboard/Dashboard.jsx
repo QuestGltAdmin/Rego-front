@@ -28,8 +28,21 @@ import triangle from '../../assets/images/triangle.png'
 import nftprofile from '../../assets/images/nft-profile.png'
 import drop1 from '../../assets/images/drop1.png'
 import alert from '../../assets/images/alert.png'
-import frame1 from '../../assets/images/frame1.png'
-import frame3 from '../../assets/images/frame3.png'
+import frame1 from '../../assets/images/Frame1.png'
+import frame3 from '../../assets/images/Frame3.png'
+import equity from '../../assets/images/equity.png'
+import low from '../../assets/images/low.png'  
+import over1 from '../../assets/images/over1.png'
+import over2 from '../../assets/images/over2.png'
+import alertcircle from '../../assets/images/alert-circle.png'
+import refresh from '../../assets/images/refresh.png'
+import trad1 from '../../assets/images/trad1.svg'
+import trad2 from '../../assets/images/trad2.svg'
+import trad3 from '../../assets/images/trad3.svg'
+import bell from '../../assets/images/bell.svg'
+
+   
+
 
 
 export default function Dashboard() {
@@ -1424,7 +1437,7 @@ export default function Dashboard() {
                   <div className="row">
                     <div className="col-md-8">
                       <div className="equity-flex">
-                        <img src="assets/images/equity.png" />
+                        <img src={equity} />   
                         <div className="des">
                           <h3>Equity &amp; Gold</h3>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id luctus odio, ornare placerat diam.</p>
@@ -1438,7 +1451,7 @@ export default function Dashboard() {
                           <h3>17.92%</h3>
                         </div>
                         <div className="detail-btn">
-                          <a href><img src="assets/images/low.png" />Low Volatility</a>
+                          <a href><img src={low} />Low Volatility</a>
                         </div>
                       </div>
                     </div>
@@ -1471,14 +1484,14 @@ export default function Dashboard() {
                         <div className="col-md-5">
                           <div className="overview-detail">
                             <div className="over-flex">
-                              <img src="assets/images/over1.png" />
+                              <img src={over1} />
                               <div className="des-txt">
                                 <h6>Methodology</h6>
                                 <p>Lorem ipsum dolor sit amet, consectetur</p>
                               </div>
                             </div>
                             <div className="over-flex">
-                              <img src="assets/images/over1.png" />
+                              <img src={over1} />
                               <div className="des-txt">
                                 <h6>Methodology</h6>
                                 <p>Lorem ipsum dolor sit amet, consectetur</p>
@@ -1493,8 +1506,8 @@ export default function Dashboard() {
                   <div className="col-md-4">
                     <div className="righty">
                       <div className="head">
-                        <p>Minimum Investment Amount<img src="assets/images/alert-circle.png" /></p>
-                        <h4>₹281 <img src="assets/images/refresh.png" /></h4>
+                        <p>Minimum Investment Amount<img src={alertcircle}/></p>
+                        <h4>₹281 <img src={refresh} /></h4>
                       </div>
                       <div className="desc">
                         <p>Get free access forever</p>
@@ -1531,7 +1544,7 @@ export default function Dashboard() {
                           <div className="col-md-12">
                             <div className="head">
                               <div className="title">
-                                <img src="assets/images/equity.png" />
+                                <img src={equity} />
                                 <p>Investing in Best Crypto Assets</p>
                               </div>
                               <button type="button"> 
@@ -1622,7 +1635,7 @@ export default function Dashboard() {
                             <div className="basket-btm">
                               <div className="des">
                                 <p>You will invest</p>
-                                <h3>₹281 <img src="assets/images/refresh.png" /></h3>
+                                <h3>₹281 <img src={refresh} /></h3>
                               </div>
                               <div className="bottom-btn">
                                 <a href>Start Monthly SIP</a>
@@ -1811,17 +1824,17 @@ export default function Dashboard() {
                   <ul className="nav nav-tabs upper-list-tabs tabs" id="myTab" role="tablist">
                     <li className="nav-item" role="presentation">
                       <a className="nav-link active" data-toggle="tab" href="#price1" role="tab" aria-selected="true">
-                        <img src="assets/images/trad1.svg" />
+                        <img src={trad1} />
                       </a>
                     </li>
                     <li className="nav-item" role="presentation">
                       <a className="nav-link" data-toggle="tab" href="#price2" role="tab" aria-selected="false">
-                        <img src="assets/images/trad2.svg" />
+                        <img src={trad2} />
                       </a>
                     </li>
                     <li className="nav-item" role="presentation">
                       <a className="nav-link" data-toggle="tab" href="#price2" role="tab" aria-selected="false">
-                        <img src="assets/images/trad3.svg" />
+                        <img src={trad3} />
                       </a>
                     </li>
                   </ul>
@@ -1868,7 +1881,7 @@ export default function Dashboard() {
                           <div className="num">
                             <p>0.074068  <span>₹240,137.84</span></p>
                           </div>
-                          <img src="assets/images/bell.svg" />
+                          <img src={bell} />
                         </div>
                         <table className="table">
                           <tbody>
@@ -1943,7 +1956,7 @@ export default function Dashboard() {
                           <div className="num">
                             <p>0.074068  <span>₹240,137.84</span></p>
                           </div>
-                          <img src="assets/images/bell.svg" />
+                          <img src={bell} />
                         </div>
                         <table className="table">
                           <tbody>
@@ -2018,7 +2031,7 @@ export default function Dashboard() {
                           <div className="num">
                             <p>0.074068  <span>₹240,137.84</span></p>
                           </div>
-                          <img src="assets/images/bell.svg" />
+                          <img src={bell} />
                         </div>
                         <table className="table">
                           <tbody>
@@ -2337,14 +2350,14 @@ export default function Dashboard() {
                     </div>
                     <div className="assets-flex">
                       <div className="img">
-                        <img src="assets/images/gain1.png" />
+                        <img src={gain1} />
                         <p>BTC</p>
                       </div>
                       <label>0.00</label>
                     </div>
                     <div className="assets-flex">
                       <div className="img">
-                        <img src="assets/images/gain2.png" />
+                        <img src={gain2} />
                         <p>BTC</p>
                       </div>
                       <label>0.00</label>
