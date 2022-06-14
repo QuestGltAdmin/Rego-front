@@ -26,9 +26,7 @@ import bookmark from '../../assets/images/bookmark.png';
 import wallet from '../../assets/images/wallet.png'
 import triangle from '../../assets/images/triangle.png'
 import nftprofile from '../../assets/images/nft-profile.png'
-
-
-
+import drop1 from '../../assets/images/drop1.png'
 
 
 
@@ -806,7 +804,7 @@ export default function Dashboard() {
                       <div className="drop-one">
                         <form>
                           <div className="flex-img">
-                            <img src="assets/images/drop1.png" />
+                            <img src={drop1} />
                           </div>
                           <input type="number" name placeholder="44,620.321815241" />                          
                           <div className="dropdown">
@@ -816,11 +814,11 @@ export default function Dashboard() {
                             </div>     
                             <input type="hidden" name="gender" />
                             <ul className="dropdown-menu">
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
                             </ul>
                           </div>
                         </form>
@@ -830,7 +828,7 @@ export default function Dashboard() {
                       <div className="drop-one">
                         <form>
                           <div className="flex-img">
-                            <img src="assets/images/drop1.png" />
+                            <img src={drop1} />
                           </div>
                           <input type="number" name placeholder="44,620.321815241" />                          
                           <div className="dropdown">
@@ -840,11 +838,11 @@ export default function Dashboard() {
                             </div>
                             <input type="hidden" name="gender" />
                             <ul className="dropdown-menu">
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
-                              <li id><img src="assets/images/gain1.png" />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>
                             </ul>
                           </div>
                         </form>
@@ -872,7 +870,7 @@ export default function Dashboard() {
                       <tr>
                         <th scope="row">
                           <div className="token-flex">
-                            <img src="assets/images/gain1.png" />
+                            <img src={gain1} />
                             <p>Bitcoin</p>
                           </div>
                         </th>
@@ -899,7 +897,7 @@ export default function Dashboard() {
                       <tr>
                         <th scope="row">
                           <div className="token-flex">
-                            <img src="assets/images/gain2.png" />
+                            <img src={gain2} />
                             <p>Bitcoin</p>
                           </div>
                         </th>
@@ -926,7 +924,7 @@ export default function Dashboard() {
                       <tr>
                         <th scope="row">
                           <div className="token-flex">
-                            <img src="assets/images/gain3.png" />
+                            <img src={gain3} />
                             <p>Bitcoin</p>
                           </div>
                         </th>
@@ -953,7 +951,7 @@ export default function Dashboard() {
                       <tr>
                         <th scope="row">
                           <div className="token-flex">
-                            <img src="assets/images/gain4.png" />
+                            <img src={gain4} />
                             <p>Bitcoin</p>
                           </div>
                         </th>
@@ -980,7 +978,7 @@ export default function Dashboard() {
                       <tr>
                         <th scope="row">
                           <div className="token-flex">
-                            <img src="assets/images/gain5.png" />
+                            <img src={gain5} />
                             <p>Bitcoin</p>
                           </div>
                         </th>
@@ -1007,7 +1005,7 @@ export default function Dashboard() {
                       <tr>
                         <th scope="row">
                           <div className="token-flex">
-                            <img src="assets/images/gain6.png" />
+                            <img src={gain6} />
                             <p>Bitcoin</p>
                           </div>
                         </th>
