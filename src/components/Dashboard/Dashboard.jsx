@@ -1,6 +1,8 @@
 import React from 'react'
 import '../../assets/css/custom.css';
 import '../../assets/css/style.css';
+import '../../assets/css/dash-inner.css';
+import '../../assets/css/nice-select.css';
 
 
 
