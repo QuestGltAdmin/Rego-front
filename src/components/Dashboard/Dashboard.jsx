@@ -788,7 +788,7 @@ export default function Dashboard() {
                     <div className="cards">
                       <div className="img">
                         <img src={nftcrtn} />
-                      </div>                                    
+                      </div>     
                       <div className="profile-flex">
                         <img src={nftprofile} />
                         <p>Metamarse</p>
@@ -800,6 +800,12 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
+
+
+
+
+
+                  
               </div>
             </div>
           </div>
