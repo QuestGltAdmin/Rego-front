@@ -821,7 +821,7 @@ export default function Dashboard() {
                     <div className="col-md-6 col-6">
                       <div className="lefty">
                         <span>1 USDT equals to</span>
-                        <h2>44.62 BTS</h2>
+                        <h2>44.62 BTS</h2>  
                       </div>
                     </div>
                   </div>
@@ -909,9 +909,9 @@ export default function Dashboard() {
                             <a href>30</a>
                             <a href>30</a>
                             <a href>30</a>
-                          </div>
+                          </div>              
                         </td>
-                        <td>
+                        <td>                       
                           <div className="minimum">
                             <p>0.1 BTC</p>
                             <div className="btn1">
