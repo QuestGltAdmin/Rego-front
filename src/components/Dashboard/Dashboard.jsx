@@ -718,8 +718,8 @@ export default function Dashboard() {
                     </div>
                     <div className="cards">
                       <div className="img">
-                        <img src={nft} />
-                      </div>
+                        <img src={nftcrtn} />
+                      </div>                                    
                       <div className="profile-flex">
                         <img src={nftprofile} />
                         <p>Metamarse</p>
