@@ -990,7 +990,7 @@ export default function Dashboard() {
                             <a href>30</a>
                             <a href>30</a>
                             <a href>30</a>
-                          </div>
+                          </div>   
                         </td>
                         <td>
                           <div className="minimum">
@@ -1072,7 +1072,7 @@ export default function Dashboard() {
                           <button type="button"> 
                             <i className="fas fa-times close" data-dismiss="modal" aria-label="Close" />
                           </button>
-                        </div>
+                        </div> 
                         <div className="lefty">
                           <div className="body-bg">
                             <div className="flex">
