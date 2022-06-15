@@ -10,6 +10,7 @@ import icone4 from '../../assets/images/icon4.png';
 import icone5 from '../../assets/images/icon5.png';
 import nft from '../../assets/images/nft.jpg';
 import nft2 from '../../assets/images/nft2.jpg';
+import nftcrtn from '../../assets/images/nft.png';
 // import gain from '../../assets/images/gain.png';
 import gain1 from '../../assets/images/gain1.png';
 import gain2 from '../../assets/images/gain2.png';
@@ -46,6 +47,7 @@ import blog2 from '../../assets/images/blog2.png'
 import blog3 from '../../assets/images/blog3.png'
 import blog4 from '../../assets/images/blog4.png'
 import blog5 from '../../assets/images/blog5.png'
+
 
 
 
@@ -110,7 +112,7 @@ export default function Dashboard() {
                           <h4><i className="fa fa-rupee-sign" />1000</h4>
                           <p><small>Total Invested</small></p>
                         </div>
-                      </div>
+                      </div>                  
                     </div>
                     <div className="row">
                       <div className="col-md-6 col-sm-6 col-6">
@@ -119,9 +121,9 @@ export default function Dashboard() {
                           <p><small>Total returs</small></p>
                         </div>
                       </div>
-                      <div className="col-md-6 col-sm-6 col-6">
+                      <div className="col-md-6 col-sm-6 col-6">  
                         <div className="text-center interest-box green-box">
-                          <h4>25%</h4>
+                          <h4>25%</h4> 
                           <p><small>Gain/Loss</small></p>
                         </div>
                       </div>
@@ -147,8 +149,8 @@ export default function Dashboard() {
                         <tr>
                           <td><div><img src={icone2} /> BTC</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
-                        </tr>
-                        <tr>
+                        </tr>         
+                        <tr>  
                           <td><div><img src={icone3} /> ETH</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
@@ -160,8 +162,8 @@ export default function Dashboard() {
                           <td><div><img src={icone2} /> ETH</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
-                      </tbody>     
-                    </table>
+                      </tbody>
+                    </table>    
                   </div>
                   <div className="text-center">
                     <a href className="common-btn">Dposit INR</a>
@@ -276,7 +278,7 @@ export default function Dashboard() {
                               <span>USDT</span>
                             </div>
                           </div>
-                        </div>
+                        </div>     
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
                             <img src={share} />
@@ -690,7 +692,7 @@ export default function Dashboard() {
                     </div>
                     <div className="cards">
                       <div className="img">
-                        <img src={nft} />
+                        <img src={nftcrtn} />
                       </div>                    
                       <div className="profile-flex">
                         <img src={nftprofile} />
