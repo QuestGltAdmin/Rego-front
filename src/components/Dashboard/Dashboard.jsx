@@ -135,7 +135,7 @@ export default function Dashboard() {
                         <tr>
                           <th>Asset Type</th>
                           <th>Available Balance</th>
-                        </tr>
+                        </tr>         
                       </thead>
                       <tbody>
                         <tr className="selected-row">
@@ -162,7 +162,7 @@ export default function Dashboard() {
                           <td><div><img src={icone2} /> ETH</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
-                      </tbody>
+                      </tbody>        
                     </table>    
                   </div>
                   <div className="text-center">
@@ -200,16 +200,16 @@ export default function Dashboard() {
                     </li>
                   </ul>
                   <div>
-                    <div className="slider-nft">
+                    <div className="slider-nft">    
                       <div className="item">
                         <img src={nft} />
                       </div>
                       <div className="item">
                         <img src={nft2} />
                       </div>
-                      <div className="item">
+                      <div className="item">   
                         <img src={nft} />
-                      </div>
+                      </div>                          
                       <div className="item">
                         <img src={nft2} />
                       </div>
@@ -217,7 +217,7 @@ export default function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className="col-md-4">
+              <div className="col-md-4"> 
                 <div className="dash-white-box">
                   <ul className="nav nav-tabs upper-list-tabs mt5 tabs" id="myTab" role="tablist">
                     <li className="nav-item" role="presentation">
@@ -521,7 +521,7 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> 
               <div className="col-md-4">
                 <div className="buy-sell dash-white-box">
                   <ul className="nav nav-tabs upper-list-tabs tabs" id="myTab" role="tablist">
@@ -576,8 +576,8 @@ export default function Dashboard() {
                             <div className="des">
                               <p>
                                 <img src={wallet} />
-                                ₹0.00
-                              </p>
+                                ₹0.00 
+                              </p>   
                             </div>
                           </div>
                           <div className="bottom-btn">
@@ -773,7 +773,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                     <div className="cards">
-                      <div className="img">
+                      <div className="img">        
                         <img src={nftcrtn}/>
                       </div>
                       <div className="profile-flex">
@@ -784,7 +784,7 @@ export default function Dashboard() {
                         <h4>Cartoon NFT</h4>
                         <p>28.00 BNB <span>($11,650.80)</span></p>
                       </div>
-                    </div>
+                    </div>           
                     <div className="cards">
                       <div className="img">
                         <img src={nftcrtn} />
@@ -840,7 +840,7 @@ export default function Dashboard() {
                             </div>     
                             <input type="hidden" name="gender" />
                             <ul className="dropdown-menu">
-                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>              
                               <li id><img src={gain1} />Bitcon</li>
                               <li id><img src={gain1} />Bitcon</li>
                               <li id><img src={gain1} />Bitcon</li>
@@ -1072,7 +1072,7 @@ export default function Dashboard() {
                           <button type="button"> 
                             <i className="fas fa-times close" data-dismiss="modal" aria-label="Close" />
                           </button>
-                        </div> 
+                        </div>                      
                         <div className="lefty">
                           <div className="body-bg">
                             <div className="flex">
@@ -1137,7 +1137,7 @@ export default function Dashboard() {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div>      
                       <div className="col-md-5 bg-color">
                         <div className="righty">
                           <div className="close-btn">
