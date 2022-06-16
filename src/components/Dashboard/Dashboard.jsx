@@ -141,13 +141,13 @@ export default function Dashboard() {
                         <tr className="selected-row">
                           <td><div><img src={icone1}/> INR</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
-                        </tr>
+                        </tr>  
                         <tr>
                           <td><div><img src={icone5} /> USDT</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
                         <tr>
-                          <td><div><img src={icone2} /> BTC</div></td>
+                          <td><div><img src={icone2} /> BTC</div></td>                          
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>         
                         <tr>  
@@ -189,7 +189,7 @@ export default function Dashboard() {
                           Lorem Ipsum is simply dummy text of the printing and typesetting industry...
                         </div>
                       </a>
-                    </li>
+                    </li>       
                     <li>
                       <a href>
                         <div className="nft-list">
