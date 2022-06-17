@@ -32,13 +32,6 @@ export default function Header() {
                 <a href="javascript:void(0)" className="search-icon-mobile d-none"><i className="fa fa-search" /></a>
               </li>
             </ul>
-
-
-
-                     
-
-                        
-                        
             <ul className="navbar-nav">
               <li className="nav-item left-content">
                 <a className="nav-link" href="#"><i className="fa fa-wallet" /> Wallet</a>
