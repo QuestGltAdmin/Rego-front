@@ -93,34 +93,6 @@ export default function Dashboard() {
             <a className="nav-link" data-toggle="tab" href="#menu9" role="tab" aria-selected="false">Blogs and News</a>
           </li>
         </ul>
-
-
-
-        
-        <ul class="nav nav-tabs" id="navId">
-          <li class="nav-item">
-            <a href="#tab1Id" class="nav-link active">Active</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#tab2Id">Action</a>
-              <a class="dropdown-item" href="#tab3Id">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#tab4Id">Action</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a href="#tab5Id" class="nav-link">Another link</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link disabled">Disabled</a>
-          </li>
-        </ul>
-
-
-
-
         <div className="tab-content mt-4" id="myTabContent">
           <div className="tab-pane fade show active" id="menu1" role="tabpanel">
             <div className="row align-items-stretch">
@@ -872,7 +844,7 @@ export default function Dashboard() {
                               <li id><img src={gain1} />Bitcon</li>
                               <li id><img src={gain1} />Bitcon</li>
                               <li id><img src={gain1} />Bitcon</li>
-                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>  
                             </ul>
                           </div>
                         </form>
@@ -895,7 +867,7 @@ export default function Dashboard() {
                               <li id><img src={gain1} />Bitcon</li>
                               <li id><img src={gain1} />Bitcon</li>
                               <li id><img src={gain1} />Bitcon</li>
-                              <li id><img src={gain1} />Bitcon</li>
+                              <li id><img src={gain1} />Bitcon</li>    
                               <li id><img src={gain1} />Bitcon</li>
                             </ul>
                           </div>
@@ -3642,7 +3614,7 @@ export default function Dashboard() {
                             <div className="table-responsive">
                               <table className="table">
                                 <thead>
-                                  <tr>
+                                  <tr>    
                                     <th>Advertisers</th>
                                     <th>Price <span className="red">lowest to highest</span></th>
                                     <th>Limit/Available</th>
