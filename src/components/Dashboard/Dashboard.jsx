@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
 import '../../assets/css/custom.css';
 import '../../assets/css/style.css';
 import '../../assets/css/dash-inner.css';
@@ -48,18 +48,53 @@ import blog3 from '../../assets/images/blog3.png'
 import blog4 from '../../assets/images/blog4.png'
 import blog5 from '../../assets/images/blog5.png'
 
+                               
+const jQuery=window.jQuery;
+function slick($)
+ {                   
+  var owl = $('.slider-nft');
+  owl.slick({
+
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  arrows: true,
+  responsive: [{
+    breakpoint: 600,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1 
+    }
+  },
+  {
+     breakpoint: 400,
+     settings: {
+        arrows: false,
+        slidesToShow: 1,
+        slidesToScroll: 1
+     }
+  }]                                   
+});
+}
 
 
 
-
-   
-
-
-
+                   
 export default function Dashboard() {
-  return (
-    <div>
 
+  useEffect(()=>{
+    if(jQuery){
+      slick(jQuery)
+    }
+    },[])
+
+  return (
+    
+    <div>
 <section className="dashboard-sec pb-0">
   <div className="container">
     <div className="row">
@@ -126,7 +161,7 @@ export default function Dashboard() {
                           <h4>25%</h4> 
                           <p><small>Gain/Loss</small></p>
                         </div>
-                      </div>
+                      </div> 
                     </div>
                   </div>
                   <div className="table-outer">
@@ -187,9 +222,9 @@ export default function Dashboard() {
                         <div className="nft-list">
                           <img src={nft} />
                           Lorem Ipsum is simply dummy text of the printing and typesetting industry...
-                        </div>
+                        </div>                         
                       </a>
-                    </li>       
+                    </li>
                     <li>
                       <a href>
                         <div className="nft-list">
@@ -200,7 +235,7 @@ export default function Dashboard() {
                     </li>
                   </ul>
                   <div>
-                    <div className="slider-nft">    
+                    <div className="slider-nft">
                       <div className="item">
                         <img src={nft} />
                       </div>
@@ -215,8 +250,8 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
+                </div>               
                 </div>
-              </div>
               <div className="col-md-4"> 
                 <div className="dash-white-box">
                   <ul className="nav nav-tabs upper-list-tabs mt5 tabs" id="myTab" role="tablist">
@@ -4082,8 +4117,10 @@ export default function Dashboard() {
   </div>
 </section>
                  
-
-
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 
 
     </div>

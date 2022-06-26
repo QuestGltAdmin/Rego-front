@@ -3,15 +3,43 @@ import '../../assets/css/custom.css';
 import '../../assets/css/style.css';
 import Logo from '../../assets/images/logo-white.png';
 import wallet from '../../assets/images/favicon.png'
+
 export default function Header() {
-  return (
+
+
+  function myFunction()
+    {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    Window.onclick = function(event)               
+    {         
+      if(!event.target.matches('.dropbtn'))
+      {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for(i=0; i<dropdowns.length; i++)
+        {
+          var opendropdown=dropdowns[i];
+          if(opendropdown.classList.contains('show'))
+          {
+            opendropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+  return (                    
+
+    
+
     <div>
 
-<header className="header-main">
+<header className="header-main">               
   <div className="container">
     <div className="row">
       <div className="col-md-12">
-        <nav className="navbar navbar-expand-lg">
+        <nav className="navbar navbar-expand-lg">  
           <div className="navbar-brand justify-content-center"> 
             <a href="#"><img src={Logo} className="image-fluid" /></a>
           </div>
@@ -19,18 +47,18 @@ export default function Header() {
           <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
         </button> */}
           <div className=" navbar-collapse" id="navbarNavAltMarkup">
-            <ul className="navbar-nav m-auto">
-              <li className="nav-item">
+            <ul className="navbar-nav m-auto">                                 
+              <li className="nav-item">      
                 <div className="input-group search-group-new dashboard-search">
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i className="fa fa-search" /></span>
                   </div>
                   <input type="text" className="form-control" placeholder="What are you looking for today?" />
-                </div>
+                </div> 
               </li>
               <li className="nav-item">
                 <a href="javascript:void(0)" className="search-icon-mobile d-none"><i className="fa fa-search" /></a>
-              </li>
+              </li>          
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item left-content">
@@ -53,7 +81,7 @@ export default function Header() {
                 </div> */}
                 <div className="dropdown">
                   {/* <button onclick="myFunction()" class="dropbtn">Dropdown</button> */}
-                  <img onclick="myFunction()" className="dropbtn" src={wallet} />
+                  <img onClick={myFunction} className="dropbtn" src={wallet} />
                   <div id="myDropdown" className="dropdown-content">
                     <a href><i className="fa fa-rupee-sign" aria-hidden="true" />Deposit INR</a>
                     <a href><i className="fa fa-rupee-sign" aria-hidden="true" /> Import Funds</a>
@@ -62,7 +90,7 @@ export default function Header() {
                     <a href><i className="fa fa-phone" aria-hidden="true" />Help and support</a>
                     <a href="settings.php"><i className="fa fa-gear" aria-hidden="true" />Setting</a>
                     <a href><i className="fa fa-sign-out" aria-hidden="true" /> Logout</a>
-                  </div>
+                  </div>               
                 </div>
               </li>
             </ul>
