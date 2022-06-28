@@ -53,7 +53,7 @@ const jQuery=window.jQuery;
 function slick($)
  {                   
   var owl = $('.slider-nft');
-  owl.slick({
+  owl.slick({ 
 
   dots: false,
   infinite: true,
@@ -228,7 +228,7 @@ export default function Dashboard() {
                           <h4>25%</h4> 
                           <p><small>Gain/Loss</small></p>
                         </div>
-                      </div> 
+                      </div>                
                     </div>
                   </div>
                   <div className="table-outer">
