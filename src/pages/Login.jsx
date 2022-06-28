@@ -1,6 +1,6 @@
 
 import React,{useEffect, useState} from 'react'
-
+import { Link, Navigate } from 'react-router-dom';
       
 
 const Login = () => {
@@ -22,10 +22,17 @@ const Login = () => {
 
     // alert(result);
    })    
-  }
-
+   }
+  
+  
+ 
 
   return (
+
+    <div className='container mt-5'>
+      <div className='row d-flex justify-content-center'>
+        <div className='col-md-6'>
+          <div className='card px-5 py-5' id='form1'>
             <div className="form-data">
               <div className="forms-inputs mb-4">
                 {" "}
@@ -37,9 +44,9 @@ const Login = () => {
                   onChange={(e)=>{setEmail(e.target.value)}} 
                   className={"is-invalid"}
                 />
-                <div className="invalid-feedback">
+                {/* <div className="invalid-feedback">
                   A valid email is required!
-                </div>
+                </div> */}
               </div>
               <div className="forms-inputs mb-4">
                 {" "}
@@ -52,28 +59,30 @@ const Login = () => {
                   onChange={(e)=>{setPassword(e.target.value)}}
                   className={"is-invalid"}
                 />
-                <div className="invalid-feedback">
+                {/* <div className="invalid-feedback">
                   Password must be 6 character!
-                </div>
+                </div> */}
               </div>
               <div className="mb-3">
                 {" "}
-                <button
+                <Link to='/Dashboard'>  <button
                   className="btn btn-primary w-100"
                   onClick={saveUser}
             
-                >
-                  Login
-                </button>{" "}
-              </div>
+                >Login
+          
+                </button></Link> {" "}
+              </div>     
+                        
+              
               <div className="invalid-feedback invalid-login-feedback ">
                
               </div>
             </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   );
 };

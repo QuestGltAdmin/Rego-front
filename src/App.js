@@ -4,15 +4,21 @@ import Header from './components/Header/Header';
 import Dashboard from './components/Dashboard/Dashboard';
 import Login from './pages/Login';
 import GoogleLogin from './pages/Login/GoogleLogin/GoogleLogin'
+import {router,route,routes, Routes, Route, Router} from 'react-router-dom'
 function App() {
   return (
   
   
   <div>
-    <Header/>
-    <Dashboard/>
-    <Login/>       
-    <GoogleLogin/>
+ 
+
+ <Header/>
+<Routes>
+  <Route path='/' element={<Login/>}/>
+ <Route path='/Dashboard' element={<Dashboard/>}/>
+</Routes>
+
+    {/* <GoogleLogin/> */}
   </div>
   
   );

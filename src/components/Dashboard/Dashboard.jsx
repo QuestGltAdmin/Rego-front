@@ -47,7 +47,7 @@ import blog2 from '../../assets/images/blog2.png'
 import blog3 from '../../assets/images/blog3.png'
 import blog4 from '../../assets/images/blog4.png'
 import blog5 from '../../assets/images/blog5.png'
-
+import axios from "axios";
                                
 const jQuery=window.jQuery;
 function slick($)
@@ -82,6 +82,12 @@ function slick($)
 }
 
 
+// fetch("http://3.128.190.203:3001/users/get-CryptoBalance").
+// then((response)=>{
+//   return response.json();
+// }).then((data)=>{
+//   console.log(data);
+// })
 
                    
 export default function Dashboard() {
@@ -92,6 +98,66 @@ export default function Dashboard() {
     }
     },[])
 
+  //   const [user,setUser]=useState([]);
+
+  //   const fetchData =()=>{
+  //     // let data ={user}
+  //     fetch("http://3.128.190.203:3001/users/get-CryptoBalance",{
+  //       method: 'POST',
+  //       headers:{
+  //         'Accept':'application/json',
+  //         'Content-Type':'application/json'
+  //       },
+  //       body:JSON.stringify({email:"amantotla@questglt.org"})                           
+  //      })
+  //     .then((response)=>{     
+  //       // console.log(data);
+  //       return response.json();
+  //     })
+  //     .then((data)=>{
+
+  //       // // console.log(data);
+  //       // let apidatas = data.results;
+  //       // console.log(apidatas);
+  //    })
+  //   }        
+  //   useEffect(()=>{
+  //     fetchData();   
+  //   },[])
+    const [user, setUser]=useState([])
+    const fetchData = async () => {
+      const res = await axios.post("http://3.128.190.203:3001/users/get-CryptoBalance",{email:"amantotla@questglt.org"})
+      
+      // console.log(res.data)
+      setUser(res.data)
+      }
+    useEffect(()=>{
+    fetchData();
+     
+    },[])
+
+    const [buy, setBuy]=useState([])
+    const BuyApi = async () => {
+      const res = await axios.post("http://3.128.190.203:3001/users/buy-sell",{email:"amantotla77@gmail.com",
+      type: "Buy",
+      shortcode:"BTC",
+      inrValue:"9.83574",
+      cryptoValue:"0.000006"})
+      console.log(res.data)
+      // setUser(res.data)
+      }
+
+      const [sell, setSell]=useState([])
+    const SellApi = async () => {
+      const res = await axios.post("http://3.128.190.203:3001/users/buy-sell",{email:"amantotla77@gmail.com",
+      type: "Sell",
+      shortcode:"BTC",
+      inrValue:"9.83574",
+      cryptoValue:"0.000006"})
+      console.log(res.data)
+      // setUser(res.data)
+      }
+    
   return (
     
     <div>
@@ -114,7 +180,7 @@ export default function Dashboard() {
           </li>
           <li className="nav-item" role="presentation">
             <a className="nav-link" data-toggle="tab" href="#menu5" role="tab" aria-selected="false">Fixed Deposit</a>
-          </li>
+          </li>                                              
           <li className="nav-item" role="presentation">
             <a className="nav-link" data-toggle="tab" href="#menu6" role="tab" aria-selected="false">Basket/SIP</a>
           </li>
@@ -127,11 +193,12 @@ export default function Dashboard() {
           <li className="nav-item" role="presentation">
             <a className="nav-link" data-toggle="tab" href="#menu9" role="tab" aria-selected="false">Blogs and News</a>
           </li>
-        </ul>
+        </ul> 
         <div className="tab-content mt-4" id="myTabContent">
           <div className="tab-pane fade show active" id="menu1" role="tabpanel">
             <div className="row align-items-stretch">
               <div className="col-md-4">
+              
                 <div className="dash-white-box fund-box-outer">
                   <h3>Total Asset Value</h3>
                   <div className="outer-box-value">
@@ -146,8 +213,8 @@ export default function Dashboard() {
                         <div className="text-center interest-box">
                           <h4><i className="fa fa-rupee-sign" />1000</h4>
                           <p><small>Total Invested</small></p>
-                        </div>
-                      </div>                  
+                        </div>              
+                       </div>                  
                     </div>
                     <div className="row">
                       <div className="col-md-6 col-sm-6 col-6">
@@ -172,12 +239,13 @@ export default function Dashboard() {
                           <th>Available Balance</th>
                         </tr>            
                       </thead>
-                      <tbody>
-                        <tr className="selected-row">
-                          <td><div><img src={icone1}/> INR</div></td>
-                          <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
+                      {user?.obj?.array?.map(post=>(
+                      <tbody>      
+                        <tr className="selected-row"  key={post._id.value}>
+                          <td><div><img src={post.image}/> {post.crypt_name}</div></td>    
+                          <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> {post.balance}</div></td>
                         </tr> 
-                        <tr>
+                        {/* <tr>
                           <td><div><img src={icone5} /> USDT</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
@@ -185,7 +253,7 @@ export default function Dashboard() {
                           <td><div><img src={icone2} /> BTC</div></td>                          
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>         
-                        <tr>  
+                        <tr>         
                           <td><div><img src={icone3} /> ETH</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr>
@@ -196,8 +264,10 @@ export default function Dashboard() {
                         <tr>
                           <td><div><img src={icone2} /> ETH</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
-                        </tr>
-                      </tbody>        
+                        </tr> */}
+                        
+                      </tbody>     
+                      ))}
                     </table>    
                   </div>
                   <div className="text-center">
@@ -238,7 +308,7 @@ export default function Dashboard() {
                     <div className="slider-nft">
                       <div className="item">
                         <img src={nft} />
-                      </div>
+                      </div> 
                       <div className="item">
                         <img src={nft2} />
                       </div>
@@ -280,10 +350,10 @@ export default function Dashboard() {
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
-                            </div>
+                            </div>           
                           </div>
                         </div>
-                      </div>
+                      </div>   
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
@@ -561,7 +631,7 @@ export default function Dashboard() {
                 <div className="buy-sell dash-white-box">
                   <ul className="nav nav-tabs upper-list-tabs tabs" id="myTab" role="tablist">
                     <li className="nav-item" role="presentation">
-                      <a className="nav-link active" data-toggle="tab" href="#buy" role="tab" aria-selected="true">
+                      <a className="nav-link active" data-toggle="tab" href="#buy" role="tab" aria-selected="true" >
                         Buy
                       </a>
                     </li>
@@ -617,7 +687,7 @@ export default function Dashboard() {
                           </div>
                           <div className="bottom-btn">
                             <div className="buy-btn">
-                              <a data-toggle="modal" data-target="#exampleModal1">Buy</a>
+                              <a data-toggle="modal" data-target="#exampleModal1" onClick={BuyApi}>Buy</a>
                             </div>
                           </div>
                           {/* <div class="des">
@@ -634,7 +704,7 @@ export default function Dashboard() {
                             <div className="input-field">
                               <input type name />
                             </div>
-                          </div>
+                          </div>          
                           <div className="info-flex">
                             <div className="dropdown" tabIndex={1}>
                               <div className="select">
@@ -656,7 +726,7 @@ export default function Dashboard() {
                             <p>Type Delivery</p>
                             <div className="input-field">
                               <input type name />
-                            </div>
+                            </div>       
                           </div>
                           <div className="info-flex">
                             <p>Price Market</p>
@@ -670,10 +740,10 @@ export default function Dashboard() {
                                 ₹0.00
                               </p>
                             </div>
-                          </div>
+                          </div>                            
                           <div className="bottom-btn">
                             <div className="buy-btn">
-                              <a data-toggle="modal" data-target="#exampleModal1">Buy</a>
+                              <a data-toggle="modal" data-target="#exampleModal1" onClick={SellApi}>Sell</a>
                             </div>
                           </div>
                           {/* <div class="des">
@@ -704,7 +774,7 @@ export default function Dashboard() {
                             <div className="footer">
                               <h6>I hereby confirm that i/we do not come under any restricted pr sanctioned list as outlined in the' Customer Acceptance Term' of the Regoex Policy.</h6>
                               <div className="modal-btn">
-                                <a href>I Understand/Agree</a>
+                                <a href="#" data-dismiss="modal">I Understand/Agree</a>
                               </div>
                             </div>
                           </div>
@@ -4118,7 +4188,7 @@ export default function Dashboard() {
 </section>
                  
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+{/* <script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script> */}
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
 
