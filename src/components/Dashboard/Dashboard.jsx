@@ -97,7 +97,7 @@ export default function Dashboard() {
       slick(jQuery)
     }
     },[])
-
+              
   //   const [user,setUser]=useState([]);
 
   //   const fetchData =()=>{
