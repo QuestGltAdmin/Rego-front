@@ -133,7 +133,7 @@ export default function Dashboard() {
       }
     useEffect(()=>{
     fetchData();
-     
+
     },[])
 
     const [buy, setBuy]=useState([])
@@ -146,7 +146,6 @@ export default function Dashboard() {
       console.log(res.data)
       // setUser(res.data)
       }
-
       const [sell, setSell]=useState([])
     const SellApi = async () => {
       const res = await axios.post("http://3.128.190.203:3001/users/buy-sell",{email:"amantotla77@gmail.com",
@@ -155,11 +154,11 @@ export default function Dashboard() {
       inrValue:"9.83574",
       cryptoValue:"0.000006"})
       console.log(res.data)
-      // setUser(res.data)
+      // setUser(res.data) 
       }
-    
+      
   return (
-    
+     
     <div>
 <section className="dashboard-sec pb-0">
   <div className="container">
