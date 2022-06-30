@@ -29,9 +29,7 @@ export default function Header() {
       }
     }
 
-  return (                    
-
-    
+  return (    
 
     <div>
 
@@ -85,7 +83,7 @@ export default function Header() {
                   <div id="myDropdown" className="dropdown-content">
                     <a href><i className="fa fa-rupee-sign" aria-hidden="true" />Deposit INR</a>
                     <a href><i className="fa fa-rupee-sign" aria-hidden="true" /> Import Funds</a>
-                    <a href="history.php"><i className="fa fa-list" aria-hidden="true" />History</a>
+                    <a href="/history"><i className="fa fa-list" aria-hidden="true" />History</a>
                     <a href><i className="fa fa-file" aria-hidden="true" />KYC</a>
                     <a href><i className="fa fa-phone" aria-hidden="true" />Help and support</a>
                     <a href="settings.php"><i className="fa fa-gear" aria-hidden="true" />Setting</a>
