@@ -134,8 +134,8 @@ export default function Dashboard() {
     useEffect(()=>{
     fetchData();
 
-    },[])
-
+    },[])               
+      
     const [buy, setBuy]=useState([])
     const BuyApi = async () => {
       const res = await axios.post("http://3.128.190.203:3001/users/buy-sell",{email:"amantotla77@gmail.com",
@@ -156,9 +156,8 @@ export default function Dashboard() {
       console.log(res.data)
       // setUser(res.data) 
       }
-      
+       
   return (
-     
     <div>
 <section className="dashboard-sec pb-0">
   <div className="container">
@@ -220,7 +219,7 @@ export default function Dashboard() {
                         <div className="text-center interest-box green-box">
                           <h4><i className="fa fa-rupee-sign" />250</h4>
                           <p><small>Total returs</small></p>
-                        </div>
+                        </div> 
                       </div>
                       <div className="col-md-6 col-sm-6 col-6">  
                         <div className="text-center interest-box green-box">
@@ -237,8 +236,8 @@ export default function Dashboard() {
                           <th>Asset Type</th>
                           <th>Available Balance</th>
                         </tr>            
-                      </thead>
-                      {user?.obj?.array?.map(post=>(
+                      </thead> 
+                      {user?.obj?.array?.map(post=>(     
                       <tbody>      
                         <tr className="selected-row"  key={post._id.value}>
                           <td><div><img src={post.image}/> {post.crypt_name}</div></td>    
@@ -264,8 +263,7 @@ export default function Dashboard() {
                           <td><div><img src={icone2} /> ETH</div></td>
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> 654.55</div></td>
                         </tr> */}
-                        
-                      </tbody>     
+                      </tbody>      
                       ))}
                     </table>    
                   </div>
@@ -315,11 +313,11 @@ export default function Dashboard() {
                         <img src={nft} />
                       </div>                          
                       <div className="item">
-                        <img src={nft2} />
+                        <img src={nft2} />        
                       </div>
                     </div>
                   </div>
-                </div>               
+                </div>
                 </div>
               <div className="col-md-4"> 
                 <div className="dash-white-box">
@@ -330,7 +328,7 @@ export default function Dashboard() {
                     <li className="nav-item" role="presentation">
                       <a className="nav-link" data-toggle="tab" href="#looser" role="tab" aria-selected="false">Top Losers</a>
                     </li>
-                  </ul>
+                  </ul> 
                   <div className="tab-content mt-4" id="myTabContent">
                     <div className="tab-pane fade content show active" id="gainer" role="tabpanel">
                       <div className="row">
@@ -352,7 +350,7 @@ export default function Dashboard() {
                             </div>           
                           </div>
                         </div>
-                      </div>   
+                      </div>
                       <div className="row">
                         <div className="col-md-6 col-5">
                           <div className="gain-info">
@@ -382,7 +380,7 @@ export default function Dashboard() {
                               <span>USDT</span>
                             </div>
                           </div>
-                        </div>     
+                        </div> 
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
                             <img src={share} />
@@ -949,11 +947,11 @@ export default function Dashboard() {
                               <li id><img src={gain1} />Bitcon</li>
                               <li id><img src={gain1} />Bitcon</li>
                               <li id><img src={gain1} />Bitcon</li>  
-                            </ul>
+                            </ul>   
                           </div>
                         </form>
                       </div>
-                    </div>
+                    </div>              
                     <div className="col-md-12">
                       <div className="drop-one">
                         <form>

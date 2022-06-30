@@ -9,7 +9,7 @@ const Login = () => {
 
   function saveUser()
   {
-  //  alert(email, password);
+  //  alert(email, password);        
    let data ={email,password}
    fetch("http://3.128.190.203:3001/users/login",{
     method: 'post',
@@ -23,8 +23,6 @@ const Login = () => {
     // alert(result);
    })    
    }
-  
-  
  
 
   return (
@@ -39,7 +37,7 @@ const Login = () => {
                 <span>Email or username</span>{" "}
                 <input
                   type="text"
-                  name="email"
+                  name="email" 
                   value={email}
                   onChange={(e)=>{setEmail(e.target.value)}} 
                   className={"is-invalid"}
@@ -68,7 +66,7 @@ const Login = () => {
                 <Link to='/Dashboard'>  <button
                   className="btn btn-primary w-100"
                   onClick={saveUser}
-            
+                    
                 >Login
           
                 </button></Link> {" "}

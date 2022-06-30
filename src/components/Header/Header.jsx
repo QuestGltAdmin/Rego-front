@@ -5,7 +5,7 @@ import Logo from '../../assets/images/logo-white.png';
 import wallet from '../../assets/images/favicon.png'
 
 export default function Header() {
-
+     
 
   function myFunction()
     {
@@ -97,7 +97,7 @@ export default function Header() {
           </div>
         </nav>
       </div>
-    </div>
+    </div>          
   </div>
 </header>
 </div>
