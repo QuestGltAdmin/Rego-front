@@ -88,6 +88,7 @@ export default function Header() {
                     <a href><i className="fa fa-phone" aria-hidden="true" />Help and support</a>
                     <a href="settings.php"><i className="fa fa-gear" aria-hidden="true" />Setting</a>
                     <a href><i className="fa fa-sign-out" aria-hidden="true" /> Logout</a>
+
                   </div>               
                 </div>
               </li>
