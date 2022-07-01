@@ -46,7 +46,7 @@ const History = () => {
     }
   };
   const ActionComponent = ({ item }) => {
-    if (item.status === "Inactive") {
+    if (item.status === "Inactive") {         
       return (
         <button
           className="btn btn-primary"
@@ -143,7 +143,7 @@ const History = () => {
                           history.tansacion.length > 0 &&
                           history.tansacion?.map((item, index) => (
                             <tr key={index}>
-                              <td>
+                              <td> 
                                 {new Date(item.created_at).toDateString()}
                               </td>
                               <td>{item.crypto_name}</td>
@@ -188,7 +188,7 @@ const History = () => {
                         history.Stakes?.map((item, index) => (
                           <tr key={index}>
                             <td>{new Date(item.startdate).toDateString()}</td>
-                            <td>{new Date(item.enddate).toDateString()}</td>
+                            <td>{new Date(item.enddate).toDateString()}</td> 
                             <td>{item.startingbalance}</td>
                             <td>{item.closingbalance}</td>
                             <td>{item.current_coin_balance}</td>
@@ -204,7 +204,7 @@ const History = () => {
                     "No Data Available"}
                 </div>
               </div>
-            </div>
+            </div>  
             <div
               className="tab-pane fade"
               id="exchange"

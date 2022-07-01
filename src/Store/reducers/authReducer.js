@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -7,7 +6,7 @@ const authSlice = createSlice({
     kycStatus: false,
     walletAddress: "",
     user: {},
-    authToken: "",
+    authToken: "",        
     isAuthenticated: false,
     errorMsg: "",
     isRegistered: false,
@@ -79,7 +78,7 @@ const authSlice = createSlice({
       console.log(state.user.cryptoWallet)
       const index = state.user.cryptoWallet.findIndex(
         (item) => item.crypt_name === name
-      );
+      );              
       console.log(index)
       if (index !== -1) {
         console.log(index)

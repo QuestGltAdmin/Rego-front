@@ -71,7 +71,7 @@ function slick($)
     }
   },
   {
-     breakpoint: 400,
+     breakpoint: 400,     
      settings: {
         arrows: false,
         slidesToShow: 1,
@@ -141,7 +141,7 @@ export default function Dashboard() {
       const res = await axios.post("http://3.128.190.203:3001/users/buy-sell",{email:"amantotla77@gmail.com",
       type: "Buy",
       shortcode:"BTC",
-      inrValue:"9.83574",
+      inrValue:"9.83574",    
       cryptoValue:"0.000006"})
       console.log(res.data)
       // setUser(res.data)
@@ -237,7 +237,7 @@ export default function Dashboard() {
                           <th>Available Balance</th>
                         </tr>            
                       </thead> 
-                      {user?.obj?.array?.map(post=>(     
+                      {user?.obj?.array?.map(post=>(    
                       <tbody>      
                         <tr className="selected-row"  key={post._id.value}>
                           <td><div><img src={post.image}/> {post.crypt_name}</div></td>    
@@ -306,14 +306,14 @@ export default function Dashboard() {
                       <div className="item">
                         <img src={nft} />
                       </div> 
-                      <div className="item">
+                      <div className="item">      
                         <img src={nft2} />
                       </div>
                       <div className="item">   
                         <img src={nft} />
                       </div>                          
                       <div className="item">
-                        <img src={nft2} />        
+                        <img src={nft2} />
                       </div>
                     </div>
                   </div>
@@ -363,7 +363,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src={share} />
+                            <img src={share} />      
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
@@ -372,13 +372,13 @@ export default function Dashboard() {
                         </div>
                       </div>
                       <div className="row">
-                        <div className="col-md-6 col-5">
+                        <div className="col-md-6 col-5"> 
                           <div className="gain-info">
                             <img src={gain3} />
                             <div className="des">
                               <h5>Tether</h5>
                               <span>USDT</span>
-                            </div>
+                            </div>  
                           </div>
                         </div> 
                         <div className="col-md-6 col-7">
@@ -393,8 +393,8 @@ export default function Dashboard() {
                       </div>
                       <div className="row">
                         <div className="col-md-6 col-5">
-                          <div className="gain-info">
-                            <img src={gain4} />
+                          <div className="gain-info"> 
+                            <img src={gain4} />        
                             <div className="des">
                               <h5>Binance Coin</h5>
                               <span>USDT</span>
@@ -545,7 +545,7 @@ export default function Dashboard() {
                         </div>
                         <div className="col-md-6 col-7">
                           <div className="gain-info1">
-                            <img src={share} />
+                            <img src={share} />  
                             <div className="des">
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
