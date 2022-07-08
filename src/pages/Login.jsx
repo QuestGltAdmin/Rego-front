@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { loginSaga } from "../Store/reducers/authReducer";
+import { loginSaga } from "../store/reducers/authReducer";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,7 +12,7 @@ const Login = () => {
   const { errorMsg, isAuthenticated } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     email: "",
-    isEmailInValid: null,
+    isEmailInValid: null,    
     password: "",
     isPasswordInValid: null,
     loginError: false,
@@ -118,12 +118,12 @@ const Login = () => {
               </div> */}
               <span>New User ?</span>
               <span>
-                {/* <Link to="/user/singup" style={{ textDecoration: 'none' }}>
+                <Link to="/user/singup" style={{ textDecoration: 'none' }}>
                   <span className="new_signup" > Sign Up</span>
-                </Link> */}
+                </Link>
               </span>
             </div>
-          </div>
+          </div> 
         </div>
       </div>
     </div>

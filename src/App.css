@@ -36,3 +36,168 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+.earn-percentage-box {
+  text-align: center;
+  width: 10rem /* 160px */;
+  padding-top: 1rem /* 16px */;
+  padding-bottom: 1rem /* 16px */;
+  padding-left: 0.5rem /* 8px */;
+  padding-right: 0.5rem /* 8px */;
+}
+.earn-number,
+.user-earned-numbers {
+  --tw-text-opacity: 1;
+  color: rgb(29 78 216 / var(--tw-text-opacity));
+  font-weight: 600;
+  font-size: 20px;
+}
+.user-earning-boc {
+  width: 140px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  opacity: 1;
+}
+
+.chart-coins::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+
+  border-radius: 10px;
+}
+
+.chart-coins::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.chart-coins::-webkit-scrollbar-thumb {
+  background-color: rgb(1 74 165);
+  height: 10px;
+  outline: 1px solid slategrey;
+}
+
+/* login css start */
+.forms-inputs {
+  position: relative;
+}
+
+.forms-inputs span {
+  position: absolute;
+  top: -18px;
+  left: 10px;
+  background-color: #fff;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+.forms-inputs input {
+  height: 50px;
+  width: 100%;
+  background: white;
+  border: 2px solid #eee;
+  padding: 10px;
+}
+
+.forms-inputs input:focus {
+  box-shadow: none;
+  outline: none;
+  border: 2px solid #000;
+}
+
+.btn {
+  height: 50px;
+}
+
+.success-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.bxs-badge-check {
+  font-size: 90px;
+}
+/* login css end */
+
+.buy-now-button:focus {
+  border: 2px solid blue;
+  background: white;
+  color: lightblue;
+}
+
+.transaction-table th {
+  min-width: 150px;
+}
+.error-message {
+  color: #b90000;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  text-align: center;
+}
+#login_form{
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+}
+.sign_in_head{
+  text-align: center;
+  /* margin: 0 0 50px  0; */
+  color: #1a3390;
+}
+.btn_login{
+  background-color: #1a3390 !important;
+  color: #fff !important;
+}
+.new_signup{
+  color: #1a3390;
+  font-weight: bold;
+}
+.sign_in_log{
+  text-align: center;
+  margin: 0 0 50px  0;
+  color: #1a3390;
+}
+.login_form_box{
+  margin-top: 50px;
+  border-radius: 20px !important;
+}
+.sign_up_head{
+  text-align: center;
+  /* margin: 0 0 50px  0; */
+  color: #1a3390;
+}
+.sign_up_sign{
+  text-align: center;
+  margin: 0 0 50px  0;
+  color: #1a3390;
+}
+#sign_up_sec{
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+}
+.signup_form_box{
+  margin-top: 15px;
+  border-radius: 20px !important;
+}
+.signup_btn{
+  background-color: #1a3390 !important;
+  color: #fff !important;
+}
+.logout_btn_head{
+  background-color: #1a3390 !important;
+  color: #fff !important;
+  /* padding: 10px !important; */
+  border-radius: 5px;
+}
+.user_email_id{
+  color: #1a3390;
+}
+.buy_now_btn{
+  background-color: #1a3390 !important;
+  color: #fff !important;
+}
+.kyc_img_test{
+  align-items: baseline !important;
+}

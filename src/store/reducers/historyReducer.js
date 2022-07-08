@@ -17,15 +17,16 @@ const history = createSlice({
         ...state,
         isLoading: true,
       };
-    },            
-    historySuccess: (state, action) => {   
+    },
+
+    historySuccess: (state, action) => {
       console.log(action.payload);
       return {
         ...state,
         isLoading: false,
 
         history: action.payload,
-        errorMsg: "", 
+        errorMsg: "",
       };
     },
     historyFail: (state, action) => {
@@ -41,11 +42,11 @@ const history = createSlice({
         isLoading: false,
         history: {},
         errorMsg: "",
-      };       
+      };
     },
   },
 });
- 
+
 export const {
   historySaga,
   historyStart,

@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
 import "./App.css";
 import Dashboard from './components/Dashboard/Dashboard';
 import History from "./pages/History";
@@ -8,11 +8,12 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion";
+import UserSingup from "./pages/UserSingup";
 
 
 const Home = () => {
   return <div>Home</div>;
-};
+};         
 function App() {
   const location = window.location;
   const location2 = useLocation();
@@ -22,14 +23,14 @@ function App() {
       <AnimatePresence exitBeforeEnter>
         <Routes key={location2.pathname} location={location2}>
           <Route path="/" element={<Login />} />
-          {/* <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <Header />
-            </PrivateRoute>
-          }
-        /> */}
+          <Route
+          // path="/"
+          // element={
+          //   <PrivateRoute>
+          //     <Header />
+          //   </PrivateRoute>
+          // }
+        />
           <Route
             path="/dashboard"
             element={
@@ -44,11 +45,13 @@ function App() {
             element={
               <PrivateRoute>
                 <History/>
-              </PrivateRoute>
+              </PrivateRoute> 
             }
           />
-          
-         
+          <Route
+            path="/user/singup"
+            element={<UserSingup/>}
+          />
         </Routes>
       </AnimatePresence>
     </>

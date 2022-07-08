@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Spinner from "../components/UI/Spinner";
 import svgImages from "../assets/images/svg-icons/svgImages";
-import { historySaga } from "../Store/reducers/historyReducer";
+import { historySaga } from "../store/reducers/historyReducer";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./History.module.css";
@@ -20,21 +20,21 @@ const History = () => {
   const getData = async () => {
     const payload = { email: user.user.email };
     dispatch(historySaga(payload));
-  };
+  };   
 
   const saleNowHandler = async (item) => {
     try {
       console.log("item.stake_id", item._id);
       const res = await axios.post("http://localhost:3001/users/close-stake", {
-        id: item._id,   
+       id: item._id,   
         email: user.user.email,
       });
       console.log("res", res);
       if (res.status === 200) {
         toast.success("Transaction Successfull");
         setTimeout(() => {
-          navigate("/history");
-        }, 2000);
+          navigate("/history"); 
+        }, 2000); 
       } else {
         toast.error("something went wrong");
       }
@@ -63,7 +63,7 @@ const History = () => {
   useEffect(() => {
     getData();
   }, []);
-
+  
   console.log({ isLoading, history });
   return (
     <div className="history-section">
@@ -150,8 +150,8 @@ const History = () => {
                               <td>{item.amount}</td>
                               <td>{item.sender_wallet_address?.substr(-12)}</td>
                               <td>{item.status}</td>
-                              <td>{item.transaction_type}</td>
-                            </tr>
+                              <td>{item.transaction_type}</td>   
+                            </tr>         
                           ))}
                       </tbody>
                     </table>
@@ -192,10 +192,10 @@ const History = () => {
                             <td>{item.startingbalance}</td>
                             <td>{item.closingbalance}</td>
                             <td>{item.current_coin_balance}</td>
-                            {/* <td>{item.interest_rate}</td> */}
+                            {/* <td>{item.interest_rate}</td> */} 
                             <td>{<ActionComponent item={item} />}</td>
                           </tr>
-                        ))}
+                        ))}         
                     </tbody>
                   </table>
                   {!isLoading &&

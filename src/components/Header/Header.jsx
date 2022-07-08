@@ -3,6 +3,7 @@ import '../../assets/css/custom.css';
 import '../../assets/css/style.css';
 import Logo from '../../assets/images/logo-white.png';
 import wallet from '../../assets/images/favicon.png'
+import { Link } from 'react-router-dom';
 
 export default function Header() {
      
@@ -39,7 +40,7 @@ export default function Header() {
       <div className="col-md-12">
         <nav className="navbar navbar-expand-lg">  
           <div className="navbar-brand justify-content-center"> 
-            <a href="#"><img src={Logo} className="image-fluid" /></a>
+            <Link to="/"><img src={Logo} className="image-fluid" /></Link>
           </div>
           {/*  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
@@ -83,7 +84,8 @@ export default function Header() {
                   <div id="myDropdown" className="dropdown-content">
                     <a href><i className="fa fa-rupee-sign" aria-hidden="true" />Deposit INR</a>
                     <a href><i className="fa fa-rupee-sign" aria-hidden="true" /> Import Funds</a>
-                    <a href="/history"><i className="fa fa-list" aria-hidden="true" />History</a>
+                    <Link to="/history"><i className="fa fa-list" aria-hidden="true" />History</Link>
+                    
                     <a href><i className="fa fa-file" aria-hidden="true" />KYC</a>
                     <a href><i className="fa fa-phone" aria-hidden="true" />Help and support</a>
                     <a href="settings.php"><i className="fa fa-gear" aria-hidden="true" />Setting</a>
