@@ -10,7 +10,7 @@ import {
 export function* historySaga(action) {
   yield put(historyStart());
   try {
-    console.log(action.payload);
+    console.log(action.payload);                
     const { email } = action.payload;
     const response = yield axios.post(`/users/history`, { email });
     console.log(response.data.obj);
@@ -24,3 +24,4 @@ export function* historySaga(action) {
     yield call(catchHandler, error, historyFail);
   }
 }
+ 

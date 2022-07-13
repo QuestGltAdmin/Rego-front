@@ -33,11 +33,10 @@ export default function Header() {
   return (    
 
     <div>
-
 <header className="header-main">               
   <div className="container">
     <div className="row">
-      <div className="col-md-12">
+      <div className=" col-md-12">
         <nav className="navbar navbar-expand-lg">  
           <div className="navbar-brand justify-content-center"> 
             <Link to="/"><img src={Logo} className="image-fluid" /></Link>

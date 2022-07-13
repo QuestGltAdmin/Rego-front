@@ -10,7 +10,7 @@ export function* catchHandler(error, failSaga) {
       yield put(failSaga(error.response.data.message));
     } else if (
       error.response.data.message !== undefined &&
-      error.response.data.message !== "" &&
+      error.response.data.message !== "" && 
       typeof error.response.data.message === "string"
     ) {
       yield put(failSaga(error.response.data.message));

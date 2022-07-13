@@ -37,9 +37,17 @@
   }
 }
 
+/* .nav-link {
+  color: #1a488e;
+  margin-right: 15px;
+}
+.nav-link .active {
+  color: #1a488e;
+}
 
-
-
+.nav-link img {
+  margin-right: 3px;
+} */
 
 .earn-percentage-box {
   text-align: center;
@@ -65,8 +73,7 @@
 
 .chart-coins::-webkit-scrollbar {
   width: 5px;
-  height: 8px;
-
+  height: 80px;
   border-radius: 10px;
 }
 

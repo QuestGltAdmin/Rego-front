@@ -26,7 +26,7 @@ export function* loginSaga(action) {
         toast.success("Login Successfull", {
           autoClose: 2000,
           hideProgressBar: true,
-        });
+        });                
       }
       if (closeModalRef) {
         closeModalRef.current.click();
@@ -48,9 +48,9 @@ export function* loginSaga(action) {
   } catch (error) {
     yield call(catchHandler, error, loginFail);
   }
-}
+}                
 export function* singupSaga(action) {
-  yield put(singupStart());
+  yield put(singupStart());  
   try {
     const { values, toast, navigate } = action.payload;
     console.log(values)

@@ -20,7 +20,7 @@ const authSlice = createSlice({
     googleLoginSaga: (state, action) => {
       return { ...state };
     },
-
+    
     loginStart: (state) => {
       return {
         ...state,
@@ -92,7 +92,7 @@ const authSlice = createSlice({
     },
 
     singupSaga: (state) => {
-      return { ...state };
+      return { ...state };        
     },
 
     singupStart: (state, action) => {
@@ -120,8 +120,7 @@ const authSlice = createSlice({
     //   state.value = { user: {}, isAuthenticated: false };
     // },
   },
-});
-
+}); 
 export const {
   loginSaga,
   loginStart,

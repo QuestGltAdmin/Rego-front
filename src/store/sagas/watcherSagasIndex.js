@@ -13,3 +13,4 @@ export function* watchHistory() {
 export function* watchWallet() {
   yield all([takeLatest("wallet/getWalletSaga", getWalletSaga)]);
 }
+ 

@@ -15,6 +15,17 @@
     display: flex;
     filter: grayscale(1);
   }
+
+
+
+
+
+
+
+
+
+
+
   .history-section .nav-link:hover {
     box-shadow: 0 4px 8px #1a488e1f;
   }

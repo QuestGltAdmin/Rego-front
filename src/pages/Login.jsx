@@ -6,17 +6,17 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Login = () => {
+const Login = () => { 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { errorMsg, isAuthenticated } = useSelector((state) => state.auth);
   const [formData, setFormData] = useState({
     email: "",
     isEmailInValid: null,    
-    password: "",
+    password: "",      
     isPasswordInValid: null,
     loginError: false,
-  });    
+  });          
 
   const { email, isEmailInValid, password, isPasswordInValid, loginError } =
     formData;
@@ -85,7 +85,7 @@ const Login = () => {
                   name="email"
                   onChange={(e) => inputHandler(e)}
                   className={isEmailInValid && "is-invalid"}
-                />
+                />         
                 <div className="invalid-feedback">
                   A valid email is required!
                 </div>

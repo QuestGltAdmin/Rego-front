@@ -23,19 +23,20 @@ function UserSingup() {
             .required("Password is required"),
         confirmPassword: Yup.string()
             .oneOf([Yup.ref('password'), null], "Password does not matched")
-            .required("Confirm Password is required"),              
+            .required("Confirm Password is required"),
     });
-   
+                       
     const submitBtnHandler = (values) => {
         dispatch(singupSaga({ values, toast, navigate }))  
     }
     return (
+
         <>
         <section id='sign_up_sec'>
             <Formik
                 initialValues={{
                     name: '',
-                    email: '',
+                    email: '', 
                     password: '',
                 }}
                 validationSchema={validationSchema}
@@ -43,7 +44,7 @@ function UserSingup() {
                     submitBtnHandler(values);
                     console.log(values)
                 }}
-            >    
+            >  
                 {({
                     values,
                     errors,
@@ -84,9 +85,9 @@ function UserSingup() {
                                                     value={values.email}
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
-                                                />
+                                             />
                                                 <div className="error-message">
-                                                    {errors.email && touched.email && errors.email}
+                                             {errors.email && touched.email && errors.email}
                                                 </div>
                                             </div>
                                             <div className="forms-inputs mb-4">
@@ -132,9 +133,9 @@ function UserSingup() {
                                                     <Link to="/" style={{ textDecoration: 'none',color:"#1a3390" ,fontWeight:"bold" }}>
                                                        &nbsp; Login
                                                     </Link>            
-                                                </span>     
+                                                </span>
                                             </span>
-                                        </div>
+                                        </div>  
                                     </div>
                                 </div>
                             </div>

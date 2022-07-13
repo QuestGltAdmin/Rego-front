@@ -9,6 +9,8 @@ import { Line } from "react-chartjs-2";
 import KycModal from "../components/KycModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../App.css";
+
 
 import {
   Chart as ChartJS,
@@ -74,7 +76,7 @@ const CoinItem = (props) => (
   </div>
 );
 
-const NewBuyCrypto = () => {
+const BuyCrypto = () => {
   const navigate = useNavigate();
   const [coinRate, setCoinRate] = useState(null);
   const [coinCharData, setCoinChartData] = useState(null);
@@ -242,13 +244,13 @@ const NewBuyCrypto = () => {
     }
 
     // setBuyTabForm({
-    //     ...buyTabForm,class_name.prototype.method_name = function(first_argument) {
-    //       // body...
-    //     };
-    //     iHaveValue: "",
-    //     iWantValue: "",
-    //     iWantSellTab: "",
-    //     iHaveSellTab: "",
+    //   ...buyTabForm,class_name.prototype.method_name = function(first_argument) {
+    //     // body...
+    //   };
+    //   iHaveValue: "",
+    //   iWantValue: "",
+    //   iWantSellTab: "",
+    //   iHaveSellTab: "",
     // });
   };
 
@@ -262,6 +264,7 @@ const NewBuyCrypto = () => {
             <div className="col-md-12">
               <div>
                 <NavigationTabs />
+                
                 <div className="row mt-5 shadow-lg">
                   <div className="col-lg-8">
                     {/* Heading */}
@@ -304,15 +307,6 @@ const NewBuyCrypto = () => {
                           })}
                         </div>
                       </div>
-
-
-
-
-
-
-
-
-                      
                       <div className="col-lg-10">
                         <Line options={options} data={data} />
                       </div>
@@ -475,7 +469,7 @@ const NewBuyCrypto = () => {
                               className="button w-full bg-blue-500 p-3 text-center rounded font-bold buy-now-button focus:bg-blue-800"
                               onClick={() => buyNowHandler("buy")}
                             >
-                              Buy Wow
+                              Buy Now
                             </div>
                           </div>
                         </div>
@@ -509,7 +503,8 @@ const NewBuyCrypto = () => {
                             <div className="currency flex-1">
                               <input     
                                 type="text"
-                                className="w-full py-2 rounded outline-none"
+                                className="w-full py-2 round
+                                ed outline-none"
                                 placeholder="Enter Amount"
                                 value={iHaveSellTab}
                                 onChange={(e) =>
@@ -614,4 +609,4 @@ const NewBuyCrypto = () => {
   );
 };
 
-export default SetAnimationPage(NewBuyCrypto);
+export default SetAnimationPage(BuyCrypto);

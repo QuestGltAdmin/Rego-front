@@ -44,7 +44,7 @@ const NavigationTabs = () => {
           Fixed Deposit
         </NavLink>
       </li>
-      <li>
+      <li>      
         <NavLink
           to="/new-basket-sip"
           className={({ isActive }) => (isActive ? "active-link" : "")}

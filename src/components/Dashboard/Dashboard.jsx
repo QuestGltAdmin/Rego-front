@@ -48,6 +48,7 @@ import blog3 from '../../assets/images/blog3.png'
 import blog4 from '../../assets/images/blog4.png'
 import blog5 from '../../assets/images/blog5.png'
 import axios from "axios";
+import { Link } from 'react-router-dom';
                                
 const jQuery=window.jQuery;
 function slick($)
@@ -92,11 +93,11 @@ function slick($)
                    
 export default function Dashboard() {
 
-  useEffect(()=>{
+  useEffect(()=>{                
     if(jQuery){
       slick(jQuery)
     }
-    },[])
+    },[]) 
               
   //   const [user,setUser]=useState([]);
 
@@ -133,29 +134,29 @@ export default function Dashboard() {
       }
     useEffect(()=>{
     fetchData();
-
+        
     },[])               
       
     const [buy, setBuy]=useState([])
     const BuyApi = async () => {
       const res = await axios.post("http://3.128.190.203:3001/users/buy-sell",{email:"amantotla77@gmail.com",
-      type: "Buy",
+      type: "Buy",                                 
       shortcode:"BTC",
       inrValue:"9.83574",    
       cryptoValue:"0.000006"})
       console.log(res.data)
       // setUser(res.data)
-      }
+      } 
       const [sell, setSell]=useState([])
     const SellApi = async () => {
       const res = await axios.post("http://3.128.190.203:3001/users/buy-sell",{email:"amantotla77@gmail.com",
       type: "Sell",
       shortcode:"BTC",
-      inrValue:"9.83574",
+      inrValue:"9.83574", 
       cryptoValue:"0.000006"})
       console.log(res.data)
       // setUser(res.data) 
-      }
+      }    
        
   return (
     <div>
@@ -166,7 +167,7 @@ export default function Dashboard() {
         <ul className="nav nav-tabs upper-list-tabs mt5" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
             <a className="nav-link active" data-toggle="tab" href="#menu1" role="tab" aria-selected="true">Dashboard</a>
-          </li>
+          </li>         
           <li className="nav-item" role="presentation">
             <a className="nav-link" data-toggle="tab" href="#menu2" role="tab" aria-selected="false">Buy Sell</a>
           </li>
@@ -196,7 +197,6 @@ export default function Dashboard() {
           <div className="tab-pane fade show active" id="menu1" role="tabpanel">
             <div className="row align-items-stretch">
               <div className="col-md-4">
-              
                 <div className="dash-white-box fund-box-outer">
                   <h3>Total Asset Value</h3>
                   <div className="outer-box-value">
@@ -212,7 +212,7 @@ export default function Dashboard() {
                           <h4><i className="fa fa-rupee-sign" />1000</h4>
                           <p><small>Total Invested</small></p>
                         </div>              
-                       </div>                  
+                       </div>
                     </div>
                     <div className="row">
                       <div className="col-md-6 col-sm-6 col-6">
@@ -235,10 +235,10 @@ export default function Dashboard() {
                         <tr>
                           <th>Asset Type</th>
                           <th>Available Balance</th>
-                        </tr>            
-                      </thead> 
-                      {user?.obj?.array?.map(post=>(    
-                      <tbody>      
+                        </tr>  
+                      </thead>
+                      {user?.obj?.array?.map(post=>(
+                      <tbody>    
                         <tr className="selected-row"  key={post._id.value}>
                           <td><div><img src={post.image}/> {post.crypt_name}</div></td>    
                           <td><div className="light-green-text"><i className="fa fa-rupee-sign" /> {post.balance}</div></td>
@@ -269,6 +269,7 @@ export default function Dashboard() {
                   </div>
                   <div className="text-center">
                     <a href className="common-btn">Dposit INR</a>
+                    <Link to="/buyCrypto"> Buy</Link>
                   </div>
                 </div>
               </div>
@@ -448,7 +449,7 @@ export default function Dashboard() {
                               <h5>₹32,44,752.18</h5>
                               <span>+1,16,811.08(3.60%)</span>
                             </div>
-                          </div>
+                          </div>      
                         </div>
                       </div>
                     </div>
@@ -596,8 +597,8 @@ export default function Dashboard() {
                         <p>Bitcoin</p>
                       </div>
                       <p>₹32,44,752.18 <span>+1,16,811.08(3.60%)</span></p>
-                    </div>
-                  </div>
+                    </div> 
+                  </div>          
                   <div className="col-md-4">
                     <div className="icon-flex">
                       <p>
@@ -650,7 +651,7 @@ export default function Dashboard() {
                             <div className="dropdown" tabIndex={1}>
                               <div className="select">
                                 <span>No. Of  <b>Coins</b></span>
-                                <i className="fa fa-chevron-down" />
+                              <i className="fa fa-chevron-down" />
                               </div>
                               <input type="hidden" name="gender" />
                               <ul className="dropdown-menu" style={{display: 'none'}}>
@@ -667,8 +668,8 @@ export default function Dashboard() {
                             <p>Type Delivery</p>
                             <div className="input-field">
                               <input type name />
-                            </div>
-                          </div>
+                            </div>     
+                          </div>  
                           <div className="info-flex">
                             <p>Price Market</p>
                             <p>₹32,44,752.18</p>
@@ -737,7 +738,7 @@ export default function Dashboard() {
                                 ₹0.00
                               </p>
                             </div>
-                          </div>                            
+                          </div>          
                           <div className="bottom-btn">
                             <div className="buy-btn">
                               <a data-toggle="modal" data-target="#exampleModal1" onClick={SellApi}>Sell</a>
@@ -860,7 +861,7 @@ export default function Dashboard() {
                         <h4>Cartoon NFT</h4>
                         <p>28.00 BNB <span>($11,650.80)</span></p>
                       </div>
-                    </div>
+                    </div>  
                     <div className="cards">
                       <div className="img">
                         <img src={nftcrtn} />
@@ -1012,7 +1013,7 @@ export default function Dashboard() {
                             <a href>30</a>
                             <a href>30</a>
                           </div>              
-                        </td>
+                        </td>         
                         <td>                       
                           <div className="minimum">
                             <p>0.1 BTC</p>
@@ -2018,7 +2019,7 @@ export default function Dashboard() {
                               <td className="black"><p>0.00003864</p></td>
                               <td className="black"><p>0.0002325</p></td>
                             </tr>
-                            <tr>
+                            <tr>  
                               <td className="orange">0.074068</td>
                               <td className="black"><p>0.00003864</p></td>
                               <td className="black"><p>0.0002325</p></td>
@@ -2082,7 +2083,7 @@ export default function Dashboard() {
                               <td className="orange">0.074068</td>
                               <td className="black"><p>0.00003864</p></td>
                               <td className="black"><p>0.0002325</p></td>
-                            </tr>
+                            </tr> 
                             <tr>
                               <td className="orange">0.074068</td>
                               <td className="black"><p>0.00003864</p></td>
@@ -2184,7 +2185,7 @@ export default function Dashboard() {
                     <h5>Trades</h5>
                     <table className="table">
                       <thead>
-                        <tr>
+                        <tr>     
                           <th width="10%" scope="col">Price</th>
                           <th width="5%" scope="col">Amount(ETH)</th>
                           <th width="5%" scope="col">Total(BTC)</th>
