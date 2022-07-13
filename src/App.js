@@ -6,9 +6,10 @@ import History from "./pages/History";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css";           
 import { AnimatePresence } from "framer-motion";
 import UserSingup from "./pages/UserSingup";
+import BuyCrypto from "./pages/BuyCrypto";
 
 
 const Home = () => {
@@ -51,7 +52,17 @@ function App() {
           <Route
             path="/user/singup"
             element={<UserSingup/>}
+          />                        
+
+          <Route
+            path="/buyCrypto"
+            element={
+              <PrivateRoute>
+                <BuyCrypto />
+              </PrivateRoute>
+            }
           />
+
         </Routes>
       </AnimatePresence>
     </>
