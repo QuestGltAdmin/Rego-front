@@ -10,7 +10,7 @@ import KycModal from "../components/KycModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
-style
+
 
 import {
   Chart as ChartJS,
