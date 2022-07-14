@@ -15,7 +15,8 @@ import NFT from "./pages/NFT";
 import Swap from "./pages/Swap";
 import FixedDeposit from "./pages/FixedDeposit";
 import BasketSip from "./pages/BasketSip";
-import ProTrading from "./pages/ProTrading";
+import ProTrading from "./pages/ProTrading.jsx";
+import P2P from "./pages/P2P";
 
 
 const Home = () => {
@@ -120,6 +121,15 @@ function App() {
           element={
             <PrivateRoute>
               <ProTrading/>
+            </PrivateRoute>
+          }
+          />
+
+          <Route
+          path="/p2p"
+          element={
+            <PrivateRoute>
+              <P2P/>
             </PrivateRoute>
           }
           />
