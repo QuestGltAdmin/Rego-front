@@ -243,15 +243,15 @@ const BuyCrypto = () => {
       toast.error("something went wrong");
     }
 
-    // setBuyTabForm({
-    //   ...buyTabForm,class_name.prototype.method_name = function(first_argument) {
-    //     // body...
-    //   };
-    //   iHaveValue: "",
-    //   iWantValue: "",
-    //   iWantSellTab: "",
-    //   iHaveSellTab: "",
-    // });
+    setBuyTabForm({
+      ...buyTabForm.class_name.prototype.method_name = function(first_argument) {
+        // body...
+      },
+      iHaveValue: "",
+      iWantValue: "",
+      iWantSellTab: "",
+      iHaveSellTab: "",
+    });
   };
 
   console.log({ marketLimitOption });

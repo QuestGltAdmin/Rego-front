@@ -18,7 +18,6 @@ const NFT = () => {
           <div className="col-md-12">
             <div>
               <NavigationTabs />
-              <div className="tab-pane fade" id="menu3" role="tabpanel">
             <div className="nft">
               <div className="row">
                 <div className="col-md-12">
@@ -139,7 +138,7 @@ const NFT = () => {
                 </div>                  
               </div>
             </div>
-          </div>
+          
             </div>
           </div>
         </div>

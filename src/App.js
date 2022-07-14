@@ -11,6 +11,10 @@ import { AnimatePresence } from "framer-motion";
 import UserSingup from "./pages/UserSingup";
 import BuyCrypto from "./pages/BuyCrypto";
 import Dash from './pages/Dash';
+import NFT from "./pages/NFT";
+import Swap from "./pages/Swap";
+import FixedDeposit from "./pages/FixedDeposit";
+import BasketSip from "./pages/BasketSip";
 
 
 const Home = () => {
@@ -42,7 +46,7 @@ function App() {
             }
           />
 
-<Route
+          <Route
             path="/ndashboard"
             element={
               <PrivateRoute>
@@ -69,6 +73,42 @@ function App() {
             element={
               <PrivateRoute>
                 <BuyCrypto />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/nft"
+            element={
+              <PrivateRoute>
+                <NFT />
+              </PrivateRoute>
+            }
+          />
+
+            <Route
+            path="/swap"
+            element={
+              <PrivateRoute>
+                <Swap />
+              </PrivateRoute>
+            }
+          />
+
+           <Route
+            path="/fixed-deposit"
+            element={
+              <PrivateRoute>
+                <FixedDeposit />
+              </PrivateRoute>
+            }
+          />
+
+           <Route
+            path="//basket-sip"
+            element={
+              <PrivateRoute>
+                <BasketSip />
               </PrivateRoute>
             }
           />
