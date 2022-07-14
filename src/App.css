@@ -75,6 +75,7 @@
   width: 5px;
   height: 80px;
   border-radius: 10px;
+  display: table-row-group;
 }
 
 .chart-coins::-webkit-scrollbar-track {

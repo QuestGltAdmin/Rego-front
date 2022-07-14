@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion";
 import UserSingup from "./pages/UserSingup";
 import BuyCrypto from "./pages/BuyCrypto";
+import Dash from './pages/Dash';
 
 
 const Home = () => {
@@ -37,6 +38,15 @@ function App() {
             element={
               <PrivateRoute>
                 <Dashboard />
+              </PrivateRoute>
+            }
+          />
+
+<Route
+            path="/ndashboard"
+            element={
+              <PrivateRoute>
+                <Dash />
               </PrivateRoute>
             }
           />

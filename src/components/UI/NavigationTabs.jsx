@@ -6,7 +6,7 @@ const NavigationTabs = () => {
     <ul className="upper-list-tabs">
       <li className="">
         <NavLink
-          to="/new-dashboard"
+          to="/ndashboard"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Dashboard
@@ -14,7 +14,7 @@ const NavigationTabs = () => {
       </li>
       <li>
         <NavLink
-          to="/new-buy-sell"
+          to="/buyCrypto"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Buy Sell  
@@ -22,7 +22,7 @@ const NavigationTabs = () => {
       </li>
       <li>       
         <NavLink
-          to="/new-nft"
+          to="/nft"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           NFT
@@ -30,7 +30,7 @@ const NavigationTabs = () => {
       </li>
       <li>
         <NavLink
-          to="/new-swap"
+          to="/swap"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Swap
@@ -38,7 +38,7 @@ const NavigationTabs = () => {
       </li>
       <li>
         <NavLink
-          to="/new-fixed-deposit"
+          to="/fixed-deposit"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Fixed Deposit
@@ -46,7 +46,7 @@ const NavigationTabs = () => {
       </li>
       <li>      
         <NavLink
-          to="/new-basket-sip"
+          to="/basket-sip"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Basket/SIP
@@ -54,7 +54,7 @@ const NavigationTabs = () => {
       </li>
       <li>
         <NavLink
-          to="/new-pro-trading"
+          to="/pro-trading"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         > 
           Pro Trading
@@ -62,10 +62,18 @@ const NavigationTabs = () => {
       </li>
       <li>
         <NavLink
-          to="/new-loan"
+          to="/p2p"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
-          Loan
+          P2P
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/blog-news"
+          className={({ isActive }) => (isActive ? "active-link" : "")}
+        >
+          Blog and News
         </NavLink>
       </li>
     </ul>

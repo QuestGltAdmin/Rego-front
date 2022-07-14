@@ -270,6 +270,7 @@ export default function Dashboard() {
                   <div className="text-center">
                     <a href className="common-btn">Dposit INR</a>
                     <Link to="/buyCrypto"> Buy</Link>
+                    <Link to="/ndashboard">New Dash</Link>
                   </div>
                 </div>
               </div>
