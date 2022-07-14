@@ -10,7 +10,7 @@ import KycModal from "../components/KycModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
-
+import '../assets/css/style.css'
 
 import {
   Chart as ChartJS,
@@ -466,7 +466,7 @@ const BuyCrypto = () => {
 
                           <div className="cta mt-5">
                             <div
-                              className="button w-full bg-blue-500 p-3 text-center rounded font-bold buy-now-button focus:bg-blue-800"
+                              className="common-btn button w-full bg-blue-500 p-3 text-center rounded font-bold buy-now-button focus:bg-blue-800"
                               onClick={() => buyNowHandler("buy")}
                             >
                               Buy Now
@@ -585,10 +585,9 @@ const BuyCrypto = () => {
                             />
                             <span>INR</span>
                           </div>
-
                           <div className="cta mt-5">
                             <div
-                              className="button w-full bg-blue-500 p-3 rounded text-center font-bold visited:text-blue"
+                              className="common-btn button w-full bg-blue-500 p-3 rounded text-center font-bold visited:text-blue"
                               onClick={() => buyNowHandler("sell")}
                             >
                               Sell Now

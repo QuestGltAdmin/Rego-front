@@ -1519,6 +1519,7 @@ body {
   .chart-coins{
     display: flex;
     align-items: center;
+    flex-flow: column;
   }
   .chart-coins > div {
       background-color: #c1cbf2;
