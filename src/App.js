@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Header from './components/Header/Header';
 import "./App.css";
-import Dashboard from './components/Dashboard/Dashboard';
+// import Dashboard from './components/Dashboard/Dashboard';
 import History from "./pages/History";
 import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute.jsx";
@@ -10,13 +10,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion";
 import UserSingup from "./pages/UserSingup";
 import BuyCrypto from "./pages/BuyCrypto";
-import Dash from './pages/Dash';
+import Dash from './pages/Dashboard';
 import NFT from "./pages/NFT";
 import Swap from "./pages/Swap";
 import FixedDeposit from "./pages/FixedDeposit";
 import BasketSip from "./pages/BasketSip";
 import ProTrading from "./pages/ProTrading.jsx";
 import P2P from "./pages/P2P";
+import BlogandNews from "./pages/BlogandNews";
 
 
 const Home = () => {
@@ -43,19 +44,19 @@ function App() {
             path="/dashboard"
             element={
               <PrivateRoute>
-                <Dashboard />
+                <Dash />
               </PrivateRoute>
             }
           />
 
-          <Route
+          {/* <Route
             path="/ndashboard"
             element={
               <PrivateRoute>
                 <Dash />
               </PrivateRoute>
             }
-          />
+          /> */}
           
           <Route
             path="/history"
@@ -130,6 +131,15 @@ function App() {
           element={
             <PrivateRoute>
               <P2P/>
+            </PrivateRoute>
+          }
+          />
+
+          <Route
+          path="/blog-news"
+          element={
+            <PrivateRoute>
+              <BlogandNews/>
             </PrivateRoute>
           }
           />

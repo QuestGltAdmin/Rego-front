@@ -167,7 +167,7 @@ const BuyCrypto = () => {
   if (selectedCryptoIndex !== -1) {
     selectedCryptoObj = cryptowalletObj && cryptowalletObj[selectedCryptoIndex];
   }
-
+      
   console.log({ selectedCryptoObj, selectedCryptoIndex });
   const data = {
     labels: cryptoTimestamp?.length > 0 && cryptoTimestamp,
@@ -182,7 +182,7 @@ const BuyCrypto = () => {
       },
     ],
   };
-
+                                      
   const buyNowHandler = async (type) => {
     let payload;
     if (type === "buy") {

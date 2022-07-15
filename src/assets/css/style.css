@@ -884,6 +884,7 @@ body {
   }
   .otp-typ-modal .modal-dialog .modal-body {
     padding: 0;
+    background-color: #000;
   }
   .otp-typ-modal .modal-dialog .modal-body .next-form-otp {
     padding: 30px;

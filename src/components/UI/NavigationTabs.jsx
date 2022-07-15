@@ -6,7 +6,7 @@ const NavigationTabs = () => {
     <ul className="upper-list-tabs">
       <li className="">
         <NavLink
-          to="/ndashboard"
+          to="/dashboard"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >
           Dashboard

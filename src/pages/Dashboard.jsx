@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { loginSaga } from "../store/reducers/authReducer";
 import NavigationTabs from "../components/UI/NavigationTabs";
 import SetAnimationPage from "../HOC/SetAnimationPage";
-import '../assets/css/custom.css';
+// import '../assets/css/custom.css';
 import '../assets/css/style.css';
-import '../assets/css/dash-inner.css';
-import '../assets/css/nice-select.css';
+// import '../assets/css/dash-inner.css';
+// import '../assets/css/nice-select.css';
 import nft from '../assets/images/nft.jpg';
 import nft2 from '../assets/images/nft2.jpg';
 import gain1 from '../assets/images/gain1.png';
@@ -272,8 +272,7 @@ const NewDashboardNoNav = () => {
                   </div>
                   <div className="text-center">
                     <a href className="common-btn">Dposit INR</a>
-                    <Link to="/buyCrypto"> Buy</Link>
-                    <Link to="/ndashboard">New Dash</Link>
+                   
                   </div>
                 </div>
               </div>

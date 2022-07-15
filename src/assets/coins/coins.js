@@ -10,7 +10,6 @@ export const coins = [
     neft: require("../icons/neft.svg").default,
     upi: require("../icons/upi.svg").default,
   },
-
   {
     id: 1,
     coin_ID: "bitcoin",
@@ -18,7 +17,7 @@ export const coins = [
     url: require("./btc.svg").default,
     type: "crypto",
     interestMsg: "4.6 - 6.7 %",
-  },
+  },  
   {
     id: 2,
     coin_ID: "ethereum",
@@ -59,14 +58,14 @@ export const coins = [
 //     type: "crypto",
 //     interestMsg: "0.5 - 1 %",
 //   },
-//   {
-//     id: 7,
-//     coin_ID: "bitcoin-cash",
-//     name: "bch",
-//     url: require("./bch.svg").default,
-//     type: "crypto",
-//     interestMsg: "0.5 - 1 %",
-//   },
+  // {
+  //   id: 7,
+  //   coin_ID: "bitcoin-cash",
+  //   name: "bch",
+  //   url: require("./bch.svg").default,
+  //   type: "crypto",
+  //   interestMsg: "0.5 - 1 %",
+  // },
   {
     id: 8,
     coin_ID: "binancecoin",

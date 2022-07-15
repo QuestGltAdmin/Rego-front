@@ -1,20 +1,38 @@
 import React from "react";
 import NavigationTabs from "../components/UI/NavigationTabs";
 import SetAnimationPage from "../HOC/SetAnimationPage";
-import '../assets/css/custom.css';
+// import '../assets/css/custom.css';
 import '../assets/css/style.css';
-import '../assets/css/dash-inner.css';
-import '../assets/css/nice-select.css';
+// import '../assets/css/dash-inner.css';
+// import '../assets/css/nice-select.css';
 import gain1 from '../assets/images/gain1.png';
 import gain2 from '../assets/images/gain2.png';
 import gain3 from '../assets/images/gain3.png';
 import gain4 from '../assets/images/gain4.png';
 import gain5 from '../assets/images/gain5.png';
 import gain6 from '../assets/images/gain6.png';
+import alert from '../assets/images/alert.png'
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import { coins } from "../assets/coins/coins";
+import { useDispatch, useSelector } from "react-redux";
 
-const NewFixedDeposit = () => {
+const coinOptions = coins
+  .map((item) => {
+    return { id: item.id, name: item.name, value: item.name, url: item.url };
+  })
+  .filter((item) => item.name !== "inr");
+const FixedDeposit = () => {
+
+    let selectedCryptoObj;
+    const dispatch = useDispatch();
+    const {
+      user: { user },
+    } = useSelector((state) => state.auth);
+    const { array: cryptowalletObj } = useSelector(
+      (state) => state.wallet.userWallet
+    );
+
   return (
     <section className="dashboard-sec">
       <div className="container">
@@ -201,6 +219,161 @@ const NewFixedDeposit = () => {
                   </table>
                 </div>
               </div>
+               {/* Modal */}
+            <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog modal-dialog-centered" role="document">
+                <div className="modal-content">
+                  <div className="modal-body">
+                    <div className="row">
+                      <div className="col-md-7 nopadding">
+                        <div className="head">
+                          <h4>Locked Stacking</h4>
+                          <button type="button"> 
+                            <i className="fas fa-times close" data-dismiss="modal" aria-label="Close" />
+                          </button>
+                        </div>                      
+                        <div className="lefty">
+                          <div className="body-bg">
+                            <div className="flex">
+                              <img src={gain1} />
+                              <p>Bitcoin</p>
+                            </div>
+                            <div className="one">
+                              <label>Type</label>
+                              <button type="button" className="btn">Locked</button>
+                            </div>
+                            <div className="two">
+                              <label>Duration</label>
+                              <div className="tabs">
+                                <div className="tab active">15 Days</div>
+                                <div className="tab">30 Days</div>
+                                <div className="tab">90 Days</div>
+                              </div>
+                              <div className="content">
+                                <div className="content-item active">
+                                  <div className="flex">
+                                    <p>Lock Amount</p>
+                                    <p>Available Amount 0.0 BTC</p>
+                                  </div>
+                                  <form action>
+                                    <input type="email" maxLength={50} required placeholder="Enter your email address" />
+                                    <div className="text-block">
+                                      <p>BTC | Max</p>
+                                    </div>
+                                  </form>
+                                </div>
+                                <div className="content-item">
+                                  <div className="flex">
+                                    <p>Lock Amount</p>
+                                    <p>Available Amount 0.0 BTC</p>
+                                  </div>
+                                  <form action>
+                                    <input type="email" maxLength={50} required placeholder="Enter your email address" />
+                                    <div className="text-block">
+                                      <p>BTC | Max</p>
+                                    </div>
+                                  </form>
+                                </div>
+                                <div className="content-item">
+                                  <div className="flex">
+                                    <p>Lock Amount</p>
+                                    <p>Available Amount 0.0 BTC</p>
+                                  </div>
+                                  <form action>
+                                    <input type="email" maxLength={50} required placeholder="Enter your email address" />
+                                    <div className="text-block">
+                                      <p>BTC | Max</p>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="three">
+                              <h5>Locked Amount of Limitation</h5>
+                              <p>Minimum: <span>0.001 BTC </span></p>
+                              <p>Available Quota: <span>80 BTC</span></p>
+                              <p>Total Personal Quota: <span>80 BTC </span></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>      
+                      <div className="col-md-5 bg-color">
+                        <div className="righty">
+                          <div className="close-btn">
+                            <div className="title">
+                              Summary
+                            </div>
+                            <button type="button"> 
+                              <i className="fas fa-times close" data-dismiss="modal" aria-label="Close" />
+                            </button>
+                          </div>
+                          <div className="timeline education">
+                            <div className="timeline-items">
+                              <div className="timeline-item">
+                                <div className="flex">
+                                  <h3>Stake Date</h3>
+                                  <p>2022-04-17 18:17</p>
+                                </div>
+                              </div>
+                              <div className="timeline-item">
+                                <div className="flex">
+                                  <h3>Value Date</h3>
+                                  <p>2022-04-18 05:17</p>
+                                </div>
+                                <div className="flex">
+                                  <div className="location">Interest Period</div>
+                                  <p>1 Days</p>
+                                </div>
+                              </div>
+                              <div className="timeline-item">
+                                <div className="flex">
+                                  <h3>Interest End Date</h3>
+                                  <p>2022-04-17 18:17</p>
+                                </div>
+                              </div>
+                              <div className="timeline-item">
+                                <div className="flex">
+                                  <h3>Redemption Period</h3>
+                                  <p>1 Days</p>
+                                </div>
+                              </div>
+                              <div className="timeline-item">
+                                <div className="flex">
+                                  <h3>Redemption Date</h3>
+                                  <p>2022-04-17 18:17</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex">
+                            <p>Est. APY</p>
+                            <p>2022-04-17 18:17</p>
+                          </div>
+                          <div className="flex">
+                            <p>Estimate Interests</p>
+                            <p>2022-04-17 18:17</p>
+                          </div>
+                          <div className="info-txt">
+                            <img src={alert} />
+                            <p>Lorem ipsum dolor sit amet,adipiscing elit. Quisque luctus accumsan vulputate. Aenean pretium mauris at diam</p>
+                          </div>
+                          <div className="des">
+                            <p>*Check holding assets under wallet - Earn - Locked Staking</p>
+                          </div>
+                          <div className="tacbox">
+                            <input id="checkbox" type="checkbox" />
+                            <label htmlFor="checkbox">I have read and agree to <a href>Rego Stacking Services Agreement</a></label>
+                          </div>
+                          <div className="buy-btn">
+                            <a href>Buy</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             </div>
             </div>
           </div>
@@ -210,4 +383,4 @@ const NewFixedDeposit = () => {
   );
 };
 
-export default SetAnimationPage(NewFixedDeposit);
+export default SetAnimationPage(FixedDeposit);

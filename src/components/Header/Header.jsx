@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../assets/css/custom.css';
 import '../../assets/css/style.css';
-import Logo from '../../assets/images/logo-white.png';
+import Logo from '../../assets/images/rego-logo-white.png';
 import wallet from '../../assets/images/favicon.png'
 import { Link } from 'react-router-dom';
 
@@ -39,7 +39,7 @@ export default function Header() {
       <div className=" col-md-12">
         <nav className="navbar navbar-expand-lg">  
           <div className="navbar-brand justify-content-center"> 
-            <Link to="/"><img src={Logo} className="image-fluid" /></Link>
+            <Link to="/dashboard"><img src={Logo} className="image-fluid" /></Link>
           </div>
           {/*  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
