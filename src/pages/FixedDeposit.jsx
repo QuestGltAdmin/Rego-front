@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import { coins } from "../assets/coins/coins";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const coinOptions = coins
   .map((item) => {
@@ -99,7 +100,31 @@ const FixedDeposit = () => {
       return;
     } 
 
-  }
+    const payload = {
+      amount: inputAmount,
+      email: user.email,
+      currency: selectedCoin,
+      enddate: endDate,
+      payoutAmount: payoutAmount,
+    };   
+  
+    const res = await axios.post("/users/create-stake", payload);
+
+    if (res.data.status) {
+      toast.success("Money Deposited");
+      dispatch(
+        updateWalletBalance({
+          name: selectedCoin,
+          balance: inputAmount,     
+        })
+      );
+    }
+  };
+
+
+       
+  
+
 
 
   return (
