@@ -16,6 +16,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import { coins } from "../assets/coins/coins";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
 const coinOptions = coins
   .map((item) => {
@@ -33,6 +34,74 @@ const FixedDeposit = () => {
       (state) => state.wallet.userWallet
     );
 
+
+  const [autoRenew, setAutoRenew] = useState(false);
+  const [balanceError, setBalanceError] = useState(false);
+  const [formData, setFormData] = useState({
+    selectedCoin: coinOptions[0].name,
+    inputAmount: "",
+    payoutAmount: "",
+  });
+
+  const { inputAmount, payoutAmount, selectedCoin } = formData;
+
+  const handleAutoRenew = () => {
+    setAutoRenew(!autoRenew);
+  };
+
+
+  function interest(amt) {
+    if (!amt) return 0.0;
+
+    if (amt > Number(selectedCryptoObj?.balance)) {
+      console.log("less balance check block");
+      setBalanceError(true);
+    } else {
+      setBalanceError(false);
+    } 
+    let total_days = 30;
+    total_days = parseFloat(total_days);
+
+    let interest_rate = 12;
+    interest_rate = parseFloat(interest_rate);
+    interest_rate = interest_rate / 365;      
+
+    let interest = (amt * interest_rate * 1) / 100;
+    let total_interest = interest * total_days;
+    let amount = amt; 
+
+    amount = parseFloat(amount);
+    total_interest = total_interest + amount;
+    return total_interest.toFixed(5);
+  }
+
+  const selectedCryptoIndex = cryptowalletObj?.findIndex(
+    (item) => item.name.toLowerCase() === selectedCoin
+  );
+
+  if (selectedCryptoIndex !== -1) {
+    selectedCryptoObj = cryptowalletObj && cryptowalletObj[selectedCryptoIndex];
+  }
+    
+
+  const createFixedDeposit = async () => {
+    const startDate = new Date();
+    const endDate = new Date(startDate);
+    endDate.setDate(startDate.getDate() + 30);
+
+    if (balanceError) {
+      toast.error("Insufficient Balance");
+      return;
+    }
+
+    if (!inputAmount || !Number(inputAmount)) {
+      toast.error("Enter Valid Amount");
+      return;
+    } 
+
+  }
+
+
   return (
     <section className="dashboard-sec">
       <div className="container">
@@ -40,6 +109,7 @@ const FixedDeposit = () => {
           <div className="col-md-12">
             <div>
               <NavigationTabs />
+
               <div className="row">
               <div className="col-md-12 fixed-deposit">
                 <div className="table-responsive">
@@ -53,11 +123,14 @@ const FixedDeposit = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                    {coinOptions.map((item) => (
+                      <tr
+                       key={item.id}
+                      value={item.value}>
                         <th scope="row">
                           <div className="token-flex">
-                            <img src={gain1} />
-                            <p>Bitcoin</p>
+                            <img src={item.url} />
+                            <p>{item.name}</p>
                           </div>
                         </th>
                         <td>
@@ -80,7 +153,8 @@ const FixedDeposit = () => {
                           </div>
                         </td>
                       </tr>
-                      <tr>
+                       ))}
+                      {/* <tr>
                         <th scope="row">
                           <div className="token-flex">
                             <img src={gain2} />
@@ -214,13 +288,13 @@ const FixedDeposit = () => {
                             </div>
                           </div>
                         </td>
-                      </tr>
+                      </tr> */}
                     </tbody>
                   </table>
                 </div>
               </div>
-               {/* Modal */}
-            <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               {/* Modal */}      
+               <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
                   <div className="modal-body">
@@ -374,12 +448,15 @@ const FixedDeposit = () => {
                 </div>
               </div>
             </div>
-            </div>
+
+
+            </div>            
             </div>
           </div>
-        </div>
-      </div>
+          </div>
+      </div>      
     </section>
+
   );
 };
 
