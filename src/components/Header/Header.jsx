@@ -84,8 +84,8 @@ export default function Header() {
                     <a href><i className="fa fa-rupee-sign" aria-hidden="true" />Deposit INR</a>
                     <a href><i className="fa fa-rupee-sign" aria-hidden="true" /> Import Funds</a>
                     <Link to="/history"><i className="fa fa-list" aria-hidden="true" />History</Link>
-                    
-                    <a href><i className="fa fa-file" aria-hidden="true" />KYC</a>
+                    <Link to="/kyc"><i className="fa fa-file" aria-hidden="true" />KYC</Link>
+                    {/* <a href><i className="fa fa-file" aria-hidden="true" />KYC</a> */}
                     <a href><i className="fa fa-phone" aria-hidden="true" />Help and support</a>
                     <a href="settings.php"><i className="fa fa-gear" aria-hidden="true" />Setting</a>
                     <a href><i className="fa fa-sign-out" aria-hidden="true" /> Logout</a>

@@ -9,8 +9,8 @@ import { Line } from "react-chartjs-2";
 import KycModal from "../components/KycModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "../App.css";
-import '../assets/css/style.css'
+// import "../App.css";
+// import '../assets/css/style.css'
 
 import {
   Chart as ChartJS,

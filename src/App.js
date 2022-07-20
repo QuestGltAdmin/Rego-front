@@ -18,6 +18,7 @@ import BasketSip from "./pages/BasketSip";
 import ProTrading from "./pages/ProTrading.jsx";
 import P2P from "./pages/P2P";
 import BlogandNews from "./pages/BlogandNews";
+import KYC from "./pages/KYC";
 
 
 const Home = () => {
@@ -142,6 +143,15 @@ function App() {
               <BlogandNews/>
             </PrivateRoute>
           }
+          />
+
+           <Route
+            path="/kyc"
+            element={
+              <PrivateRoute>
+                <KYC />
+              </PrivateRoute>
+            }
           />
 
         </Routes>

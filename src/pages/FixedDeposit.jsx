@@ -12,12 +12,25 @@ import gain4 from '../assets/images/gain4.png';
 import gain5 from '../assets/images/gain5.png';
 import gain6 from '../assets/images/gain6.png';
 import alert from '../assets/images/alert.png'
-import axios from "axios";
+// import axios from "axios";
+import axios from "../http/axios/axios_main";
+
 import { Link } from 'react-router-dom';
 import { coins } from "../assets/coins/coins";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { updateWalletBalance } from "../store/reducers/walletReducer";
+import { Card } from "react-bootstrap";
+import svgImages from "../assets/images/svg-icons/svgImages";
+import Switch from "react-switch";
+
+
+
+
+
+
+
 
 const coinOptions = coins
   .map((item) => {
@@ -119,8 +132,15 @@ const FixedDeposit = () => {
         })
       );
     }
-  };
+  };     
 
+
+  console.log({
+    balanceError,
+    selectedCoin,
+    selectedCryptoObj,
+    selectedCryptoIndex,
+  });      
 
        
   
@@ -128,6 +148,8 @@ const FixedDeposit = () => {
 
 
   return (
+
+
     <section className="dashboard-sec">
       <div className="container">
         <div className="row">
@@ -149,7 +171,7 @@ const FixedDeposit = () => {
                     </thead>
                     <tbody>
                     {coinOptions.map((item) => (
-                      <tr
+                      <tr       
                        key={item.id}
                       value={item.value}>
                         <th scope="row">
@@ -330,7 +352,7 @@ const FixedDeposit = () => {
                           <button type="button"> 
                             <i className="fas fa-times close" data-dismiss="modal" aria-label="Close" />
                           </button>
-                        </div>                      
+                        </div>         
                         <div className="lefty">
                           <div className="body-bg">
                             <div className="flex">
@@ -481,8 +503,189 @@ const FixedDeposit = () => {
           </div>
       </div>      
     </section>
+  //   <section className="dashboard-sec">
+  //   <div className="container">
+  //        <div className="row">
+  //          <div className="col-md-12">
+  //            <div>
+  //           <NavigationTabs />   
+  //   <div className="row mt-5">
+  //     {/* <NavigationTabs /> */}
+  //   <div className="col-lg-4">
+        
+  //     <Card className="shadow-lg">
+  //       <Card.Body>
+  //         <div className="card-heading">
+  //           <div className="font-h3">Fixed Deposit</div>
+  //           <div className="d-flex justify-content-between">
+  //             {" "}
+  //             <span className="card12 m-3">Amount</span>
+  //             <span className="card12 m-3">
+  //               Balance{" "}
+  //               {`${
+  //                 selectedCryptoObj?.balance
+  //               }  ${selectedCoin.toUpperCase()}`}
+  //             </span>
+  //           </div>
+  //         </div>
+  //         <div
+  //           className="row"
+  //           style={{
+  //             display: "flex",
+  //             marginTop: "20px",
+  //             marginBottom: balanceError ? "30px" : "80px",
+  //           }}
+  //         >
+  //           <select
+  //             className="form-control text-uppercase"
+  //             style={{
+  //               width: "20%",
+  //               left: "20px",
+  //               position: "absolute",
+  //             }}
+  //             onChange={(e) => {
+  //               setFormData({
+  //                 ...formData,
+  //                 selectedCoin: e.target.value,
+  //                 inputAmount: "",
+  //                 payoutAmount: "",
+  //               });
+  //               setBalanceError(false);
+  //             }}
+  //           >
+  //             {coinOptions.map((item) => (
+  //               <option
+  //                 className="text-uppercase"
+  //                 key={item.id}
+  //                 value={item.value}
+  //               >
+  //                 {item.name}
+  //               </option>
+  //             ))}
+  //           </select>
+  //           <input
+  //             type="text"
+  //             className="form-control"
+  //             placeholder="Enter Amount"
+  //             value={inputAmount}
+  //             onChange={(e) => {
+  //               const value = e.target.value;
+  //               setFormData({
+  //                 ...formData,
+  //                 inputAmount: value,
+  //                 payoutAmount: interest(value),
+  //               });
+  //             }}
+  //             style={{
+  //               width: "65%",
+  //               marginLeft: "20px",
+  //               position: "absolute",
+  //               right: "20px",
+  //             }}
+  //           />
+  //         </div>
+  //         {balanceError && (
+  //           <p className="text-danger p-0 m-0 ml-1">Insufficient Balance</p>
+  //         )}
+  //         <div className="term btn m-3 d-flex justify-content-center ">
+  //           <div className="term d-flex-column">
+  //             <div className="termt">
+  //               <span>Term</span>
+  //             </div>
+  //             <div className="termd">
+  //               <span className="text-info">30 Days</span>
+  //             </div>
+  //           </div>
+  //           <div className="btn d-flex justify-content-around ">
+  //             <div className="rnwtext termt m-1">
+  //               <span>Auto Renew</span>
+  //             </div>
+  //             <div className="btnt m-1">
+  //               <Switch
+  //                 checked={autoRenew}
+  //                 onChange={handleAutoRenew}
+  //                 onColor="#3c81a3"
+  //                 offColor="#1a488f"
+  //               />
+  //             </div>
+  //             <div className="optn text-info m-1">
+  //               <span>Advanced Options</span>
+  //             </div>
+  //           </div>
+  //         </div>
+  //         <div className="row">
+  //           <div className="coin-balance">
+  //             <span className="font-h3 text-uppercase">INTEREST 12% APY</span>
+  //           </div>
+  //         </div>
+  //         <div className="row text-center">
+  //           <div className="rate-section" style={{ marginBottom: "105px" }}>
+  //             <div>
+  //               <div className="font-h4 color-secondary-dark ">
+  //                 Payout Amount {selectedCoin.toUpperCase()}{" "}
+  //                 {payoutAmount || 0.0}
+  //               </div>
+  //               <div className="font-h5 color-secondary-hint">
+  //                 44.444% higher than our base return
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //         <button
+  //           className="btn buy_now_btn card-action-btn"
+  //           onClick={() => createFixedDeposit()}
+  //         >
+  //           <span>
+  //             <span className="v-align-middle d-inline-block ">
+  //               Create Fixed Deposit
+  //             </span>
+  //           </span>
+  //         </button>
+  //       </Card.Body>
+  //     </Card>
+  //   </div>
+  //   <div className="col-lg-8">
+  //     <Card className="shadow-lg" style={{ height: "100%" }}>
+  //       <Card.Body>
+  //         <div className="card-heading">
+  //           <div className="font-h3">Fixed Deposit</div>
+  //         </div>
+  //         <div className="card-body">
+  //           <div className="table-heading flex gap-20 mt-2">
+  //             <div className="ml-8">Principle Amount</div>
+  //             <div>Start Date</div>
+  //             <div>Term</div>
+  //             <div>Payout Amount</div>
+  //             <div>Payout Date</div>
+  //           </div>
+  //           <div className="table-body flex justify-center items-center mt-28 flex-col">
+  //             <img src={svgImages.noFd} height={120} width={120} />
+  //             <div className="font-h3 mt-3">
+  //               Create A Fixed Deposit To Get Started
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </Card.Body>
+  //     </Card>
+  //   </div>
+  // </div>
+
+  // </div>
+  //         </div>
+  //          </div>
+  //      </div>      
+  //    </section>
+
+
+
 
   );
 };
 
 export default SetAnimationPage(FixedDeposit);
+
+
+
+
+
+
