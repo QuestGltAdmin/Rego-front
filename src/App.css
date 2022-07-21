@@ -1803,6 +1803,9 @@ font-weight: 600;
 }
 .shadow-md{
   box-shadow: 0 0 10px rgb(0 0 0 / 20%) !important;
+  display: flex;
+  
+  
 }
 .conversion-box-outer {
     background-color: #cfd9ff;

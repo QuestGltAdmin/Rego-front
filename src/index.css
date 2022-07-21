@@ -104,6 +104,14 @@ body {
   font-size: 12px;
   letter-spacing: 1px;
 }
+.inpt
+{
+  border: none;
+}
+.text-center
+{
+  margin: auto;
+}
 
 .invalid-login-feedback {
   display: block !important;

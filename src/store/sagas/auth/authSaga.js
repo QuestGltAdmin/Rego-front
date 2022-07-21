@@ -63,7 +63,7 @@ export function* singupSaga(action) {
           autoClose: 2000,     
           hideProgressBar: true,
         }); 
-        navigate('/login')
+        navigate('/')
       }    
       // window.location.reload();
       // modalCloseRef.current.click();

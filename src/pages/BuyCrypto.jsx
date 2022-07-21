@@ -9,8 +9,8 @@ import { Line } from "react-chartjs-2";
 import KycModal from "../components/KycModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import "../App.css";
-// import '../assets/css/style.css'
+import "../App.css";
+import '../assets/css/style.css'
 
 import {
   Chart as ChartJS,
@@ -323,7 +323,7 @@ const BuyCrypto = () => {
                             <span>I have INR</span>
                             <span>balance {user.balance} INR</span>
                           </div>
-                          <div className="flex mt-1 mb-2 items-center shadow-md">
+                          <div className="flex mt-1 mb-2 items-center shadow-md ">
                             <div className="currency w-1/3 text-center">
                               <img
                                 src={coins[0].url}
@@ -336,7 +336,7 @@ const BuyCrypto = () => {
                             <div className="currency flex-1">
                               <input
                                 type="text"
-                                className="w-full py-2 rounded outline-none"
+                                className="w-full py-2 rounded outline-none inpt"
                                 placeholder="Enter Amount"
                                 value={iHaveValue}
                                 onChange={(e) =>
@@ -382,7 +382,7 @@ const BuyCrypto = () => {
                             <div className="form-group">
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control "
                                 name="limitValue"
                                 value={limitValue}
                                 placeholder="Enter Limit Value"
@@ -416,7 +416,7 @@ const BuyCrypto = () => {
                             <div className="currency flex-1">
                               <input
                                 type="text"
-                                className="w-full py-2 rounded outline-none"
+                                className="w-full py-2 rounded outline-none inpt"
                                 placeholder="Enter Amount"
                                 value={iWantValue}
                                 onChange={(e) =>
@@ -504,7 +504,7 @@ const BuyCrypto = () => {
                               <input     
                                 type="text"
                                 className="w-full py-2 round
-                                ed outline-none"
+                                ed outline-none inpt"
                                 placeholder="Enter Amount"
                                 value={iHaveSellTab}
                                 onChange={(e) =>
@@ -550,7 +550,7 @@ const BuyCrypto = () => {
                             <div className="currency flex-1">
                               <input
                                 type="text"
-                                className="w-full py-2 rounded outline-none"
+                                className="w-full py-2 rounded outline-none inpt"
                                 placeholder="Enter Amount"
                                 value={iWantSellTab}
                                 onChange={(e) => console.log(e)}
