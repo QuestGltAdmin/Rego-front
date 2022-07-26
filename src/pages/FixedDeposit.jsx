@@ -27,123 +27,14 @@ import Switch from "react-switch";
 
 
 
-
-
-
-
-
 const coinOptions = coins
   .map((item) => {
     return { id: item.id, name: item.name, value: item.name, url: item.url };
   })
   .filter((item) => item.name !== "inr");
+
+
 const FixedDeposit = () => {
-
-    let selectedCryptoObj;
-    const dispatch = useDispatch();
-    const {
-      user: { user },
-    } = useSelector((state) => state.auth);
-    const { array: cryptowalletObj } = useSelector(
-      (state) => state.wallet.userWallet
-    );
-
-  const [autoRenew, setAutoRenew] = useState(false);
-  const [balanceError, setBalanceError] = useState(false);
-  const [formData, setFormData] = useState({
-    selectedCoin: coinOptions[0].name,
-    inputAmount: "",
-    payoutAmount: "",
-  });
-
-  const { inputAmount, payoutAmount, selectedCoin } = formData;
-
-  const handleAutoRenew = () => {
-    setAutoRenew(!autoRenew);
-  };
-              
-               
-
-  function interest(amt) {
-    if (!amt) return 0.0;
-
-    if (amt > Number(selectedCryptoObj?.balance)) {
-      console.log("less balance check block");
-      setBalanceError(true);
-    } else {
-      setBalanceError(false);
-    } 
-    let total_days = 30;
-    total_days = parseFloat(total_days);
-
-    let interest_rate = 12;
-    interest_rate = parseFloat(interest_rate);
-    interest_rate = interest_rate / 365;      
-
-    let interest = (amt * interest_rate * 1) / 100;
-    let total_interest = interest * total_days;
-    let amount = amt; 
-
-    amount = parseFloat(amount);
-    total_interest = total_interest + amount;
-    return total_interest.toFixed(5);
-  }
-
-  const selectedCryptoIndex = cryptowalletObj?.findIndex(
-    (item) => item.name.toLowerCase() === selectedCoin
-  );
-
-  if (selectedCryptoIndex !== -1) {
-    selectedCryptoObj = cryptowalletObj && cryptowalletObj[selectedCryptoIndex];
-  }
-    
-
-  const createFixedDeposit = async () => {
-    const startDate = new Date();
-    const endDate = new Date(startDate);
-    endDate.setDate(startDate.getDate() + 30);
-
-    if (balanceError) {
-      toast.error("Insufficient Balance");
-      return;
-    }
-
-    if (!inputAmount || !Number(inputAmount)) {
-      toast.error("Enter Valid Amount");
-      return;
-    }
-
-    const payload = {
-      amount: inputAmount,
-      email: user.email,
-      currency: selectedCoin,
-      enddate: endDate,
-      payoutAmount: payoutAmount,
-    };   
-  
-    const res = await axios.post("/users/create-stake", payload);
-
-    if (res.data.status) {
-      toast.success("Money Deposited");
-      dispatch(
-        updateWalletBalance({
-          name: selectedCoin,
-          balance: inputAmount,     
-        })
-      );
-    }    
-  };          
-
-
-  console.log({
-    balanceError,
-    selectedCoin,
-    selectedCryptoObj,
-    selectedCryptoIndex,
-  });      
-
-       
-  
 
 
 
@@ -172,7 +63,7 @@ const FixedDeposit = () => {
                     </thead>
                     <tbody>
                     {coinOptions.map((item) => (
-                      <tr       
+                      <tr   
                        key={item.id}
                       value={item.value}>
                         <th scope="row">
@@ -489,7 +380,7 @@ const FixedDeposit = () => {
                                 <label for="checkbox">I have read and agree to <a href="">Rego Stacking Services Agreement</a></label>
                               </div>
                               <div class="buy-btn" >
-                                <a  href="" onClick={() => createFixedDeposit()}>Buy</a>
+                                <a  href="" >Buy</a>
                               </div>
                             </div>
                           </div>
@@ -505,181 +396,7 @@ const FixedDeposit = () => {
           </div>
           </div>         
     </section>
-  //   <section className="dashboard-sec">
-  //   <div className="container">
-  //        <div className="row">
-  //          <div className="col-md-12">
-  //            <div>
-  //           <NavigationTabs />   
-  //   <div className="row mt-5">
-  //     {/* <NavigationTabs /> */}
-  //   <div className="col-lg-4">
-        
-  //     <Card className="shadow-lg">
-  //       <Card.Body>
-  //         <div className="card-heading">
-  //           <div className="font-h3">Fixed Deposit</div>
-  //           <div className="d-flex justify-content-between">
-  //             {" "}
-  //             <span className="card12 m-3">Amount</span>
-  //             <span className="card12 m-3">
-  //               Balance{" "}
-  //               {`${
-  //                 selectedCryptoObj?.balance
-  //               }  ${selectedCoin.toUpperCase()}`}
-  //             </span>
-  //           </div>
-  //         </div>
-  //         <div
-  //           className="row"
-  //           style={{
-  //             display: "flex",
-  //             marginTop: "20px",
-  //             marginBottom: balanceError ? "30px" : "80px",
-  //           }}
-  //         >
-  //           <select
-  //             className="form-control text-uppercase"
-  //             style={{
-  //               width: "20%",
-  //               left: "20px",
-  //               position: "absolute",
-  //             }}
-  //             onChange={(e) => {
-  //               setFormData({
-  //                 ...formData,
-  //                 selectedCoin: e.target.value,
-  //                 inputAmount: "",
-  //                 payoutAmount: "",
-  //               });
-  //               setBalanceError(false);
-  //             }}
-  //           >
-  //             {coinOptions.map((item) => (
-  //               <option
-  //                 className="text-uppercase"
-  //                 key={item.id}
-  //                 value={item.value}
-  //               >
-  //                 {item.name}
-  //               </option>
-  //             ))}
-  //           </select>
-  //           <input
-  //             type="text"
-  //             className="form-control"
-  //             placeholder="Enter Amount"
-  //             value={inputAmount}
-  //             onChange={(e) => {
-  //               const value = e.target.value;
-  //               setFormData({
-  //                 ...formData,
-  //                 inputAmount: value,
-  //                 payoutAmount: interest(value),
-  //               });
-  //             }}
-  //             style={{
-  //               width: "65%",
-  //               marginLeft: "20px",
-  //               position: "absolute",
-  //               right: "20px",
-  //             }}
-  //           />
-  //         </div>
-  //         {balanceError && (
-  //           <p className="text-danger p-0 m-0 ml-1">Insufficient Balance</p>
-  //         )}
-  //         <div className="term btn m-3 d-flex justify-content-center ">
-  //           <div className="term d-flex-column">
-  //             <div className="termt">
-  //               <span>Term</span>
-  //             </div>
-  //             <div className="termd">
-  //               <span className="text-info">30 Days</span>
-  //             </div>
-  //           </div>
-  //           <div className="btn d-flex justify-content-around ">
-  //             <div className="rnwtext termt m-1">
-  //               <span>Auto Renew</span>
-  //             </div>
-  //             <div className="btnt m-1">
-  //               <Switch
-  //                 checked={autoRenew}
-  //                 onChange={handleAutoRenew}
-  //                 onColor="#3c81a3"
-  //                 offColor="#1a488f"
-  //               />
-  //             </div>
-  //             <div className="optn text-info m-1">
-  //               <span>Advanced Options</span>
-  //             </div>
-  //           </div>
-  //         </div>
-  //         <div className="row">
-  //           <div className="coin-balance">
-  //             <span className="font-h3 text-uppercase">INTEREST 12% APY</span>
-  //           </div>
-  //         </div>
-  //         <div className="row text-center">
-  //           <div className="rate-section" style={{ marginBottom: "105px" }}>
-  //             <div>
-  //               <div className="font-h4 color-secondary-dark ">
-  //                 Payout Amount {selectedCoin.toUpperCase()}{" "}
-  //                 {payoutAmount || 0.0}
-  //               </div>
-  //               <div className="font-h5 color-secondary-hint">
-  //                 44.444% higher than our base return
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //         <button
-  //           className="btn buy_now_btn card-action-btn"
-  //           onClick={() => createFixedDeposit()}
-  //         >
-  //           <span>
-  //             <span className="v-align-middle d-inline-block ">
-  //               Create Fixed Deposit
-  //             </span>
-  //           </span>
-  //         </button>
-  //       </Card.Body>
-  //     </Card>
-  //   </div>
-  //   <div className="col-lg-8">
-  //     <Card className="shadow-lg" style={{ height: "100%" }}>
-  //       <Card.Body>
-  //         <div className="card-heading">
-  //           <div className="font-h3">Fixed Deposit</div>
-  //         </div>
-  //         <div className="card-body">
-  //           <div className="table-heading flex gap-20 mt-2">
-  //             <div className="ml-8">Principle Amount</div>
-  //             <div>Start Date</div>
-  //             <div>Term</div>
-  //             <div>Payout Amount</div>
-  //             <div>Payout Date</div>
-  //           </div>
-  //           <div className="table-body flex justify-center items-center mt-28 flex-col">
-  //             <img src={svgImages.noFd} height={120} width={120} />
-  //             <div className="font-h3 mt-3">
-  //               Create A Fixed Deposit To Get Started
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </Card.Body>
-  //     </Card>
-  //   </div>
-  // </div>
-
-  // </div>
-  //         </div>
-  //          </div>
-  //      </div>      
-  //    </section>
-
-
-
+  
 
   );
 };
