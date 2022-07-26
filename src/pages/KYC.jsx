@@ -5,8 +5,8 @@ import docIcon from "../assets/images/svg-icons/id-card.svg";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-
+// import '../../public/style.css'
+                                 
 
 
 const KYC = () => {
@@ -147,9 +147,9 @@ const KYC = () => {
         <div className="col-lg-12 ">kyc Details Has Been Submitted </div>
         <div className="col-lg-12 shadow-inner p-0">
           <div className="card-body table-responsive">
-            <table className="table">
+            <table className="table"> 
               <thead>
-                <tr>
+                <tr>  
                   <th className="border-top-0">S.No</th>
                   <th className="border-top-0">Image</th>
                   <th className="border-top-0"> Doc Type</th>
@@ -161,7 +161,7 @@ const KYC = () => {
                   <th className="border-top-0">Status</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody>      
                 <tr>
                   <td className="border-top-0">{kycstatus && 1}</td>
                   <td className="border-top-0">

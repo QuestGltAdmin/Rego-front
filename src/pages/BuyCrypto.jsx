@@ -10,7 +10,7 @@ import KycModal from "../components/KycModal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
-import '../assets/css/style.css'
+// import '../assets/css/style.css'
 
 import {
   Chart as ChartJS,
@@ -501,7 +501,7 @@ const BuyCrypto = () => {
                               </span>
                             </div>
                             <div className="currency flex-1">
-                              <input     
+                              <input 
                                 type="text"
                                 className="w-full py-2 round
                                 ed outline-none inpt"

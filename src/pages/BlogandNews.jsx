@@ -1,7 +1,7 @@
 import React from "react";
 import NavigationTabs from "../components/UI/NavigationTabs";
 // import '../assets/css/custom.css';
-import '../assets/css/style.css';
+// import '../assets/css/style.css';
 // import '../assets/css/dash-inner.css';
 // import '../assets/css/nice-select.css';
 import blog1 from '../assets/images/blog1.png'

@@ -31,7 +31,7 @@ function UserSingup() {
     }
     return (
 
-        <>
+        <>         
         <section id='sign_up_sec'>
             <Formik
                 initialValues={{

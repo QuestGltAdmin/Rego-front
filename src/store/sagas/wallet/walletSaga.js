@@ -20,7 +20,7 @@ export function* getWalletSaga(action) {
     } else {
       yield put(getWalletFail(response.data.message));
       // yield put(historyFail("Something went wrong! Please try again."));
-    }
+    }    
   } catch (error) {
     yield call(catchHandler, error, getWalletFail);
   }

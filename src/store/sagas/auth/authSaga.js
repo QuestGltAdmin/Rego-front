@@ -23,7 +23,7 @@ export function* loginSaga(action) {
     if (response.data.status) {
       yield put(loginSuccess(response.data.data));
       if (toast) {
-        toast.success("Login Successfull", {
+        toast.success("Login Successful", {
           autoClose: 2000,
           hideProgressBar: true,
         });                
@@ -59,7 +59,7 @@ export function* singupSaga(action) {
     if (response.data.status) {
       yield put(singupSuccess(response.data.data));
       if (toast) {
-        toast.success("Singup Successfull", {
+        toast.success("Singup Successful", {
           autoClose: 2000,     
           hideProgressBar: true,
         }); 

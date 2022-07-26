@@ -18,7 +18,7 @@ export const coins = [
     type: "crypto",
     interestMsg: "4.6 - 6.7 %",
   },  
-  {
+  {      
     id: 2,
     coin_ID: "ethereum",
     name: "eth",

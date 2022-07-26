@@ -48,7 +48,6 @@ const FixedDeposit = () => {
       (state) => state.wallet.userWallet
     );
 
-
   const [autoRenew, setAutoRenew] = useState(false);
   const [balanceError, setBalanceError] = useState(false);
   const [formData, setFormData] = useState({
@@ -62,7 +61,8 @@ const FixedDeposit = () => {
   const handleAutoRenew = () => {
     setAutoRenew(!autoRenew);
   };
-
+              
+               
 
   function interest(amt) {
     if (!amt) return 0.0;
@@ -111,7 +111,7 @@ const FixedDeposit = () => {
     if (!inputAmount || !Number(inputAmount)) {
       toast.error("Enter Valid Amount");
       return;
-    } 
+    }
 
     const payload = {
       amount: inputAmount,
@@ -131,8 +131,8 @@ const FixedDeposit = () => {
           balance: inputAmount,     
         })
       );
-    }
-  };     
+    }    
+  };          
 
 
   console.log({
@@ -151,12 +151,13 @@ const FixedDeposit = () => {
 
 
     <section className="dashboard-sec">
+         
       <div className="container">
         <div className="row">
           <div className="col-md-12">
             <div>
               <NavigationTabs />
-
+              <div class=" custom-modal" id="menu5">
               <div className="row">
               <div className="col-md-12 fixed-deposit">
                 <div className="table-responsive">
@@ -207,7 +208,7 @@ const FixedDeposit = () => {
                             <img src={gain2} />
                             <p>Bitcoin</p>
                           </div>
-                        </th>
+                        </th>  
                         <td>
                           <p>16.98%</p>
                         </td>
@@ -340,168 +341,169 @@ const FixedDeposit = () => {
                   </table>
                 </div>
               </div>
-               {/* Modal */}      
-               <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div className="modal-dialog modal-dialog-centered" role="document">
-                <div className="modal-content">
-                  <div className="modal-body">
-                    <div className="row">
-                      <div className="col-md-7 nopadding">
-                        <div className="head">
-                          <h4>Locked Stacking</h4>
-                          <button type="button"> 
-                            <i className="fas fa-times close" data-dismiss="modal" aria-label="Close" />
-                          </button>
-                        </div>         
-                        <div className="lefty">
-                          <div className="body-bg">
-                            <div className="flex">
-                              <img src={gain1} />
-                              <p>Bitcoin</p>
-                            </div>
-                            <div className="one">
-                              <label>Type</label>
-                              <button type="button" className="btn">Locked</button>
-                            </div>
-                            <div className="two">
-                              <label>Duration</label>
-                              <div className="tabs">
-                                <div className="tab active">15 Days</div>
-                                <div className="tab">30 Days</div>
-                                <div className="tab">90 Days</div>
+              {/* <!-- Modal --> */}
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="row">
+                          <div class="col-md-7 nopadding">
+                              <div class="head">
+                                <h4>Locked Stacking</h4>
+                                <button type="button"> 
+                                  <i class="fas fa-times close" data-dismiss="modal" aria-label="Close"></i>
+                                </button>
                               </div>
-                              <div className="content">
-                                <div className="content-item active">
-                                  <div className="flex">
-                                    <p>Lock Amount</p>
-                                    <p>Available Amount 0.0 BTC</p>
+                            <div class="lefty">
+                              <div class="body-bg">
+                                <div class="flex">
+                                  <img src="assets/images/gain1.png"/>
+                                  <p>Bitcoin</p>
+                                </div>
+                                <div class="one">
+                                  <label>Type</label>
+                                  <button type="button" class="btn">Locked</button>
+                                </div>
+                                <div class="two">
+                                  <label>Duration</label>
+                                   <div class="tabs">
+                                      <div class="tab active">30 Days</div>
+                                      <div class="tab">60 Days</div>
+                                      <div class="tab">90 Days</div>
                                   </div>
-                                  <form action>
-                                    <input type="email" maxLength={50} required placeholder="Enter your email address" />
-                                    <div className="text-block">
-                                      <p>BTC | Max</p>
-                                    </div>
-                                  </form>
-                                </div>
-                                <div className="content-item">
-                                  <div className="flex">
-                                    <p>Lock Amount</p>
-                                    <p>Available Amount 0.0 BTC</p>
+                                  <div class="content">
+                                      <div class="content-item active">
+                                          <div class="flex">
+                                              <p>Lock Amount</p>
+                                              <p>Available Amount 0.0 BTC</p>
+                                          </div>
+                                          <form action="">
+                                            <input type="email"  maxlength="50" required placeholder="Enter your email address"/>
+                                            <div class="text-block">
+                                              <p>BTC | Max</p>
+                                            </div>
+                                          </form>
+                                      </div>
+                                      <div class="content-item">
+                                          <div class="flex">
+                                              <p>Lock Amount</p>
+                                              <p>Available Amount 0.0 BTC</p>
+                                          </div>
+                                          <form action="">
+                                            <input type="email"  maxlength="50" required placeholder="Enter your email address"/>
+                                            <div class="text-block">
+                                              <p>BTC | Max</p>
+                                            </div>
+                                          </form>
+                                      </div>
+                                      <div class="content-item">
+                                          <div class="flex">
+                                              <p>Lock Amount</p>
+                                              <p>Available Amount 0.0 BTC</p>
+                                          </div>
+                                          <form action="">
+                                            <input type="email"  maxlength="50" required placeholder="Enter your email address"/>
+                                            <div class="text-block">
+                                              <p>BTC | Max</p>
+                                            </div>
+                                          </form>
+                                      </div>
                                   </div>
-                                  <form action>
-                                    <input type="email" maxLength={50} required placeholder="Enter your email address" />
-                                    <div className="text-block">
-                                      <p>BTC | Max</p>
-                                    </div>
-                                  </form>
                                 </div>
-                                <div className="content-item">
-                                  <div className="flex">
-                                    <p>Lock Amount</p>
-                                    <p>Available Amount 0.0 BTC</p>
+                                <div class="three">
+                                  <h5>Locked Amount of Limitation</h5>
+                                  <p>Minimum: <span>0.001 BTC </span></p>
+                                  <p>Available Quota: <span>80 BTC</span></p>
+                                  <p>Total Personal Quota: <span>80 BTC </span></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-5 bg-color">
+                            <div class="righty">
+                              <div class="close-btn">
+                                <div class="title">
+                                  Summary
+                                </div>
+                                <button type="button"> 
+                                  <i class="fas fa-times close" data-dismiss="modal" aria-label="Close"></i>
+                                </button>
+                              </div>
+                              <div class="timeline education">
+                                  <div class="timeline-items">
+                                    <div class="timeline-item">
+                                      <div class="flex">
+                                        <h3>Stake Date</h3>
+                                        <p>2022-04-17 18:17</p>
+                                        
+                                      </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                      <div class="flex">
+                                        <h3>Value Date</h3>
+                                        <p>2022-04-18 05:17</p>
+                                      </div>
+                                       <div class="flex">
+                                          <div class="location">Interest Period</div>
+                                          <p>1 Days</p>
+                                       </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="flex">
+                                          <h3>Interest End Date</h3>
+                                          <p>2022-04-17 18:17</p>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                      <div class="flex">
+                                        <h3>Redemption Period</h3>
+                                        <p>1 Days</p>
+                                      </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                      <div class="flex">
+                                        <h3>Redemption Date</h3>
+                                        <p>2022-04-17 18:17</p>
+                                      </div>
+                                    </div>
                                   </div>
-                                  <form action>
-                                    <input type="email" maxLength={50} required placeholder="Enter your email address" />
-                                    <div className="text-block">
-                                      <p>BTC | Max</p>
-                                    </div>
-                                  </form>
-                                </div>
+                              </div>
+                              <div class="flex">
+                                <p>Est. APY</p>
+                                <p>2022-04-17 18:17</p>
+                              </div>
+                              <div class="flex">
+                                <p>Estimate Interests</p>
+                                <p>2022-04-17 18:17</p>
+                              </div>
+                              <div class="info-txt">
+                                <img src="assets/images/alert.png"/>
+                                <p>Lorem ipsum dolor sit amet,adipiscing elit. Quisque luctus accumsan vulputate. Aenean pretium mauris at diam</p>
+                              </div>
+                              <div class="des">
+                                <p>*Check holding assets under wallet - Earn - Locked Staking</p>
+                              </div>
+                              <div class="tacbox">
+                                <input id="checkbox" type="checkbox" />
+                                <label for="checkbox">I have read and agree to <a href="">Rego Stacking Services Agreement</a></label>
+                              </div>
+                              <div class="buy-btn" >
+                                <a  href="" onClick={() => createFixedDeposit()}>Buy</a>
                               </div>
                             </div>
-                            <div className="three">
-                              <h5>Locked Amount of Limitation</h5>
-                              <p>Minimum: <span>0.001 BTC </span></p>
-                              <p>Available Quota: <span>80 BTC</span></p>
-                              <p>Total Personal Quota: <span>80 BTC </span></p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>      
-                      <div className="col-md-5 bg-color">
-                        <div className="righty">
-                          <div className="close-btn">
-                            <div className="title">
-                              Summary
-                            </div>
-                            <button type="button"> 
-                              <i className="fas fa-times close" data-dismiss="modal" aria-label="Close" />
-                            </button>
-                          </div>
-                          <div className="timeline education">
-                            <div className="timeline-items">
-                              <div className="timeline-item">
-                                <div className="flex">
-                                  <h3>Stake Date</h3>
-                                  <p>2022-04-17 18:17</p>
-                                </div>
-                              </div>
-                              <div className="timeline-item">
-                                <div className="flex">
-                                  <h3>Value Date</h3>
-                                  <p>2022-04-18 05:17</p>
-                                </div>
-                                <div className="flex">
-                                  <div className="location">Interest Period</div>
-                                  <p>1 Days</p>
-                                </div>
-                              </div>
-                              <div className="timeline-item">
-                                <div className="flex">
-                                  <h3>Interest End Date</h3>
-                                  <p>2022-04-17 18:17</p>
-                                </div>
-                              </div>
-                              <div className="timeline-item">
-                                <div className="flex">
-                                  <h3>Redemption Period</h3>
-                                  <p>1 Days</p>
-                                </div>
-                              </div>
-                              <div className="timeline-item">
-                                <div className="flex">
-                                  <h3>Redemption Date</h3>
-                                  <p>2022-04-17 18:17</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex">
-                            <p>Est. APY</p>
-                            <p>2022-04-17 18:17</p>
-                          </div>
-                          <div className="flex">
-                            <p>Estimate Interests</p>
-                            <p>2022-04-17 18:17</p>
-                          </div>
-                          <div className="info-txt">
-                            <img src={alert} />
-                            <p>Lorem ipsum dolor sit amet,adipiscing elit. Quisque luctus accumsan vulputate. Aenean pretium mauris at diam</p>
-                          </div>
-                          <div className="des">
-                            <p>*Check holding assets under wallet - Earn - Locked Staking</p>
-                          </div>
-                          <div className="tacbox">
-                            <input id="checkbox" type="checkbox" />
-                            <label htmlFor="checkbox">I have read and agree to <a href>Rego Stacking Services Agreement</a></label>
-                          </div>
-                          <div className="buy-btn">
-                            <a href>Buy</a>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  </div>
                 </div>
-              </div>
             </div>
-
-
             </div>            
             </div>
           </div>
-          </div>
-      </div>      
+          </div>         
     </section>
   //   <section className="dashboard-sec">
   //   <div className="container">

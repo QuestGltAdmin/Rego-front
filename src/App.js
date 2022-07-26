@@ -19,6 +19,7 @@ import ProTrading from "./pages/ProTrading.jsx";
 import P2P from "./pages/P2P";
 import BlogandNews from "./pages/BlogandNews";
 import KYC from "./pages/KYC";
+import Wallet from "./pages/Wallet";
 
 
 const Home = () => {
@@ -58,7 +59,16 @@ function App() {
               </PrivateRoute>
             }
           /> */}
-          
+           <Route                   
+            path="/wallet"
+            element={
+              <PrivateRoute>
+                <Wallet />
+              </PrivateRoute>
+            }
+          />
+
+
           <Route
             path="/history"
             element={

@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../assets/css/custom.css';
-import '../../assets/css/style.css';
+// import '../../assets/css/style.css';
 import Logo from '../../assets/images/rego-logo-white.png';
 import wallet from '../../assets/images/favicon.png'
 import { Link } from 'react-router-dom';
@@ -60,7 +60,7 @@ export default function Header() {
             </ul>
             <ul className="navbar-nav">
               <li className="nav-item left-content">
-                <a className="nav-link" href="#"><i className="fa fa-wallet" /> Wallet</a>
+                <Link className='nav-link' to="/wallet"><i className="fa fa-wallet" /> Wallet</Link>
               </li>
               <li className="nav-item">
                 {/* <div class="dropdown">
@@ -85,7 +85,7 @@ export default function Header() {
                     <a href><i className="fa fa-rupee-sign" aria-hidden="true" /> Import Funds</a>
                     <Link to="/history"><i className="fa fa-list" aria-hidden="true" />History</Link>
                     <Link to="/kyc"><i className="fa fa-file" aria-hidden="true" />KYC</Link>
-                    {/* <a href><i className="fa fa-file" aria-hidden="true" />KYC</a> */}
+                    {/* <a href><i className="fa fa-file" aria-hidden="true" />KYC</a>               */}
                     <a href><i className="fa fa-phone" aria-hidden="true" />Help and support</a>
                     <a href="settings.php"><i className="fa fa-gear" aria-hidden="true" />Setting</a>
                     <a href><i className="fa fa-sign-out" aria-hidden="true" /> Logout</a>

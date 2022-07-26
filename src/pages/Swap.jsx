@@ -1,7 +1,7 @@
 import React from "react";
 import NavigationTabs from "../components/UI/NavigationTabs";
 // import '../assets/css/custom.css';
-import '../assets/css/style.css';
+// import '../assets/css/style.css';
 // import '../assets/css/dash-inner.css';
 // import '../assets/css/nice-select.css';
 import gain1 from '../assets/images/gain1.png';
@@ -42,7 +42,7 @@ const Swap = () => {
                   <div className="row">
                     <div className="col-md-12">
                       <div className="drop-one">
-                        <form>
+                        <form>       
                           <div className="flex-img">
                             <img src={drop1} />
                           </div>
@@ -98,6 +98,6 @@ const Swap = () => {
       </div>
     </section>
   );
-};
+};         
 
 export default Swap;

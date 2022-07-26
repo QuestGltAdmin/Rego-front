@@ -5,7 +5,7 @@ import { loginSaga } from "../store/reducers/authReducer";
 import NavigationTabs from "../components/UI/NavigationTabs";
 import SetAnimationPage from "../HOC/SetAnimationPage";
 // import '../assets/css/custom.css';
-import '../assets/css/style.css';
+// import '../assets/css/style.css';
 // import '../assets/css/dash-inner.css';
 // import '../assets/css/nice-select.css';
 import nft from '../assets/images/nft.jpg';
