@@ -463,7 +463,6 @@ const BuyCrypto = () => {
                               {selectedCoin.name}
                             </span>
                           </div>
-
                           <div className="cta mt-5">
                             <div
                               className="common-btn button w-full bg-blue-500 p-3 text-center rounded font-bold buy-now-button focus:bg-blue-800"

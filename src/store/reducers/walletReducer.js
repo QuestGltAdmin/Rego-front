@@ -16,7 +16,7 @@ const walletSlice = createSlice({
       return {
         ...state,
         loading: true,
-        userWallet: {
+           userWallet: {
           InrwalletObj: [],
           array: [],
         },
@@ -24,7 +24,7 @@ const walletSlice = createSlice({
     },
     getWalletSuccess: (state, action) => {
       // console.log(action.payload)
-      return {
+      return {            
         ...state,
         loading: false,
         errorMsg: "",

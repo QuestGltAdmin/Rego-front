@@ -23,7 +23,7 @@ const KYC = () => {
     fullname: "",
     dob: "",
     document_type: "PAN",
-    pan_number: "",
+    pan_number: "",  
     country: "",
     frontImgFile: null,
     backImgFile: null,

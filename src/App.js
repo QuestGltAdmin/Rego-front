@@ -20,6 +20,7 @@ import P2P from "./pages/P2P";
 import BlogandNews from "./pages/BlogandNews";
 import KYC from "./pages/KYC";
 import Wallet from "./pages/Wallet";
+import SwapCrypto from "./pages/SwapCrypto";
 
 
 const Home = () => {
@@ -160,6 +161,15 @@ function App() {
             element={
               <PrivateRoute>
                 <KYC />
+              </PrivateRoute>
+            }
+          />
+
+<Route                   
+            path="/swapcrypto"
+            element={
+              <PrivateRoute>
+                <SwapCrypto />
               </PrivateRoute>
             }
           />

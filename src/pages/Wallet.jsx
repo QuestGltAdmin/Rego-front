@@ -78,6 +78,8 @@ export default function Wallet() {
       "http://3.128.190.203:3001/users/transfer",
       payload
     );
+
+
     // console.log({ resStatus: res });
     if (res.data.status) {
       dispatch(
@@ -95,7 +97,7 @@ export default function Wallet() {
     }
     setApiLoading(false);
   };
-
+    
   const coinOptions = coins
     .map((item) => {
       return { id: item.id, name: item.name, value: item.name, url: item.url };
