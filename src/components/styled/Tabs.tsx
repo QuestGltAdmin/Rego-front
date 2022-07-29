@@ -133,47 +133,47 @@ export const Input = styled('input', {
 
 
 
-const TabsDemo = () => (
-  <Box css={{}}>
-    <Tabs defaultValue="tab1">
-      <TabsList aria-label="Manage your account">
-        <TabsTrigger value="tab1">Account</TabsTrigger>
-        <TabsTrigger value="tab2">Password</TabsTrigger>
-      </TabsList>
-      <TabsContent value="tab1">
-        <Text>Make changes to your account here. Click save when you're done.</Text>
-        <Fieldset>
-          <Label htmlFor="name">Name</Label>
-          <Input id="name" defaultValue="Pedro Duarte" />
-        </Fieldset>
-        <Fieldset>
-          <Label htmlFor="username">Username</Label>
-          <Input id="username" defaultValue="@peduarte" />
-        </Fieldset>
-        <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
-          <Button variant="green">Save changes</Button>
-        </Flex>
-      </TabsContent>
-      <TabsContent value="tab2">
-        <Text>Change your password here. After saving, you'll be logged out.</Text>
-        <Fieldset>
-          <Label htmlFor="currentPassword">Current password</Label>
-          <Input id="currentPassword" type="password" />
-        </Fieldset>
-        <Fieldset>
-          <Label htmlFor="newPassword">New password</Label>
-          <Input id="newPassword" type="password" />
-        </Fieldset>
-        <Fieldset>
-          <Label htmlFor="confirmPassword">Confirm password</Label>
-          <Input id="confirmPassword" type="password" />
-        </Fieldset>
-        <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
-          <Button variant="green">Change password</Button>
-        </Flex>
-      </TabsContent>
-    </Tabs>
-  </Box>
-);
+// const TabsDemo = () => (
+//   <Box css={{}}>
+//     <Tabs defaultValue="tab1">
+//       <TabsList aria-label="Manage your account">
+//         <TabsTrigger value="tab1">Account</TabsTrigger>
+//         <TabsTrigger value="tab2">Password</TabsTrigger>
+//       </TabsList>
+//       <TabsContent value="tab1">
+//         <Text>Make changes to your account here. Click save when you're done.</Text>
+//         <Fieldset>
+//           <Label htmlFor="name">Name</Label>
+//           <Input id="name" defaultValue="Pedro Duarte" />
+//         </Fieldset>
+//         <Fieldset>
+//           <Label htmlFor="username">Username</Label>
+//           <Input id="username" defaultValue="@peduarte" />
+//         </Fieldset>
+//         <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
+//           <Button variant="green">Save changes</Button>
+//         </Flex>
+//       </TabsContent>
+//       <TabsContent value="tab2">
+//         <Text>Change your password here. After saving, you'll be logged out.</Text>
+//         <Fieldset>
+//           <Label htmlFor="currentPassword">Current password</Label>
+//           <Input id="currentPassword" type="password" />
+//         </Fieldset>
+//         <Fieldset>
+//           <Label htmlFor="newPassword">New password</Label>
+//           <Input id="newPassword" type="password" />
+//         </Fieldset>
+//         <Fieldset>
+//           <Label htmlFor="confirmPassword">Confirm password</Label>
+//           <Input id="confirmPassword" type="password" />
+//         </Fieldset>
+//         <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
+//           <Button variant="green">Change password</Button>
+//         </Flex>
+//       </TabsContent>
+//     </Tabs>
+//   </Box>
+// );
 
-export default TabsDemo;
+// export default TabsDemo;
