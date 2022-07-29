@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion'
+import Redirect from 'components/Redirect'
 
 //Custom Imports
 import HomePage from 'pages/homepage'
@@ -61,6 +62,9 @@ function App() {
             <Route path="wallet" element={<Wallet />} />
             <Route path="settings" element={<Settings />} />
           </Route>
+
+          {/* Wild Card Route */}
+          <Route path="*" element={<Redirect to="/" />} />
 
 
         </Routes>
