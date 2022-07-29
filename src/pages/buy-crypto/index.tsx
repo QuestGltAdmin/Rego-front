@@ -52,10 +52,10 @@ function Index() {
 
   return (
     <>
-      <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4">
 
         {/* Market Chart Box */}
-        <Box className=" p-3 rounded-xl h-max md:col-span-2">
+        <Box className=" p-3 rounded-xl h-max lg:col-span-2">
           <Heading3>Market Rate Chart</Heading3>
           <Box css={{ borderColor: violet.violet8 }} className=" p-3 rounded-xl border">
             <Tabs css={{ flexDirection: "row", width: "100%" }} defaultValue={selectedCoin.value} onValueChange={handleCoinChange} >
@@ -88,12 +88,14 @@ function Index() {
         </Box>
 
         {/* Buy And Sell Box */}
-        <Box className=" p-3 rounded-xl h-max">
+        <Box className=" p-3 rounded-xl h-max min-w-96">
           <Tabs css={{ width: "inherit" }} defaultValue="BUY">
             <TabsList aria-label="Manage your account">
               <TabsTrigger className='' value="BUY">Buy</TabsTrigger>
               <TabsTrigger value="SELL">Sell</TabsTrigger>
             </TabsList>
+
+            {/* Buy Tab Content */}
             <TabsContent value="BUY">
 
               <Text>INR Balance:{" 1000 "} INR</Text>
@@ -147,23 +149,60 @@ function Index() {
 
               <Flex className="flex-col">
 
-              <Heading3 className="self-center mt-3">1 {selectedCoin?.name} = {190000} INR</Heading3>
-              <Flex className="justify-center items-center gap-x-2">
-                <selectedCoin.icon className="text-4xl" />
-                <span className="text-xl font-bold text-blue-600">INR</span>
-                <DoubleArrowRightIcon className="w-10 h-10 text-violet-500" />
-                <selectedCoin.icon className="text-4xl" />
-                <span className="text-xl font-bold text-blue-600">{selectedCoin?.name}</span>
-              </Flex>
+                <Heading3 className="self-center mt-3">1 {selectedCoin?.name} = {190000} INR</Heading3>
+                <Flex className="justify-center items-center gap-x-2">
+                  <selectedCoin.icon className="text-4xl" />
+                  <span className="text-xl font-bold text-blue-600">INR</span>
+                  <DoubleArrowRightIcon className="w-10 h-10 text-violet-500" />
+                  <selectedCoin.icon className="text-4xl" />
+                  <span className="text-xl font-bold text-blue-600">{selectedCoin?.name}</span>
+                </Flex>
               </Flex>
 
               <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
                 <Button variant="green">Buy Now</Button>
               </Flex>
             </TabsContent>
-            <TabsContent value="SELL">
 
-              Sell
+            {/* Sell Tab Content */}
+            <TabsContent value="SELL">
+              <Text>{selectedCoin?.name} Balance:{" 1000 "} {selectedCoin?.name}</Text>
+              <Flex className="items-center justify-between">
+                <Flex className="items-center">
+                  <selectedCoin.icon className="text-4xl mx-4" />
+                  <Text css={{ marginBottom: 0 }}>{selectedCoin?.name}</Text>
+                </Flex>
+                <Input css={{ maxWidth: "10rem" }} type="number" min={0} placeholder={`Enter Amount in ${selectedCoin?.name}`} />
+              </Flex>
+              <Flex className="gap-1 justify-end mt-2">
+                <Button>{"25%"}</Button>
+                <Button>{"50%"}</Button>
+                <Button>{"75%"}</Button>
+                <Button>{"100%"}</Button>
+              </Flex>
+              <hr className="border border-violet-200 my-3" />
+              <Text>I Want : </Text>
+              <Flex className="items-center justify-between">
+                <Flex className="items-center">
+                  <selectedCoin.icon className="text-4xl mx-4" />
+                  <Text css={{ marginBottom: 0 }}>{"INR"}</Text>
+                </Flex>
+                <Input css={{ maxWidth: "10rem" }} type="number" min={0} placeholder={`Enter Amount in INR`} />
+              </Flex>
+
+              <Flex className="flex-col">
+
+                <Heading3 className="self-center mt-3">1 {selectedCoin?.name} = {190000} INR</Heading3>
+                <Flex className="justify-center items-center gap-x-2">
+                  <selectedCoin.icon className="text-4xl" />
+                  <span className="text-xl font-bold text-blue-600">{selectedCoin?.name}</span>
+                  <DoubleArrowRightIcon className="w-10 h-10 text-violet-500" />
+                
+                  <selectedCoin.icon className="text-4xl" />
+                  <span className="text-xl font-bold text-blue-600">INR</span>
+                </Flex>
+              </Flex>
+
               <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
                 <Button variant="red">Sell Now</Button>
               </Flex>
