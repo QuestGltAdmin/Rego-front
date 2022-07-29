@@ -26,6 +26,7 @@ import BlogNews from 'pages/blog-news';
 import Kyc from 'pages/kyc';
 import Wallet from 'pages/wallet'
 import Settings from 'pages/settings'
+import { Test } from 'pages/Test';
 
 function App() {
   return (
@@ -62,6 +63,9 @@ function App() {
             <Route path="wallet" element={<Wallet />} />
             <Route path="settings" element={<Settings />} />
           </Route>
+
+          {/* Testing Route */}
+          <Route path="/test" element={<Test/>} />
 
           {/* Wild Card Route */}
           <Route path="*" element={<Redirect to="/" />} />

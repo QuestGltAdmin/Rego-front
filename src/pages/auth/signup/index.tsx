@@ -1,11 +1,13 @@
 import { Box, Flex, Button, Fieldset, Heading3, Input, Label, Text } from 'components/styled/ui'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {violet} from '@radix-ui/colors';
+
 
 export default function index() {
   return (
     <div className="flex items-center justify-center h-screen">
-    <Box className=" p-3 mx-4 rounded-xl w-full md:w-1/2 lg:w-1/3" >
+    <Box css={{borderColor:violet.violet8}} className=" p-3 mx-4 rounded-xl w-full md:w-1/2 lg:w-1/3 border" >
       <Heading3>Signup</Heading3>
       
         <Text>Welcome to Rego Exachange.</Text>

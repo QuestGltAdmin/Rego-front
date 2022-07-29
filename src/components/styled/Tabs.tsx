@@ -47,7 +47,7 @@ const StyledContent = styled(TabsPrimitive.Content, {
   borderBottomLeftRadius: 6,
   borderBottomRightRadius: 6,
   outline: 'none',
-  '&:focus': { boxShadow: `0 0 0 2px black` },
+  // '&:focus': { boxShadow: `0 0 0 2px black` },
 });
 
 // Exports
