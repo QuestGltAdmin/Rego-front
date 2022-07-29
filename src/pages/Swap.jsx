@@ -83,7 +83,7 @@ const Swap = () => {
   const [coinCharData, setCoinChartData] = useState(null);
   const [isCoinSelected, setIsCoinSelected] = useState(true);
   const [coinRate, setCoinRate] = useState(null);
-  
+       
   const [selectedCoin, setSelectedCoin] = useState(coins[1]);
   const [selectedIWantCoin, setSelectedIWantCoin] = useState(coins[2]);
 
@@ -239,7 +239,7 @@ const Swap = () => {
                             <img src={drop1} />
                             {/* <img src={coins[0].url}/> */}
                           </div>
-                          <input type="number" name="crypto" placeholder="Enter Amount" 
+                          <input type="text" name="crypto" placeholder="Enter Amount" 
                           value={iHaveValue}
                           onChange={(e) =>
                             setBuyTabForm({
@@ -293,7 +293,7 @@ const Swap = () => {
                        
                         <option key={index} value={JSON.stringify(item)}>
                           {item.name}
-                          
+                      
                         </option>
                       );
                     }
@@ -316,7 +316,7 @@ const Swap = () => {
 
 
 
-                          <input type="number" name="cryptoblance" placeholder="Enter Amount"
+                          <input type="text" name="cryptoblance" placeholder="Enter Amount"
                           
                           value={iWantValue}
                                 onChange={(e) =>
@@ -395,6 +395,6 @@ const Swap = () => {
       </div>
     </section>
   );
-};        
+};
 
 export default Swap;

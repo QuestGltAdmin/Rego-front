@@ -151,7 +151,7 @@ const NewDashboardNoNav = () => {
     const fetchData = async () => {
       const res = await axios.post("http://3.128.190.203:3001/users/get-CryptoBalance",{email:user.user.email})
       
-      // console.log(res.data)
+      console.log(res.data)
       setUsers(res.data)
       }
     useEffect(()=>{

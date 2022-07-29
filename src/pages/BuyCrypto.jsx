@@ -121,7 +121,7 @@ const BuyCrypto = () => {
   const getCoinRate = async (coinId = "bitcoin") => {
     const res = await axios.get(
       `https://api.coingecko.com/api/v3/simple/price?ids=${coinId}&vs_currencies=INR`
-    );
+    );                       
     // console.log(res.data[`${coinId}`]);
     setCoinRate(res.data[`${coinId}`]);
   };
