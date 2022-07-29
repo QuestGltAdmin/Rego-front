@@ -1,7 +1,7 @@
 // import { useWindowDimensions } from "lib/hooks/useWindowDimensions";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-// import { WhroolerCardModal } from "./WhroolerCardModal";
+// import { DemoCardModal } from "./DemoCardModal";
 
 export type NftAvatarProps = {
   className?: string;
@@ -23,9 +23,9 @@ export default function NftAvatar(props: NftAvatarProps) {
   const location = useLocation();
 
   const isBlockedUsers =
-    location.pathname === "/blocked-whroolers" ? true : false;
-  const [showWhroolerCardModal, setShowWhroolerCardModal] = useState(false);
-  const [showMobWhroolerCardModal, setShowMobWhroolerCardModal] = useState(false);
+    location.pathname === "/blocked-Demos" ? true : false;
+  const [showDemoCardModal, setShowDemoCardModal] = useState(false);
+  const [showMobDemoCardModal, setShowMobDemoCardModal] = useState(false);
 //   const { width } = useWindowDimensions();
 //   const PhotoUrlPrefix = `${BASE_/PHOTO_URL}/${props?.userId}`
 
@@ -35,7 +35,7 @@ export default function NftAvatar(props: NftAvatarProps) {
       <div className='flex flex-col m-3 bg-white rounded-lg h-72 w-52'>
         <div className='m-2'>
           <div className='w-48 h-48 p-1 rounded-full bg-blue-800 hover:shadow-2xl hover:shadow-clr1'>
-            <img className="object-cover w-full h-full rounded-full" src={props.imageSrc} alt="Whrooler Avatar" />
+            <img className="object-cover w-full h-full rounded-full" src={props.imageSrc} alt="Demo Avatar" />
           </div>
           <div className='flex flex-col pt-3'>
           <div>
@@ -66,14 +66,14 @@ export default function NftAvatar(props: NftAvatarProps) {
       <div
         className="w-full h-full p-1 bg-blue-800 rounded-2xl hover:shadow-2xl hover:shadow-clr1"
         onClick={() => {
-          setShowWhroolerCardModal(true)
+          setShowDemoCardModal(true)
         }}
       >
         <img
           className="object-cover w-full h-full rounded-2xl"
           src={ 
             props?.imageSrc}
-          alt="Whrooler Avatar"
+          alt="Demo Avatar"
         />
       </div>
       <div className="flex items-center px-2">
@@ -93,10 +93,10 @@ export default function NftAvatar(props: NftAvatarProps) {
           <span className="text-gray-500 font-light text-base">{"($400.56)"}</span>
         </div>
       </div>
-      {showWhroolerCardModal && !isBlockedUsers && (
-        // <WhroolerCardModal
+      {showDemoCardModal && !isBlockedUsers && (
+        // <DemoCardModal
         //   userId={props.userId}
-        //   onClose={() => setShowWhroolerCardModal(false)}
+        //   onClose={() => setShowDemoCardModal(false)}
         // />
         <></>
       )}
