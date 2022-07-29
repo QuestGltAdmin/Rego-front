@@ -1,0 +1,37 @@
+import React, { ReactElement, ReactNode } from "react";
+// import AnimatedPage from "../components/Animation/AnimatedPage";
+import { motion } from 'framer-motion'
+
+
+const animations = {
+    initial: { opacity: 0, x: 100 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -100 },
+};
+
+const AnimatedPage = ({ children }: any) => {
+    return (
+        <motion.div
+            variants={animations}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.5, easings: ["easeIn"] }}
+        >
+            {children}
+        </motion.div>
+    );
+};
+
+const AnimatePage = (Component: any) => {
+    function wrappedComponent(props: any) {
+        return (
+            <AnimatedPage>
+                <Component {...props} />
+            </AnimatedPage>
+        );
+    }
+    return wrappedComponent;
+};
+
+export default AnimatePage;
