@@ -6,7 +6,10 @@ import ErrorBoundary from 'lib/ErrorBoundary';
 import Logo from './Logo';
 import Dropdown, { DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from 'components/ui/Dropdown';
 import Avatar from './ui/Avatar';
-import {blue, indigo, violet} from '@radix-ui/colors'
+import { blue, indigo, violet } from '@radix-ui/colors'
+import { logout } from '../store/reducers/authReducer.js'
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 function useRedirectToLoginIfUnauthenticated(isPublic = false) {
 	//Logic Here
@@ -126,7 +129,7 @@ const Layout = (props: LayoutProps) => {
 				{/* <div className='flex h-14'>Header</div> */}
 				<div className="z-10 fixed w-full px-4 md:px-6 lg:px-10">
 
-					
+
 					<nav className="flex max-h-13 items-center mt-2 justify-between bg-white">
 						<Link to="/dashboard" className=''>
 							<Logo />
@@ -187,9 +190,9 @@ const Layout = (props: LayoutProps) => {
 
 
 					</nav>
-					</div>
+				</div>
 				<main
-					style={{backgroundColor:violet.violet5}} 
+					style={{ backgroundColor: violet.violet5 }}
 					className={classNames(
 						"relative container rounded-xl mx-auto backdrop-blur-lg z-0 flex-1 mt-28 md:mt-32 lg:mt-36 py-2 overflow-y-auto scroll-smooth  focus:outline-none px-2 ",
 						// status === "authenticated" && "max-w-[2560px] ",
@@ -197,11 +200,11 @@ const Layout = (props: LayoutProps) => {
 					)}>
 					{/* show top navigation for md and smaller (tablet and phones) */}
 					{/* {status === "authenticated" && ( */}
-					
+
 					{/* )} */}
 					<div
 						className={classNames(
-							
+
 							props.centered && " mx-auto md:max-w-5xl ",
 							props.flexChildrenContainer && " flex flex-1 flex-col ",
 							// !props.large && "py-8"
@@ -247,7 +250,7 @@ const Layout = (props: LayoutProps) => {
 						<div
 							className={classNames(
 								// "px-4 sm:px-6 md:px-8",
-								
+
 								props.flexChildrenContainer && "flex flex-1 flex-col"
 							)}>
 							<ErrorBoundary>{!props.isLoading ? <Outlet /> : props.customLoader}</ErrorBoundary>
@@ -277,12 +280,22 @@ export default function Cocoon({ }: CocoonProps) {
 function UserDropdown({ small }: { small?: boolean }) {
 
 	const navigate = useNavigate();
-
+	const dispatch = useDispatch();
 
 	const signOut = async ({ callbackUrl }: { callbackUrl: string }) => {
 		try {
-			alert("add server logout api✅");
+			// alert("add server logout api✅");
+			toast.success("Logout Successful", {
+				position: "top-center",
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: false,
+				draggable: true,
+				progress: undefined,
+			});
 			localStorage.removeItem("accessToken");
+			dispatch(logout());
 			navigate(callbackUrl);
 		} catch (err: any) {
 			localStorage.removeItem("accessToken");
@@ -446,7 +459,7 @@ function UserDropdown({ small }: { small?: boolean }) {
 				{/* <DropdownMenuSeparator className="h-px bg-gray-200" /> */}
 				<DropdownMenuItem className="rounded-b-xl group">
 					<p
-						onClick={() => signOut({ callbackUrl: "/" })}
+						onClick={() => signOut({ callbackUrl: "/auth/login" })}
 						className="flex px-4 items-center gap-x-2 py-2 text-lg cursor-pointer hover:rounded-b-lg hover:bg-white hover:text-clr1 hover:font-semibold"
 					>
 						<AiOutlineLogout

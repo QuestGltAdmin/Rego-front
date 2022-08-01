@@ -1,13 +1,24 @@
 import { Box, Button, Flex, Heading2, Heading4, Input, Text } from 'components/styled/ui';
 import AnimatePage from 'HOCs/Animate';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SVGComponent } from 'lib/types/SVGComponent';
 import { violet } from '@radix-ui/colors'
 import { AiFillAccountBook, AiFillAlert, AiFillAlipayCircle } from 'react-icons/ai';
 import { Select, SelectContent, SelectIcon, SelectItem, SelectItemIndicator, SelectItemText, SelectTrigger, SelectValue, SelectViewport } from 'components/styled/Select';
 import { CheckIcon, ChevronDownIcon } from '@radix-ui/react-icons';
+import axiosMain from 'lib/http/axios';
 
-function Index() {
+function Swap() {
+  const [nfts, setNfts] = useState<any[]>([])
+
+  const fetchData = async () => {
+    const res = await axiosMain.get('users/Swap')
+    console.log(res)
+    // setNfts(res)
+  }
+  useEffect(() => {
+    fetchData();
+  }, [])
 
   const [fromCoin, setFromCoin] = useState<{ name: string, ticker: string, icon: SVGComponent, value: string }>({
     name: "Bitcoin",
@@ -129,4 +140,4 @@ function Index() {
   )
 }
 
-export default AnimatePage(Index);
+export default AnimatePage(Swap);

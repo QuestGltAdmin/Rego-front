@@ -27,10 +27,13 @@ import Kyc from 'pages/kyc';
 import Wallet from 'pages/wallet'
 import Settings from 'pages/settings'
 import { Test } from 'pages/Test';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";  
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <AnimatePresence exitBeforeEnter>
         <Routes>
           {/* Public Routes */}

@@ -5,7 +5,7 @@ import { blue, violet } from '@radix-ui/colors';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginSaga } from 'store/reducers/authReducer';
-
+import { toast } from 'react-toastify';
 
 type FormValues = {
   email: string;
@@ -30,6 +30,7 @@ export default function Index() {
     console.log(data);
     dispatch(loginSaga({
       formData: data,
+      toast,
     }))
   }
 

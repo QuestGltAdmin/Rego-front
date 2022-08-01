@@ -6,30 +6,31 @@ import { useLocation, useNavigate } from "react-router-dom";
 export type NftAvatarProps = {
   className?: string;
   size?: number;
-  imageSrc: string;
+  imageSrc?: string;
   title?: string;
   alt?: string;
   gravatarFallbackMd5?: string;
   name: string;
-  username?:string;
+  username?: string;
   userId?: string;
-  type?:number;
+  type?: number;
+  price?: number;
 };
 
 export default function NftAvatar(props: NftAvatarProps) {
 
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const isBlockedUsers =
     location.pathname === "/blocked-Demos" ? true : false;
   const [showDemoCardModal, setShowDemoCardModal] = useState(false);
   const [showMobDemoCardModal, setShowMobDemoCardModal] = useState(false);
-//   const { width } = useWindowDimensions();
-//   const PhotoUrlPrefix = `${BASE_/PHOTO_URL}/${props?.userId}`
+  //   const { width } = useWindowDimensions();
+  //   const PhotoUrlPrefix = `${BASE_/PHOTO_URL}/${props?.userId}`
 
-  if(props.type==1){
+  if (props.type == 1) {
 
     return (
       <div className='flex flex-col m-3 bg-white rounded-lg h-72 w-52'>
@@ -38,17 +39,17 @@ export default function NftAvatar(props: NftAvatarProps) {
             <img className="object-cover w-full h-full rounded-full" src={props.imageSrc} alt="Demo Avatar" />
           </div>
           <div className='flex flex-col pt-3'>
-          <div>
-          <h1 className="text-lg font-semibold text-center text-blue-800 lg:text-xl">
-            {props.name}
-          </h1>
-        </div>
-        <div className="flex justify-center items-center gap-x-2">
-          <h1 className="font-light text-center text-gray-500 lg:text-lg">
-            {"28.00 BNB"}
-          </h1>
-          <span className="text-gray-500 font-light text-base">{"($400.56)"}</span>
-        </div>
+            <div>
+              <h1 className="text-lg font-semibold text-center text-blue-800 lg:text-xl">
+                {props.name}
+              </h1>
+            </div>
+            <div className="flex justify-center items-center gap-x-2">
+              <h1 className="font-light text-center text-gray-500 lg:text-lg">
+                {"28.00 BNB"}
+              </h1>
+              <span className="text-gray-500 font-light text-base">{"($400.56)"}</span>
+            </div>
           </div>
         </div>
 
@@ -57,7 +58,7 @@ export default function NftAvatar(props: NftAvatarProps) {
 
   }
 
-  
+
 
   return (
     // <div className='flex flex-col w-5/12 h-auto rounded-lg sm:w-4/12 md:w-3/12 lg:w-2/12'>
@@ -71,14 +72,14 @@ export default function NftAvatar(props: NftAvatarProps) {
       >
         <img
           className="object-cover w-full h-full rounded-2xl"
-          src={ 
-            props?.imageSrc}
+          src={
+            (props?.imageSrc)}
           alt="Demo Avatar"
         />
       </div>
       <div className="flex items-center px-2">
-        <img className=" h-7 w-7" src="/images/profile.png" />
-        <h1 className="ml-3 font-normal text-center text-gray-500 lg:text-lg">{props?.username||"Clanty"}</h1>
+        <img className=" h-7 w-7" src={props?.imageSrc} alt="" />
+        <h1 className="ml-3 font-normal text-center text-gray-500 lg:text-lg">{props?.username || "Clanty"}</h1>
       </div>
       <div className="flex flex-col">
         <div>
@@ -90,7 +91,7 @@ export default function NftAvatar(props: NftAvatarProps) {
           <h1 className="font-light text-center text-gray-500 lg:text-lg">
             {"28.00 BNB"}
           </h1>
-          <span className="text-gray-500 font-light text-base">{"($400.56)"}</span>
+          <span className="text-gray-500 font-light text-base">{`(${'$'}${props.price})`}</span>
         </div>
       </div>
       {showDemoCardModal && !isBlockedUsers && (
