@@ -11,7 +11,7 @@ function index() {
           hello
         </Box>
         <Box css={{}} className="p-3 h-max rounded-xl">
-          <Tabs css={{width:"inherit"}} defaultValue="DEPOSIT">
+          <Tabs css={{width:"inherit"}} className="flex-col" defaultValue="DEPOSIT">
             <TabsList aria-label="Manage your account">
               <TabsTrigger className='' value="DEPOSIT">Deposit</TabsTrigger>
               <TabsTrigger value="SEND">Send</TabsTrigger>

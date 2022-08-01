@@ -53,7 +53,7 @@ function Index() {
   }
 
   return (
-    <Box className=" p-3 md:w-5/6 lg:w-4/6 xl:w-3/6  mx-auto rounded-xl">
+    <Box css={{borderColor:violet.violet8}} className=" p-3 md:w-5/6 lg:w-4/6 xl:w-3/6 border  mx-auto rounded-xl">
       <Heading4 css={{ marginBottom: 2 }} className="text-center">Bitshares to Tether Price</Heading4>
       <Heading2 className="text-center" >BTS To USDT Converter</Heading2>
       <Flex className="justify-between px-4">
@@ -67,7 +67,7 @@ function Index() {
         </Flex>
       </Flex>
 
-      <Flex className="flex-col 2xl:flex-row items-center 2xl:justify-between gap-4">
+      <Flex className="flex-col items-center gap-4">
         <Box css={{ borderColor: violet.violet8 }} className="p-3 w-fit rounded-xl border">
           <Flex className="items-center gap-2">
             <fromCoin.icon className="w-10 h-10" />

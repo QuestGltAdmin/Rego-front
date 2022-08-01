@@ -6,6 +6,7 @@ import ErrorBoundary from 'lib/ErrorBoundary';
 import Logo from './Logo';
 import Dropdown, { DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from 'components/ui/Dropdown';
 import Avatar from './ui/Avatar';
+import {blue, indigo, violet} from '@radix-ui/colors'
 
 function useRedirectToLoginIfUnauthenticated(isPublic = false) {
 	//Logic Here
@@ -188,9 +189,10 @@ const Layout = (props: LayoutProps) => {
 					</nav>
 					</div>
 				<main
+					style={{backgroundColor:violet.violet5}} 
 					className={classNames(
-						"relative backdrop-blur-lg z-0 flex-1 mt-28 md:mt-32 lg:mt-36 py-2 overflow-y-auto scroll-smooth  focus:outline-none px-4 md:px-6 lg:px-10 ",
-						status === "authenticated" && "max-w-[2560px] ",
+						"relative container rounded-xl mx-auto backdrop-blur-lg z-0 flex-1 mt-28 md:mt-32 lg:mt-36 py-2 overflow-y-auto scroll-smooth  focus:outline-none px-2 ",
+						// status === "authenticated" && "max-w-[2560px] ",
 						props.flexChildrenContainer && "flex flex-col "
 					)}>
 					{/* show top navigation for md and smaller (tablet and phones) */}

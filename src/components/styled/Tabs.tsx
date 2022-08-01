@@ -5,8 +5,8 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 const StyledTabs = styled(TabsPrimitive.Root, {
   display: 'flex',
-  flexDirection: 'column',
-  width: 300,
+  // flexDirection: 'column',
+  // width: 300,
   boxShadow: `0 2px 10px ${blackA.blackA4}`,
 });
 
