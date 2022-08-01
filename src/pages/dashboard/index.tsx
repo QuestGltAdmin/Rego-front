@@ -1,6 +1,6 @@
 import AnimatePage from 'HOCs/Animate'
 import React, { useEffect, useState } from 'react'
-import { Box, Flex, Text, Label, Fieldset, Input, Button, Heading3 } from 'components/styled/ui'
+import { Box, Flex, Text, Label, Fieldset, Input, Button, Heading3, Heading4 } from 'components/styled/ui'
 import { Tabs, TabsList, TabsContent, TabsTrigger } from 'components/styled/Tabs'
 import classNames from 'lib/classNames'
 import { violet } from '@radix-ui/colors';
@@ -100,17 +100,23 @@ function Index() {
                   <TabsTrigger value="LOSERS">Top Losers</TabsTrigger>
                 </TabsList>
                 <TabsContent value="GAINERS">
-                  <Text>Make changes to your account here. Click save when you're done.</Text>
-                  <Fieldset>
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" defaultValue="Pedro Duarte" />
-                  </Fieldset>
-                  <Fieldset>
-                    <Label htmlFor="username">Username</Label>
-                    <Input id="username" defaultValue="@peduarte" />
-                  </Fieldset>
-                  <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
-                    <Button variant="green">Save changes</Button>
+                  <Flex className="flex-col gap-3 max-h-80 overflow-y-auto">
+
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => {
+                      return (
+                        <Flex key={item} className="items-center justify-between">
+                          <Flex className="items-center gap-2">
+                            <img src={item % 2 === 0 ? "/images/nft.jpg" : "/images/nft.png"} className="h-12 w-12 rounded-full" />
+                            <span>
+                              <h1>Bitcoin</h1>
+                              <p>BTC</p>
+                            </span>
+                          </Flex>
+                          <Flex>
+                            data
+                          </Flex>
+                        </Flex>)
+                    })}
                   </Flex>
                 </TabsContent>
                 <TabsContent value="LOSERS">
@@ -141,7 +147,7 @@ function Index() {
           <Flex className="flex-col">
             <Heading3>NFTs</Heading3>
             <Box css={{ borderColor: violet.violet5 }} className="border p-1 rounded-md">
-              <Flex className="flex-col md:flex-row xl:flex-col overflow-y-auto xl:max-h-96">
+              <Flex className="flex-col md:flex-row xl:flex-col overflow-y-auto xl:max-h-96 gap-2">
 
                 {/* Swiper */}
                 <Box className="md:w-1/2 xl:w-full pr-3 ">
@@ -150,7 +156,7 @@ function Index() {
                     className="max-w-full"
                     modules={[Navigation]}
                     spaceBetween={2}
-                    slidesPerView={1}
+                    slidesPerView={2}
                     direction="horizontal"
                     navigation
                     autoplay={true}
@@ -166,6 +172,20 @@ function Index() {
                     </SwiperSlide>
                   </Swiper>
                 </Box>
+                <Flex className=" flex-col md:w-1/2 xl:w-full p-2 gap-2 pr-3">
+                  <Flex className="p-2 gap-2 border border-violet-400">
+                    <img src="/images/nft.png" className="w-12 h-12 rounded-full" />
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                  </Flex>
+                  <Flex className="p-2 gap-2 border border-violet-400">
+                    <img src="/images/nft.jpg" className="w-12 h-12 rounded-full" />
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                  </Flex>
+                  <Flex className="p-2 gap-2 border border-violet-400">
+                    <img src="/images/nft.jpg" className="w-12 h-12 rounded-full" />
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                  </Flex>
+                </Flex>
 
 
                 {/* Flex Col to contain cards */}
