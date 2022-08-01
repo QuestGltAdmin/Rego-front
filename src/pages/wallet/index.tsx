@@ -1,14 +1,65 @@
 import { Fieldset, Input, Label, Tabs, TabsContent, TabsList, TabsTrigger } from 'components/styled/Tabs';
 import AnimatePage from 'HOCs/Animate';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { violet } from '@radix-ui/colors';
 import { upperCase } from 'lodash';
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
 import { Box, Text, Flex, Button } from 'components/styled/ui';
 import { coins as AllCoins,INR } from 'assets/coins/coins';
+import { getWalletSaga, updateWalletBalance } from 'store/reducers/walletReducer';
 
 function Index() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state:any)=>state.auth);
+  const { InrwalletObj, array: cryptowalletObj } = useSelector((state:any) => state.wallet.userWallet);
 
-  const [coins, setCoins] = useState(AllCoins)
+
+  const [coins, setCoins] = useState(AllCoins);
+
+  //Selected Coin State
+  const [selectedCoin, setSelectedCoin] = useState();
+
+
+  // useEffect(()=>{
+  //   if(user?.user?.email){
+  //     getWalletData()
+  //   }
+  // },[])
+
+
+  //Dispatch Saga to get wallet Data
+  const getWalletData = () => {
+    try {
+      const payload = { email:user?.user?.email};
+      dispatch(getWalletSaga(payload));
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
+  //Send Handler
+  const sendHandler = () => {
+    try {
+      
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  //Deposit Handler
+  const depositHandler = () => {
+    try {
+      
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  console.log(user, cryptowalletObj)
+
   return (
     <>
       <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4">
@@ -39,7 +90,7 @@ function Index() {
                       </div>
                     </th>
                     <td>
-                      <p>1654647</p>
+                      <p>{user?.balance ?? "Updating Balance...."}</p>
                     </td>
                     <td>
                       <div className="flex justify-between p-1">
@@ -56,40 +107,40 @@ function Index() {
               <thead>
                 <tr style={{ padding: 25 }} className='bg-violet-500'>
                   <th style={{ width: "20%" }} className="text-start" scope="col">Asset Type</th>
-                  <th style={{ width: "20%" }} className="text-start" scope="col">Total Balance</th>
-                  <th style={{ width: "20%" }} className="text-start" scope="col">Asset Value</th>
-                  <th style={{ width: "20%" }} className="text-start" scope="col">Interest Earned</th>
-                  <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th>
+                  <th style={{ width: "30%" }} className="text-start" scope="col">Total Balance</th>
+                  <th style={{ width: "25%" }} className="text-start" scope="col">Asset Value</th>
+                  <th style={{ width: "25%" }} className="text-start" scope="col">Interest Earned</th>
+                  {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
                 </tr>
               </thead>
               <tbody>
-                {coins?.map((item: any) => (
+                {user?.cryptoWallet?.map((item: any) => (
                   <tr
-                    key={item?.id}
+                    key={item?._id}
                     // value={item.value}
 
                     className="hover:bg-violet-100 h-16"
                   >
                     <th scope="row">
                       <div className="flex gap-2 items-center">
-                        <img src={item?.url} />
-                        <p>{upperCase(item?.name)}</p>
+                        <img src={item?.image} />
+                        <p>{upperCase(item?.crypt_name)}</p>
                       </div>
                     </th>
                     <td>
-                      <p>16.98%</p>
+                      <p>{item?.balance}</p>
                     </td>
                     <td>
                       <p>0.006</p>
                     </td>
                     <td>
-                      <p>0.1 BTC</p>
+                      <p>{item?.interest_earned}</p>
                     </td>
-                    <td>
+                    {/* <td>
                       <div className="flex justify-between p-1">
                         <Button variant="green">Buy More</Button>
                       </div>
-                    </td>
+                    </td> */}
                   </tr>
                 ))}
               </tbody>
