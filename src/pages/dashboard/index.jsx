@@ -15,8 +15,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 function Index() {
-  const { user } = useSelector((state: any) => state.auth)
-  const [coinsBalance, setCoinsBalance] = useState<any[]>([]);
+  const { user } = useSelector((state) => state.auth)
+  const [coinsBalance, setCoinsBalance] = useState([]);
 
   useEffect(() => {
     // console.log(user)

@@ -4,29 +4,29 @@ import { AnimatePresence } from 'framer-motion'
 import Redirect from 'components/Redirect'
 
 //Custom Imports
-import HomePage from 'pages/homepage'
-import LoginPage from 'pages/auth/login';
-import SignupPage from 'pages/auth/signup';
-import PrivacyPolicyPage from 'pages/privacy-policy';
-import TermsAndConditionsPage from 'pages/terms-and-conditions';
-import HelpAndSupport from 'pages/support'
+import HomePage from './pages/homepage';
+import LoginPage from './pages/auth/login';
+import SignupPage from './pages/auth/signup';
+import PrivacyPolicyPage from './pages/privacy-policy';
+import TermsAndConditionsPage from './pages/terms-and-conditions';
+import HelpAndSupport from './pages/support'
 
 //Protected Pages
 import UserCocoon from 'components/Cocoon';
-import Dashboard from 'pages/dashboard';
-import History from 'pages/history';
-import BuyCrypto from 'pages/buy-crypto';
-import NFT from 'pages/nft'
-import Swap from 'pages/swap';
-import FixedDeposit from 'pages/fixed-deposit';
-import BasketSip from 'pages/basket-sip';
-import ProTrading from 'pages/pro-trading';
-import P2P from 'pages/p2p';
-import BlogNews from 'pages/blog-news';
-import Kyc from 'pages/kyc';
-import Wallet from 'pages/wallet'
-import Settings from 'pages/settings'
-import { Test } from 'pages/Test';
+import Dashboard from './pages/dashboard';
+import History from './pages/history';
+import BuyCrypto from './pages/buy-crypto';
+import NFT from './pages/nft'
+import Swap from './pages/swap';
+import FixedDeposit from './pages/fixed-deposit';
+import BasketSip from './pages/basket-sip';
+import ProTrading from '././pages/pro-trading';
+import P2P from './pages/p2p';
+import BlogNews from './pages/blog-news';
+import Kyc from './pages/kyc';
+import Wallet from './pages/wallet';
+import Settings from './pages/settings'
+import { Test } from './pages/Test';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";  
 

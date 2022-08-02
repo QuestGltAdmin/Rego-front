@@ -6,14 +6,14 @@ import { upperCase } from 'lodash';
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Text, Flex, Button } from 'components/styled/ui';
-import { coins as AllCoins,INR } from 'assets/coins/coins';
+import { coins as AllCoins, INR } from 'assets/coins/coins';
 import { getWalletSaga, updateWalletBalance } from 'store/reducers/walletReducer';
 
 function Index() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state:any)=>state.auth);
-  const { InrwalletObj, array: cryptowalletObj } = useSelector((state:any) => state.wallet.userWallet);
+  const { user } = useSelector((state) => state.auth);
+  const { InrwalletObj, array: cryptowalletObj } = useSelector((state) => state.wallet.userWallet);
 
 
   const [coins, setCoins] = useState(AllCoins);
@@ -32,7 +32,7 @@ function Index() {
   //Dispatch Saga to get wallet Data
   const getWalletData = () => {
     try {
-      const payload = { email:user?.user?.email};
+      const payload = { email: user?.user?.email };
       dispatch(getWalletSaga(payload));
     } catch (err) {
       console.log(err);
@@ -43,7 +43,7 @@ function Index() {
   //Send Handler
   const sendHandler = () => {
     try {
-      
+
     } catch (err) {
       console.log(err)
     }
@@ -52,19 +52,19 @@ function Index() {
   //Deposit Handler
   const depositHandler = () => {
     try {
-      
+
     } catch (err) {
       console.log(err);
     }
   }
 
-  console.log(user, cryptowalletObj)
+  // console.log(user, cryptowalletObj)
 
   return (
     <>
       <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4">
         <Box className='p-3 rounded-xl lg:col-span-2 h-max'>
-        <Box css={{ borderColor: violet.violet8 }} className="p-2 mb-2 rounded-xl border">
+          <Box css={{ borderColor: violet.violet8 }} className="p-2 mb-2 rounded-xl border">
             <table className="w-full">
               <thead>
                 <tr style={{ padding: 25 }} className='bg-violet-500'>
@@ -76,29 +76,29 @@ function Index() {
                 </tr>
               </thead>
               <tbody>
-            
-                  <tr
-                    // key={item?.id}
-                    // value={item.value}
 
-                    className="hover:bg-violet-100 h-16"
-                  >
-                    <th scope="row">
-                      <div className="flex gap-2 items-center">
-                        <img src={INR?.url} />
-                        <p>{upperCase(INR?.name)}</p>
-                      </div>
-                    </th>
-                    <td>
-                      <p>{user?.balance ?? "Updating Balance...."}</p>
-                    </td>
-                    <td>
-                      <div className="flex justify-between p-1">
-                        <Button variant="green">Buy More</Button>
-                      </div>
-                    </td>
-                  </tr>
-              
+                <tr
+                  // key={item?.id}
+                  // value={item.value}
+
+                  className="hover:bg-violet-100 h-16"
+                >
+                  <th scope="row">
+                    <div className="flex gap-2 items-center">
+                      <img src={INR?.url} />
+                      <p>{upperCase(INR?.name)}</p>
+                    </div>
+                  </th>
+                  <td>
+                    <p>{user?.balance ?? "Updating Balance...."}</p>
+                  </td>
+                  <td>
+                    <div className="flex justify-between p-1">
+                      <Button variant="green">Buy More</Button>
+                    </div>
+                  </td>
+                </tr>
+
               </tbody>
             </table>
           </Box>
@@ -114,7 +114,7 @@ function Index() {
                 </tr>
               </thead>
               <tbody>
-                {user?.cryptoWallet?.map((item: any) => (
+                {user?.cryptoWallet?.map((item) => (
                   <tr
                     key={item?._id}
                     // value={item.value}
