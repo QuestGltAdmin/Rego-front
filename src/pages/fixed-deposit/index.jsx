@@ -15,6 +15,7 @@ function Index() {
 
 
   const coinChangeHandler = (e) => {
+    console.log(e)
     const newCoin = coins.filter((coin)=>coin.name===e)
     setSelectedCoin(newCoin[0]);
   }
