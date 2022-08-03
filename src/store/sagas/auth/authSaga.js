@@ -21,7 +21,7 @@ export function* loginSaga(action) {
     const response = yield axios.post(`/users/login`, formData);
     console.log(response.data.status);
     if (response.data.status) {
-      yield put(loginSuccess(response.data.data));
+      yield put(loginSuccess(response.data));
       if (toast) {
         toast.success("Login Successful", {
           position: "top-center",

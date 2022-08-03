@@ -30,11 +30,14 @@ const authSlice = createSlice({
 
     loginSuccess: (state, action) => {
       console.log(action.payload);
+      localStorage.setItem('authToken', action.payload.token)
+      localStorage.setItem('user', JSON.stringify(action.payload.data.user))
       return {
         ...state,
         isLoading: false,
         isAuthenticated: true,
-        user: action.payload,
+        user: action.payload.data.user,
+        authToken: action.payload.token,
         errorMsg: "",
       };
     },
