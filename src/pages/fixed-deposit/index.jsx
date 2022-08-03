@@ -23,7 +23,7 @@ function Index() {
     <>
       <div className="flex lg:grid lg:grid-cols-3 gap-2">
         <Flex css={{ borderColor: violet.violet8 }} className=" flex-col p-2 rounded-xl border">
-          <Text>Create Deposit</Text>
+          <Text>Create Fixed Deposit</Text>
           <Flex className="items-center justify-between">
             <Select value={selectedCoin?.name} onValueChange={(e) => coinChangeHandler(e)}>
               <SelectTrigger>
@@ -44,12 +44,11 @@ function Index() {
                 </SelectViewport>
               </SelectContent>
             </Select>
-            <Input css={{ maxWidth: "12rem" }} type="number" value={amount} onChange={(e) => setAmount(e.target.valueAsNumber)} />
+            <Input css={{ maxWidth: "12rem" }} type="number" min={0} value={amount} onChange={(e) => setAmount(e.target.valueAsNumber)} />
           </Flex>
           <Flex css={{ marginTop: 20 }} className="justify-between items-center">
             <Text css={{marginBottom:0}}>Duration:</Text>
             <Flex className="gap-1">
-
             <Button>30</Button>
             <Button>40</Button>
             <Button>50</Button>
