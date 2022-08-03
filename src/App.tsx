@@ -18,7 +18,7 @@ import History from './pages/history';
 import BuyCrypto from './pages/buy-crypto';
 import NFT from './pages/nft'
 import Swap from './pages/swap';
-import FixedDeposit from './pages/fixed-deposit';
+// import FixedDeposit from './pages/fixed-deposit';
 import BasketSip from './pages/basket-sip';
 import ProTrading from '././pages/pro-trading';
 import P2P from './pages/p2p';
@@ -29,6 +29,7 @@ import Settings from './pages/settings'
 import { Test } from './pages/Test';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";  
+import FixedDeposit from 'pages/fixed-deposit';
 
 function App() {
   return (

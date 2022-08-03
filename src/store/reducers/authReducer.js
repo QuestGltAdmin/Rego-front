@@ -1,26 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const user = localStorage.getItem('user');
+const authToken = localStorage.getItem('authToken');
 const authSlice = createSlice({
   name: "auth",
   initialState: {
     isLoading: false,
     kycStatus: false,
     walletAddress: "",
-    user: {},
-    authToken: "",
+    user: !!user ? JSON.parse(user) : {},
+    authToken: !!authToken ? authToken : "",
     isAuthenticated: false,
     errorMsg: "",
     isRegistered: false,
   },
   reducers: {
-    loginSaga: (state,action) => {
+    loginSaga: (state, action) => {
       return { ...state };
     },
 
     googleLoginSaga: (state, action) => {
       return { ...state };
     },
-    
+
     loginStart: (state) => {
       return {
         ...state,
@@ -51,7 +52,8 @@ const authSlice = createSlice({
       };
     },
     logout: (state) => {
-      localStorage.removeItem("persist:root");
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("user");
       console.log("came in logout reducer");
       window.localStorage.clear();
 
@@ -90,12 +92,12 @@ const authSlice = createSlice({
           Number(state.user.cryptoWallet[index].balance) - Number(balance);
       }
       // console.log("daaaaaa", state.user.cryptoWallet[index].balance);
-      console.log(typeof(index));
+      console.log(typeof (index));
       return state;
     },
 
     singupSaga: (state, action) => {
-      return { ...state };        
+      return { ...state };
     },
 
     singupStart: (state, action) => {
@@ -123,7 +125,7 @@ const authSlice = createSlice({
     //   state.value = { user: {}, isAuthenticated: false };
     // },
   },
-}); 
+});
 export const {
   loginSaga,
   loginStart,

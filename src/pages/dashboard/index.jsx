@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsContent, TabsTrigger } from 'components/styled/Tabs
 import classNames from 'lib/classNames'
 import { violet } from '@radix-ui/colors';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -13,30 +13,52 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 //Swiper CSS
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { getWalletSaga } from 'store/reducers/walletReducer'
+import { Link } from 'react-router-dom'
 
 function Index() {
   const { user } = useSelector((state) => state.auth)
   const [coinsBalance, setCoinsBalance] = useState([]);
+  const { InrwalletObj,
+    array: cryptowalletObj
+  } = useSelector((state) => state.wallet.userWallet);
+  const { loading, errorMsg } = useSelector((state) => state.wallet);
 
+  const dispatch = useDispatch();
   useEffect(() => {
     // console.log(user)
-    getCoinsBalance();
-  }, [user])
+    if (user.email) {
+      getCoinsBalance();
+    }
+  }, [])
 
   const getCoinsBalance = async () => {
-    try {
-      const url = "http://3.128.190.203:3001/users/get-CryptoBalance";
-      const payload = { email: user?.user?.email }
-      // console.log(url,payload)
-      const res = await axios.post(url, payload)
-      console.log(res?.data?.obj);
-      setCoinsBalance(res?.data?.obj?.array);
-      //Update user wallet state also using dispatch
-    } catch (err) {
-      console.log(err)
-    }
-  }
+    console.log(user);
+    const payload = { email: user.email }
+    dispatch(getWalletSaga(payload));
 
+    // try {
+    //   const url = "http://3.128.190.203:3001/users/get-CryptoBalance";
+    //   const payload = { email: user?.email }
+    //   // console.log(url,payload)
+    //   const res = await axios.post(url, payload)
+    //   console.log(res?.data?.obj?.array);
+    //   setCoinsBalance(res?.data?.obj?.array);
+    //   //Update user wallet state also using dispatch
+    // } catch (err) {
+    //   console.log(err)
+    // }
+  }
+  const [nfts, setNfts] = useState([])
+
+  const fetchData = async () => {
+    const res = await axios.post(`http://nft.regoex.com:3001/users/content/`)
+    console.log(res.data.data.content)
+    setNfts(res.data.data.content)
+  }
+  useEffect(() => {
+    fetchData();
+  }, [])
   return (
     <div>
       <div className="flex flex-col md:grid md:grid-cols-2 xl:grid-cols-3 gap-2">
@@ -73,12 +95,17 @@ function Index() {
                   </tr>
                 </thead>
                 <tbody>
-                  {coinsBalance && coinsBalance.length > 0 && coinsBalance?.map(coin => (
-                    <tr className="" key={coin?._id}>
-                      <td className=""><div className="flex"><img src={coin?.image} /> {coin?.crypt_name}</div></td>
-                      <td><div className=""><i className="fa fa-rupee-sign" /> {coin?.balance}</div></td>
-                    </tr>
-                  ))}
+                  {cryptowalletObj?.length > 0 &&
+                    cryptowalletObj?.map((item, index) => {
+                      if (!loading)
+                        return (
+
+                          <tr className="" key={item?._id}>
+                            <td className=""><div className="flex"><img src={item?.image} /> {item?.crypt_name}</div></td>
+                            <td><div className=""><i className="fa fa-rupee-sign" /> {item?.balance}</div></td>
+                          </tr>
+                        )
+                    })}
                 </tbody>
               </table>
             </Box>
@@ -146,6 +173,11 @@ function Index() {
         <Box css={{ borderColor: violet.violet8 }} className="p-2 rounded-xl h-inherit  border md:col-span-2 xl:col-span-1">
           <Flex className="flex-col">
             <Heading3>NFTs</Heading3>
+            <Heading3>
+              <Link to='/nft'>
+                <p>See All</p>
+              </Link>
+            </Heading3>
             <Box css={{ borderColor: violet.violet5 }} className="border p-1 rounded-md">
               <Flex className="flex-col md:flex-row xl:flex-col overflow-y-auto xl:max-h-96 gap-2">
 
@@ -163,34 +195,30 @@ function Index() {
                     loop={true}
 
                   >
-                    <SwiperSlide>
-                      <img src="/images/nft.png" className=" aspect-square w-full h-auto" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src="/images/nft.jpg" className="aspect-square w-full h-auto" />
-
-                    </SwiperSlide>
+                    {nfts.map((items, index) => {
+                      return (
+                        <SwiperSlide>
+                          <img src={`${"http://nft.regoex.com:3001/content/"}${items.image}`} className=" aspect-square w-full h-auto" />
+                        </SwiperSlide>
+                      )
+                    })}
                   </Swiper>
                 </Box>
                 <Flex className=" flex-col md:w-1/2 xl:w-full p-2 gap-2 pr-3">
-                  <Flex className="p-2 gap-2 border border-violet-400">
-                    <img src="/images/nft.png" className="w-12 h-12 rounded-full" />
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-                  </Flex>
-                  <Flex className="p-2 gap-2 border border-violet-400">
-                    <img src="/images/nft.jpg" className="w-12 h-12 rounded-full" />
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-                  </Flex>
-                  <Flex className="p-2 gap-2 border border-violet-400">
-                    <img src="/images/nft.jpg" className="w-12 h-12 rounded-full" />
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-                  </Flex>
+                  {nfts.map((items, index) => {
+                    return (
+                      <Flex className="p-2 gap-2 border border-violet-400">
+                        <img src={`${"http://nft.regoex.com:3001/content/"}${items.image}`} className="w-12 h-12 rounded-full" />
+                        <p>{items.title}</p>
+                      </Flex>
+                    )
+                  })}
                 </Flex>
-
-
                 {/* Flex Col to contain cards */}
               </Flex>
             </Box>
+
+
           </Flex>
         </Box>
       </div>

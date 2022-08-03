@@ -2,22 +2,134 @@ import { Box, Button, Flex, Heading3, Input, Text } from 'components/styled/ui';
 import AnimatePage from 'HOCs/Animate';
 import React, { useState } from 'react'
 import { violet } from '@radix-ui/colors';
-import { coins as AllCoins } from 'assets/coins/coins';
+import { coins as AllCoins, coins } from 'assets/coins/coins';
 import { upperCase } from 'lodash'
 import { Select, SelectTrigger, SelectValue, SelectIcon, SelectContent, SelectViewport, SelectItem, SelectItemIndicator, SelectItemText } from 'components/styled/Select';
 import { ChevronDownIcon, CheckIcon } from '@radix-ui/react-icons'
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { toast } from "react-toastify";
+import { updateWalletBalance } from 'store/reducers/walletReducer';
 
+
+
+const coinOptions = coins.map((item) => {
+  return { id: item.id, name: item.name, value: item.name, url: item.url };
+})
+  .filter((item) => item.name !== "inr");
 function Index() {
+  // const [coins, setcoins] = useState(Allcoins);
+  // const [selectedCoin, setSelectedCoin] = useState(coins[0]);
+  // const [amount, setAmount] = useState(0)
 
-  const [coins, setCoins] = useState(AllCoins);
-  const [selectedCoin, setSelectedCoin] = useState(coins[0]);
-  const [amount, setAmount] = useState(0)
 
+  // const coinChangeHandler = (e) => {
+  //   const newCoin = coins.filter((coin)=>coin.name===e)
+  //   setSelectedCoin(newCoin[0]);
+  // }
 
-  const coinChangeHandler = (e) => {
-    const newCoin = coins.filter((coin)=>coin.name===e)
-    setSelectedCoin(newCoin[0]);
+  let selectedCryptoObj;
+  const dispatch = useDispatch();
+  const {
+    user: { user },
+  } = useSelector((state) => state.auth);
+  const { array: cryptowalletObj } = useSelector(
+    (state) => state.wallet.userWallet
+  );
+
+  const [autoRenew, setAutoRenew] = useState(false);
+  const [balanceError, setBalanceError] = useState(false);
+  const [formData, setFormData] = useState({
+    selectedCoin: coinOptions[0].name,
+    inputAmount: "",
+    payoutAmount: "",
+  });
+
+  const { inputAmount, payoutAmount, selectedCoin } = formData;
+
+  const handleAutoRenew = () => {
+    setAutoRenew(!autoRenew);
+  };
+
+  function interest(amt) {
+    if (!amt) return 0.0;
+
+    if (amt > Number(selectedCryptoObj?.balance)) {
+      console.log("less balance check block");
+      setBalanceError(true);
+    } else {
+      setBalanceError(false);
+    }
+
+    let total_days = 30;
+    total_days = parseFloat(total_days);
+
+    let interest_rate = 12;
+    interest_rate = parseFloat(interest_rate);
+    interest_rate = interest_rate / 365;
+
+    let interest = (amt * interest_rate * 1) / 100;
+    let total_interest = interest * total_days;
+    let amount = amt;
+
+    amount = parseFloat(amount);
+    total_interest = total_interest + amount;
+    return total_interest.toFixed(5);
   }
+
+  const selectedCryptoIndex = cryptowalletObj?.findIndex(
+    (item) => item.name.toLowerCase() === selectedCoin
+  );
+
+  if (selectedCryptoIndex !== -1) {
+    selectedCryptoObj = cryptowalletObj && cryptowalletObj[selectedCryptoIndex];
+  }
+
+  const createFixedDeposit = async () => {
+    console.log("dfghjkjhgvfc")
+    const startDate = new Date();
+    const endDate = new Date(startDate);
+    endDate.setDate(startDate.getDate() + 30);
+
+    if (balanceError) {
+      toast.error("Insufficient Balance");
+      return;
+    }
+
+    if (!inputAmount || !Number(inputAmount)) {
+      toast.error("Enter Valid Amount");
+      return;
+    }
+
+    const payload = {
+      amount: inputAmount,
+      email: user.email,
+      currency: selectedCoin,
+      enddate: endDate,
+      payoutAmount: payoutAmount,
+    };
+
+    const res = await axios.post("http://3.128.190.203:3001/users/create-stake", payload);
+
+    if (res.data.status) {
+      toast.success("Money Deposited");
+      dispatch(
+        updateWalletBalance({
+          name: selectedCoin,
+          balance: inputAmount,
+        })
+      );
+    }
+  };
+
+  console.log({
+    balanceError,
+    selectedCoin,
+    selectedCryptoObj,
+    selectedCryptoIndex,
+  });
+
+
 
   return (
     <>
@@ -25,7 +137,18 @@ function Index() {
         <Flex css={{ borderColor: violet.violet8 }} className=" flex-col p-2 rounded-xl border">
           <Text>Create Deposit</Text>
           <Flex className="items-center justify-between">
-            <Select value={selectedCoin?.name} onValueChange={(e) => coinChangeHandler(e)}>
+            <Select
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  selectedCoin: e.target.value,
+                  inputAmount: "",
+                  payoutAmount: "",
+                });
+                setBalanceError(false);
+              }}
+            // value={selectedCoin?.name} onValueChange={(e) => coinChangeHandler(e)}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select Coin" />
                 <SelectIcon>
@@ -33,27 +156,41 @@ function Index() {
                 </SelectIcon>
               </SelectTrigger>
               <SelectContent>
-                <SelectViewport>
+                {/* <SelectViewport>
                   {coins?.map((coin) => <SelectItem key={coin?.id} value={coin?.name}>
                     <SelectItemText>{coin?.name}</SelectItemText>
                     <SelectItemIndicator>
                       <CheckIcon />
                     </SelectItemIndicator>
                   </SelectItem>)}
-
-                </SelectViewport>
+            
+                </SelectViewport> */}
               </SelectContent>
             </Select>
-            <Input css={{ maxWidth: "12rem" }} type="number" value={amount} onChange={(e) => setAmount(e.target.valueAsNumber)} />
+            <Input
+              css={{ maxWidth: "12rem" }}
+              type="number"
+              // value={amount}
+              // onChange={(e) => setAmount(e.target.valueAsNumber)}
+              value={inputAmount}
+              onChange={(e) => {
+                const value = e.target.value;
+                setFormData({
+                  ...formData,
+                  inputAmount: value,
+                  payoutAmount: interest(value),
+                });
+              }}
+            />
           </Flex>
           <Flex css={{ marginTop: 20 }} className="justify-between items-center">
-            <Text css={{marginBottom:0}}>Duration:</Text>
+            <Text css={{ marginBottom: 0 }}>Duration:</Text>
             <Flex className="gap-1">
 
-            <Button>30</Button>
-            <Button>40</Button>
-            <Button>50</Button>
-            <Button>60</Button>
+              <Button>30</Button>
+              <Button>40</Button>
+              <Button>50</Button>
+              <Button>60</Button>
             </Flex>
           </Flex>
           <Flex css={{ marginTop: 20 }} className="justify-between items-center">
@@ -61,7 +198,9 @@ function Index() {
             <Heading3>{selectedCoin.interestMsg}</Heading3>
           </Flex>
           <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
-            <Button variant="green">Create Fixed Deposit</Button>
+            <Button variant="green" type='button'
+              onClick={() => createFixedDeposit()}
+            >Create Fixed Deposit</Button>
           </Flex>
         </Flex>
         <Box css={{ borderColor: violet.violet8 }} className="p-2 rounded-xl border col-span-2">
@@ -124,7 +263,7 @@ function Index() {
     // <Box css={{ borderColor: violet.violet8 }} className="p-2 rounded-xl border">
     //   <table className="w-full">
     //     <thead>
-    //       <tr style={{padding:25}} className='bg-violet-500'>
+    //       <tr style={{ padding: 25 }} className='bg-violet-500'>
     //         <th style={{ width: "25%" }} className="text-start" scope="col">Token</th>
     //         <th style={{ width: "20%" }} className="text-start" scope="col">Est. APY</th>
     //         <th style={{ width: "30%" }} className="text-start" scope="col">Duration(days)</th>
@@ -174,6 +313,7 @@ function Index() {
     //   </table>
     // </Box>
   )
+
 }
 
 export default AnimatePage(Index);

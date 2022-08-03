@@ -9,6 +9,7 @@ import {
 } from "../../reducers/walletReducer";
 
 export function* getWalletSaga(action) {
+  console.log(action)
   yield put(getWalletStart());
   try {
     console.log(action.payload);
