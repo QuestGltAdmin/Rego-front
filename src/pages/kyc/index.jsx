@@ -10,7 +10,6 @@ import docIcon from "assets/images/svg-icons/id-card.svg";
 
 
 
-
 function Index() {
   const { user: { user, kycstatus } } = useSelector((state) => state.auth)
   const [frontImg, setFrontImg] = useState(null);
@@ -97,12 +96,30 @@ function Index() {
   }
 
   const submitKycHandler = async (e) => {
+    e.preventDefault()
     try {
+      const formData = new FormData()
+      const files = [data.frontImgFile,data.backImgFile,data.panImgFile];
+      formData.append("email", user?.email);
+      formData.append("fullname", data?.fullname);
+      formData.append("dob", user?.email);
+      formData.append("document_type", user?.email);
+      formData.append("pan_number", user?.email);
+      formData.append("country", user?.email);
+      formData.append("files", files);
+      for (let i = 0; i < files.length; i++) {
+        formData.append("file", files[i]);
+      }
 
+      const url = "exchange-kyc"
+      const config={headers:{"Content-Type":"multipart/form-data"}}
+      const res = api.post(url,formData,config);
+      console.log(res);
     } catch (err) {
       console.log(err);
     }
   }
+
 
   if (kycstatus) {
     return (
@@ -121,7 +138,6 @@ function Index() {
             </tr>
           </thead>
           <tbody>
-
             <tr
               className="hover:bg-violet-100 h-16"
             >
@@ -164,7 +180,7 @@ function Index() {
 
   return (
     <Box css={{ borderColor: violet.violet8 }} className='p-3 rounded-xl border'>
-      <form>
+      <form onSubmit={submitKycHandler} >
 
       
       <Flex className='justify-between items-center'>
