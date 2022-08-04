@@ -190,7 +190,7 @@ function Index() {
                     className="max-w-full"
                     modules={[Navigation]}
                     spaceBetween={2}
-                    slidesPerView={2}
+                    slidesPerView={1}
                     direction="horizontal"
                     navigation
                     autoplay={true}
