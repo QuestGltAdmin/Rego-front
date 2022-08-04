@@ -14,9 +14,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { getWalletSaga } from 'store/reducers/walletReducer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Index() {
+  const navigate = useNavigate()
   const { user } = useSelector((state) => state.auth)
   const [coinsBalance, setCoinsBalance] = useState([]);
   const { InrwalletObj,
@@ -172,12 +173,13 @@ function Index() {
         {/* Third Box */}
         <Box css={{ borderColor: violet.violet8 }} className="p-2 rounded-xl h-inherit  border md:col-span-2 xl:col-span-1">
           <Flex className="flex-col">
-            <Heading3>NFTs</Heading3>
-            <Heading3>
-              <Link to='/nft'>
+            <Flex className="items-center justify-between mb-2">
+
+            <Heading3 css={{marginBottom:0}}>NFTs</Heading3>
+            <Button onClick={()=>navigate("/nft")} >
                 <p>See All</p>
-              </Link>
-            </Heading3>
+            </Button>
+            </Flex>
             <Box css={{ borderColor: violet.violet5 }} className="border p-1 rounded-md">
               <Flex className="flex-col md:flex-row xl:flex-col overflow-y-auto xl:max-h-96 gap-2">
 
