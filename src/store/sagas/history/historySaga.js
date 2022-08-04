@@ -13,7 +13,7 @@ export function* historySaga(action) {
     console.log(action.payload);                
     const { email } = action.payload;
     const response = yield axios.post(`/users/history`, { email });
-    console.log(response.data.obj);
+    // console.log(response.data.obj);
     if (response.data.status) {
       yield put(historySuccess(response.data.obj));
     } else {

@@ -19,7 +19,7 @@ function Index() {
   }, [])
 
   const getHistoryData = async () => {
-    const payload = { email: user?.user?.email }
+    const payload = { email: user?.email }
     dispatch(historySaga(payload));
   }
 
@@ -41,7 +41,7 @@ function Index() {
       console.log(err)
     }
   }
-  // console.log(history)
+  // console.log(user, history);
 
   return (
     <Tabs css={{}} className="flex-col" defaultValue="TRANSACTIONS">

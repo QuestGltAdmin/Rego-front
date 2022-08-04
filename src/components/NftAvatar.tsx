@@ -65,7 +65,7 @@ export default function NftAvatar(props: NftAvatarProps) {
     <div className="grid h-auto mx-4 gap-y-1 rounded-lg sm:mx-6 lg:mx-8 hover:cursor-pointer">
       {/* handles views for card modals and mobile page for modals */}
       <div
-        className="w-full h-full p-1 bg-blue-800 rounded-2xl hover:shadow-2xl hover:shadow-clr1"
+        className=" w-48 h-48 p-1 bg-blue-800 rounded-2xl hover:shadow-2xl hover:shadow-clr1"
         onClick={() => {
           setShowDemoCardModal(true)
         }}
@@ -78,7 +78,7 @@ export default function NftAvatar(props: NftAvatarProps) {
         />
       </div>
       <div className="flex items-center px-2">
-        <img className=" h-7 w-7" src={props?.imageSrc} alt="" />
+        <img className=" h-7 w-7 rounded-full" src={props?.imageSrc} alt="" />
         <h1 className="ml-3 font-normal text-center text-gray-500 lg:text-lg">{props?.username || "Clanty"}</h1>
       </div>
       <div className="flex flex-col">
