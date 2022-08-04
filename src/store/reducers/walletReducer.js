@@ -16,15 +16,17 @@ const walletSlice = createSlice({
       return {
         ...state,
         loading: true,
-           userWallet: {
+        userWallet: {
           InrwalletObj: [],
           array: [],
         },
       };
     },
     getWalletSuccess: (state, action) => {
+      localStorage.setItem('InrwalletObj', action.payload.InrwalletObj)
+      localStorage.setItem('array', action.payload.array)
       console.log(action.payload)
-      return {            
+      return {
         ...state,
         loading: false,
         errorMsg: "",
@@ -75,7 +77,7 @@ const walletSlice = createSlice({
       } = state;
       const index = state.userWallet.array.findIndex(
         (item) => item.name === name
-        );
+      );
       if (index !== -1) {
         state.userWallet.array[index].balance =
           Number(state.userWallet.array[index].balance) - Number(balance);
