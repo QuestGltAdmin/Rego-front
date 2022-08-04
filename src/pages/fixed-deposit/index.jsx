@@ -24,7 +24,7 @@ function FixedDeposit() {
     (state) => state.wallet.userWallet
   );
   const {
-    user: { user },
+    user
   } = useSelector((state) => state.auth);
   console.log({ cryptowalletObj })
 
@@ -69,6 +69,7 @@ function FixedDeposit() {
     total_interest = total_interest + amount;
     return total_interest.toFixed(5);
   }
+
   const selectedCryptoIndex = cryptowalletObj?.findIndex(
     (item) => item.crypt_name.toLowerCase() === formData.selectedCoin
   );
@@ -78,6 +79,8 @@ function FixedDeposit() {
   }
   console.log(formData.selectedCoin)
   console.log({ selectedCryptoIndex })
+
+
   const createFixedDeposit = async () => {
     console.log('first hbhbb')
     const startDate = new Date();
@@ -92,7 +95,7 @@ function FixedDeposit() {
       toast.error("Enter Valid Amount");
       return;
     }
-    console.log(formData.inputAmount)
+    console.log(formData,user);
     const payload = {
       amount: formData.inputAmount,
       email: user.email,
