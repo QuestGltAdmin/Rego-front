@@ -23,7 +23,7 @@ const walletSlice = createSlice({
       };
     },
     getWalletSuccess: (state, action) => {
-      // console.log(action.payload)
+      console.log(action.payload)
       return {            
         ...state,
         loading: false,

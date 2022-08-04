@@ -29,7 +29,7 @@ import Settings from './pages/settings'
 import { Test } from './pages/Test';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";  
-import FixedDeposit from 'pages/fixed-deposit';
+import FixedDeposit from 'pages/fixed-deposit/FixedDeposit';
 
 function App() {
   return (
