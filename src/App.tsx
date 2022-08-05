@@ -26,6 +26,7 @@ import BlogNews from './pages/blog-news';
 import Kyc from './pages/kyc';
 import Wallet from './pages/wallet';
 import Settings from './pages/settings'
+import Referral from 'pages/referral';
 import { Test } from './pages/Test';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";  
@@ -66,6 +67,7 @@ function App() {
             <Route path="kyc" element={<Kyc />} />
             <Route path="wallet" element={<Wallet />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="referral" element={<Referral/>} />
           </Route>
 
           {/* Testing Route */}

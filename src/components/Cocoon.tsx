@@ -1,7 +1,7 @@
 import React, { Fragment, ReactNode, useEffect } from 'react'
 import classNames from 'lib/classNames';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { AiFillCaretDown, AiFillDashboard, AiFillSetting, AiFillWallet, AiOutlineForm, AiOutlineHistory, AiOutlineLogout, AiOutlineMenu, AiOutlineUser } from 'react-icons/ai';
+import { AiFillCaretDown, AiFillDashboard, AiFillSetting, AiFillWallet, AiOutlineForm, AiOutlineHistory, AiOutlineLogout, AiOutlineMenu, AiOutlineUser, AiOutlineUserAdd } from 'react-icons/ai';
 import ErrorBoundary from 'lib/ErrorBoundary';
 import Logo from './Logo';
 import Dropdown, { DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from 'components/ui/Dropdown';
@@ -427,6 +427,19 @@ function UserDropdown({ small }: { small?: boolean }) {
 							aria-hidden="true"
 						/>
 						{"Settings"}
+					</Link>
+				</DropdownMenuItem>
+				<DropdownMenuSeparator className="h-px bg-gray-200" />
+				<DropdownMenuItem className="rounded-t-xl group">
+					<Link to="/referral" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer  hover:bg-white hover:text-clr1 hover:font-semibold">
+						<AiOutlineUserAdd
+							className={classNames(
+								" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
+								"mr-2 flex-shrink-0 h-5 w-5"
+							)}
+							aria-hidden="true"
+						/>
+						{"Referral"}
 					</Link>
 				</DropdownMenuItem>
 				<DropdownMenuSeparator className="h-px bg-gray-200" />
