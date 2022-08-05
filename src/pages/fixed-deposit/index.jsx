@@ -197,7 +197,7 @@ function FixedDeposit() {
           <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
             <Button
               onClick={() => createFixedDeposit()}
-              variant="green">Create Fixed Deposit</Button>
+            >Create Fixed Deposit</Button>
           </Flex>
         </Flex>
         <Box css={{ borderColor: violet.violet8 }} className="p-2 rounded-xl border col-span-2">
