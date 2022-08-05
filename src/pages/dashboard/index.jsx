@@ -110,7 +110,7 @@ function Index() {
                 </tbody>
               </table>
             </Box>
-            <Button variant="green" >Deposit INR</Button>
+            <Button >Deposit INR</Button>
           </Flex>
         </Box>
 

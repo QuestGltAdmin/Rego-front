@@ -170,7 +170,7 @@ const Layout = (props: LayoutProps) => {
 											// "flex items-center group gap-x-2",
 											isActive
 												? "text-blue-800 border-b-4 border-blue-800 "
-												: "text-gray-400 hover:text-slate-500 ",
+												: "text-blue-700 hover:text-slate-500 ",
 											" flex group items-center rounded-sm p-2 no-underline gap-x-2 text-lg font-medium "
 										)}
 									>

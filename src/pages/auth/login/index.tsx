@@ -1,4 +1,4 @@
-import { Box, Flex, Button, Fieldset, Heading3, Input, Label, Text } from 'components/styled/ui'
+import { Box, Flex, Button, Fieldset, Heading3,Heading2, Input, Label, Text } from 'components/styled/ui'
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { blue, violet } from '@radix-ui/colors';
@@ -38,25 +38,25 @@ export default function Index() {
   return (
     <div className="flex items-center justify-center h-screen">
       <Box css={{ borderColor: violet.violet8 }} className=" p-3 mx-4 rounded-xl w-full md:w-1/2 lg:w-1/3 border" >
-        <Heading3>Login</Heading3>
+        <Heading2 className="text-center">LOGIN</Heading2>
 
-        <Text>Welcome to Rego Exachange.</Text>
+        <Text>Welcome to Rego Exachange</Text>
         <form onSubmit={handleSubmit(loginFormSubmitHandler)}>
 
           <Fieldset>
-            <Label htmlFor="email">Email or Username</Label>
-            <Input {...register("email")} required id="email" type="email" placeholder="Enter your email" />
+            <Label htmlFor="email">Email Address</Label>
+            <Input {...register("email")} required id="email" type="email" placeholder="Enter Email Address" />
           </Fieldset>
           <Fieldset>
             <Label htmlFor="password">Password</Label>
-            <Input {...register("password")} required minLength={6} id="password" type="password" placeholder="Enter your password" />
+            <Input {...register("password")} required minLength={6} id="password" type="password" placeholder="Enter Password" />
           </Fieldset>
-          <Flex className=" justify-center">
-            <Button type="submit" variant="green" className="px-4 ">Login</Button>
+          <Flex className=" my-4 justify-center">
+            <Button type="submit" className="px-4 ">Login</Button>
           </Flex>
         </form>
         <Flex className="gap-x-2">
-          <Text>New User?</Text>
+          <Text>Don't have an account?</Text>
           <Link to="/auth/signup">Signup</Link>
         </Flex>
       </Box>

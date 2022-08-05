@@ -268,7 +268,7 @@ function Index() {
               </Flex>
 
               <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
-                <Button variant="green">Buy Now</Button>
+                <Button>Buy Now</Button>
               </Flex>
             </TabsContent>
 
@@ -316,7 +316,7 @@ function Index() {
               </Flex>
 
               <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
-                <Button variant="red">Sell Now</Button>
+                <Button >Sell Now</Button>
               </Flex>
             </TabsContent>
           </Tabs>

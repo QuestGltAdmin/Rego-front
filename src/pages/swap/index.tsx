@@ -134,7 +134,7 @@ function Swap() {
             </Select>
           </Flex>
         </Box>
-        <Button css={{width:"20rem"}} variant={"green"} className="align-right">Convert</Button>
+        <Button css={{width:"20rem"}} className="align-right">Convert</Button>
       </Flex>
     </Box>
   )

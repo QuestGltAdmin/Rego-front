@@ -22,17 +22,17 @@ function Index() {
   const [selectedCoin, setSelectedCoin] = useState();
 
 
-  // useEffect(()=>{
-  //   if(user?.user?.email){
-  //     getWalletData()
-  //   }
-  // },[])
+  useEffect(()=>{
+    if(user?.email){
+      getWalletData()
+    }
+  },[])
 
 
   //Dispatch Saga to get wallet Data
   const getWalletData = () => {
     try {
-      const payload = { email: user?.user?.email };
+      const payload = { email: user?.email };
       dispatch(getWalletSaga(payload));
     } catch (err) {
       console.log(err);
@@ -72,7 +72,7 @@ function Index() {
                   <th style={{ width: "20%" }} className="text-start" scope="col">Total Balance</th>
                   {/* <th style={{ width: "20%" }} className="text-start" scope="col">Asset Value</th> */}
                   {/* <th style={{ width: "20%" }} className="text-start" scope="col">Interest Earned</th> */}
-                  <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th>
+                  {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -90,13 +90,13 @@ function Index() {
                     </div>
                   </th>
                   <td>
-                    <p>{user?.balance ?? "Updating Balance...."}</p>
+                    <p>{InrwalletObj?.Balance ?? "Updating Balance...."}</p>
                   </td>
-                  <td>
+                  {/* <td>
                     <div className="flex justify-between p-1">
                       <Button variant="green">Buy More</Button>
                     </div>
-                  </td>
+                  </td> */}
                 </tr>
 
               </tbody>
@@ -114,7 +114,7 @@ function Index() {
                 </tr>
               </thead>
               <tbody>
-                {user?.cryptoWallet?.map((item) => (
+                {cryptowalletObj?.map((item) => (
                   <tr
                     key={item?._id}
                     // value={item.value}
