@@ -45,6 +45,7 @@ function FixedDeposit() {
   // }
   function interest(amt) {
     console.log(amt);
+    console.log({ selectedCryptoObj });
     if (!amt) return 0.0;
 
     if (amt > Number(selectedCryptoObj?.balance)) {
@@ -82,7 +83,7 @@ function FixedDeposit() {
 
 
   const createFixedDeposit = async () => {
-    console.log('first hbhbb')
+    console.log('onSubmit fuction call')
     const startDate = new Date();
     const endDate = new Date(startDate);
     endDate.setDate(startDate.getDate() + 30);
@@ -95,7 +96,7 @@ function FixedDeposit() {
       toast.error("Enter Valid Amount");
       return;
     }
-    console.log(formData,user);
+    console.log(formData, user);
     const payload = {
       amount: formData.inputAmount,
       email: user.email,
@@ -104,7 +105,6 @@ function FixedDeposit() {
       payoutAmount: formData.payoutAmount,
     };
     console.log(payload);
-
     const res = await axios.post("http://3.128.190.203:3001/users/create-stake", payload);
     console.log({ res });
     if (res.data.status) {
@@ -115,6 +115,9 @@ function FixedDeposit() {
           balance: formData.inputAmount,
         })
       );
+    }
+    if (!res.data.status) {
+      toast.error(res.data.message);
     }
   };
   return (

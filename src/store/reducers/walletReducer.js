@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+const InrwalletObj = localStorage.getItem('InrwalletObj');
+const array = localStorage.getItem('array');
 
 const walletSlice = createSlice({
   name: "wallet",
@@ -23,8 +25,8 @@ const walletSlice = createSlice({
       };
     },
     getWalletSuccess: (state, action) => {
-      localStorage.setItem('InrwalletObj', action.payload.InrwalletObj)
-      localStorage.setItem('array', action.payload.array)
+      localStorage.setItem('InrwalletObj', JSON.stringify(action.payload.InrwalletObj));
+      localStorage.setItem('array', JSON.stringify(action.payload.array));
       console.log(action.payload)
       return {
         ...state,
