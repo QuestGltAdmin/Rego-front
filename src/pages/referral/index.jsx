@@ -3,7 +3,8 @@ import AnimatePage from 'HOCs/Animate';
 import { Box, Flex, Button, Heading3, Input, Text, Fieldset, Label } from 'components/styled/ui';
 import { violet } from '@radix-ui/colors';
 import { useSelector } from 'react-redux';
-
+import { Modal } from 'react-bootstrap';
+import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 
 function Index() {
   const { user } = useSelector((state) => state.auth);
@@ -31,14 +32,36 @@ function Index() {
               </Fieldset>
               <Button
                 onClick={() => {
-                  console.log("button clicked for sharing")
-                  return (setRefferalModel(true))
+                  setRefferalModel(true)
                 }}>Share</Button>
             </Flex>
           </Box>
         </div>
       </Box>
-      {refferalModel && <refferalModel refferalModel={refferalModel} setRefferalModel={setRefferalModel} console={ console.log("ccccc")} />}
+
+      <Modal show={refferalModel} onHide={() => setRefferalModel(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Share ...</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+          <FacebookShareButton
+            url={'https://www.facebook.com/login/'}
+            quote={'Facebook'}
+          >
+            <FacebookIcon size={40} round={true} onClick={() => setRefferalModel(false)} />
+          </FacebookShareButton>
+          <WhatsappShareButton
+            url={'https://web.whatsapp.com/'}
+          >
+            <WhatsappIcon size={40} round={true} onClick={() => setRefferalModel(false)} />
+          </WhatsappShareButton>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger!important" onClick={() => setRefferalModel(false)} style={{ height: 40, width: 80 }}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }
