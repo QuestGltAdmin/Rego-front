@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading3, Input, Text } from 'components/styled/ui';
 import AnimatePage from 'HOCs/Animate';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { violet } from '@radix-ui/colors';
 import { coins as AllCoins, coins } from 'assets/coins/coins';
 import { upperCase } from 'lodash'
@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from "react-toastify";
 import axios from 'axios';
 import { updateWalletBalance } from 'store/reducers/walletReducer';
+import { historySaga } from 'store/reducers/historyReducer';
+import { compareAsc, format } from 'date-fns';
 
 const coinOptions = coins
   .map((item) => {
@@ -26,10 +28,13 @@ function FixedDeposit() {
   const {
     user
   } = useSelector((state) => state.auth);
+  const { isLoading, history } = useSelector((state) => state.history);
+
   console.log({ cryptowalletObj })
 
   const [coins, setCoins] = useState(AllCoins);
   const [amount, setAmount] = useState(0)
+  const [days, setDays] = useState(0)
   const [balanceError, setBalanceError] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -44,8 +49,6 @@ function FixedDeposit() {
   //   setSelectedCoin(newCoin[0]);
   // }
   function interest(amt) {
-    console.log(amt);
-    console.log({ selectedCryptoObj });
     if (!amt) return 0.0;
 
     if (amt > Number(selectedCryptoObj?.balance)) {
@@ -55,7 +58,7 @@ function FixedDeposit() {
       setBalanceError(false);
     }
 
-    let total_days = 30;
+    let total_days = days;
     total_days = parseFloat(total_days);
 
     let interest_rate = 12;
@@ -78,15 +81,13 @@ function FixedDeposit() {
   if (selectedCryptoIndex !== -1) {
     selectedCryptoObj = cryptowalletObj && cryptowalletObj[selectedCryptoIndex];
   }
-  console.log(formData.selectedCoin)
-  console.log({ selectedCryptoIndex })
-
 
   const createFixedDeposit = async () => {
     console.log('onSubmit fuction call')
     const startDate = new Date();
     const endDate = new Date(startDate);
-    endDate.setDate(startDate.getDate() + 30);
+    endDate.setDate(startDate.getDate() + days);
+    console.log({endDate})
     if (balanceError) {
       toast.error("Insufficient Balance");
       return;
@@ -96,7 +97,6 @@ function FixedDeposit() {
       toast.error("Enter Valid Amount");
       return;
     }
-    console.log(formData, user);
     const payload = {
       amount: formData.inputAmount,
       email: user.email,
@@ -104,7 +104,6 @@ function FixedDeposit() {
       enddate: endDate,
       payoutAmount: formData.payoutAmount,
     };
-    console.log(payload);
     const res = await axios.post("http://3.128.190.203:3001/users/create-stake", payload);
     console.log({ res });
     if (res.data.status) {
@@ -115,11 +114,23 @@ function FixedDeposit() {
           balance: formData.inputAmount,
         })
       );
+      getHistoryData();
     }
     if (!res.data.status) {
       toast.error(res.data.message);
     }
   };
+
+  useEffect(() => {
+    getHistoryData();
+
+  }, [])
+
+  const getHistoryData = async () => {
+    const payload = { email: user?.email }
+    dispatch(historySaga(payload));
+  }
+
   return (
     <>
       <div className="flex lg:grid lg:grid-cols-3 gap-2">
@@ -184,15 +195,15 @@ function FixedDeposit() {
             <Text css={{ marginBottom: 0 }}>Duration:</Text>
             <Flex className="gap-1">
 
-              <Button>30</Button>
-              <Button>40</Button>
-              <Button>50</Button>
-              <Button>60</Button>
+              <Button onClick={() => setDays(30)}>30</Button>
+              <Button onClick={() => setDays(90)}>90</Button>
+              <Button onClick={() => setDays(180)}>180</Button>
+              <Button onClick={() => setDays(360)}>360</Button>
             </Flex>
           </Flex>
           <Flex css={{ marginTop: 20 }} className="justify-between items-center">
             <Text>Interest Rate:</Text>
-            <Heading3>{formData.selectedCoin?.interestMsg || "Please Select Coin"}</Heading3>
+            <Heading3>{formData.selectedCoin?.interestMsg || "12 % "}</Heading3>
           </Flex>
           <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
             <Button
@@ -205,47 +216,61 @@ function FixedDeposit() {
           <table className="w-full">
             <thead>
               <tr style={{ padding: 25 }} className='bg-violet-500'>
-                <th style={{ width: "25%" }} className="text-start" scope="col">Token</th>
-                <th style={{ width: "20%" }} className="text-start" scope="col">Est. APY</th>
+                <th style={{ width: "15%" }} className="text-start" scope="col">Token</th>
+                <th style={{ width: "15%" }} className="text-start" scope="col">Est. APY</th>
                 <th style={{ width: "30%" }} className="text-start" scope="col">Duration(days)</th>
-                <th style={{ width: "25%" }} className="text-start" scope="col">Minimum Locked Amount</th>
+                <th style={{ width: "20%" }} className="text-start" scope="col">Minimum Locked Amount</th>
+                <th style={{ width: "20%" }} className="text-start" scope="col">Amount Fixed</th>
+                <th style={{ width: "20%" }} className="text-start" scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
-              {coins?.map((item) => (
+              {history?.Stakes?.map((item, index) => (
                 <tr
-                  key={item?.id}
+                  key={index}
                   // value={item.value}
 
                   className="hover:bg-violet-100 h-16"
                 >
                   <th scope="row">
                     <div className="flex gap-2 items-center">
-                      <img src={item?.url} />
-                      <p>{upperCase(item?.name)}</p>
+                      {/* <img src={item?.url} /> */}
+                      <p>{upperCase(item?.currency)}</p>
                     </div>
                   </th>
                   <td>
-                    <p>16.98%</p>
+                    <p>{item?.interest_rate}%</p>
                   </td>
                   <td>
                     <div className="flex flex-col md:flex-row md:gap-2">
                       <div className="flex gap-2">
 
-                        <Button>30</Button>
-                        <Button>30</Button>
+                        <p>{format(new Date(item.created_at), 'dd-mm-yyyy')} - {format(new Date(item.enddate), 'dd-mm-yyyy')}</p>
+                        {/* <Button>30</Button> */}
                       </div>
-                      <div className="flex gap-2">
+                      {/* <div className="flex gap-2">
 
                         <Button>30</Button>
                         <Button>30</Button>
-                      </div>
+                      </div> */}
                     </div>
                   </td>
                   <td>
                     <div className="flex justify-between p-1">
                       <p>0.1 BTC</p>
-                      <Button variant="green">Stake Now</Button>
+                      {/* <Button variant="green">Stake Now</Button> */}
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-between p-1">
+                      <p>{item?.deposit}{upperCase(item?.currency)}</p>
+                      {/* <Button variant="green">Stake Now</Button> */}
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex justify-between p-1">
+                      <Button variant="green">{item?.status}</Button>
+                      {/* <Button variant="green">Stake Now</Button> */}
                     </div>
                   </td>
                 </tr>

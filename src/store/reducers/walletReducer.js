@@ -8,8 +8,8 @@ const walletSlice = createSlice({
     loading: false,
     errorMsg: "",
     userWallet: {
-      InrwalletObj: [],
-      array: [],
+      InrwalletObj: !!InrwalletObj ? JSON.parse(InrwalletObj) : [],
+      array: !!array ? JSON.parse(array) : [],
     },
   },
   reducers: {

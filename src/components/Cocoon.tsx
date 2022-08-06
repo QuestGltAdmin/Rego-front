@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode, useEffect } from 'react'
+import React, { Fragment, ReactNode, useEffect, useState } from 'react'
 import classNames from 'lib/classNames';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AiFillCaretDown, AiFillDashboard, AiFillSetting, AiFillWallet, AiOutlineForm, AiOutlineHistory, AiOutlineLogout, AiOutlineMenu, AiOutlineUser, AiOutlineUserAdd } from 'react-icons/ai';
@@ -10,6 +10,8 @@ import { blue, indigo, violet } from '@radix-ui/colors'
 import { logout } from '../store/reducers/authReducer.js'
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { Modal } from 'react-bootstrap';
+import { Button } from './styled/ui';
 
 function useRedirectToLoginIfUnauthenticated(isPublic = false) {
 	//Logic Here
@@ -278,24 +280,25 @@ export default function Cocoon({ }: CocoonProps) {
 
 
 function UserDropdown({ small }: { small?: boolean }) {
-
+	const [logoutModelOpen, setLogoutModelOpen] = useState(false)
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	console.log(logoutModelOpen)
 
 	const signOut = async ({ callbackUrl }: { callbackUrl: string }) => {
 		try {
 			// alert("add server logout api✅");
+			localStorage.removeItem("accessToken");
+			dispatch(logout());
 			toast.success("Logout Successful", {
 				position: "top-center",
-				autoClose: 2000,
+				autoClose: 500,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: false,
 				draggable: true,
 				progress: undefined,
 			});
-			localStorage.removeItem("accessToken");
-			dispatch(logout());
 			navigate(callbackUrl);
 		} catch (err: any) {
 			localStorage.removeItem("accessToken");
@@ -304,146 +307,147 @@ function UserDropdown({ small }: { small?: boolean }) {
 	}
 
 	return (
-		<Dropdown >
-			<DropdownMenuTrigger asChild>
-				<div className="flex items-center w-full space-x-2 cursor-pointer group">
-					<span
-						className={classNames(
-							small ? " w-10" : " w-12",
-							"bg-gray-300 rounded-full flex-shrink-0 hidden sm:flex"
+		<>
+			<Dropdown >
+				<DropdownMenuTrigger asChild>
+					<div className="flex items-center w-full space-x-2 cursor-pointer group">
+						<span
+							className={classNames(
+								small ? " w-10" : " w-12",
+								"bg-gray-300 rounded-full flex-shrink-0 hidden sm:flex"
+							)}
+						>
+							<Avatar
+								className="shadow-xl "
+								imageSrc={
+									"/images/profile.png"
+								}
+								size={10}
+								//   gravatarFallbackMd5={"sfhgs"}
+								alt={"Nameless User"}
+							/>
+						</span>
+						{!small ? (
+							""
+						) : (
+							<AiOutlineMenu
+								className="w-8 h-auto text-clr1 group-hover:text-gray-500"
+								aria-hidden="true"
+							/>
 						)}
-					>
-						<Avatar
-							className="shadow-xl "
-							imageSrc={
-								"/images/profile.png"
-							}
-							size={10}
-							//   gravatarFallbackMd5={"sfhgs"}
-							alt={"Nameless User"}
-						/>
-					</span>
-					{!small ? (
-						""
-					) : (
-						<AiOutlineMenu
-							className="w-8 h-auto text-clr1 group-hover:text-gray-500"
-							aria-hidden="true"
-						/>
-					)}
-					{!small && (
-						<span className="flex items-center flex-grow truncate">
-							<span className="flex-grow text-sm truncate">
-								{/* <span className="block text-lg font-medium text-clr1 truncate">
+						{!small && (
+							<span className="flex items-center flex-grow truncate">
+								<span className="flex-grow text-sm truncate">
+									{/* <span className="block text-lg font-medium text-clr1 truncate">
                   {"Nameless User"}
                 </span>
                 <span className="block font-normal truncate text-neutral-500">
                   {
                 "No public page"}
                 </span> */}
+								</span>
+								<AiFillCaretDown
+									className="flex-shrink-0 w-5 h-5 text-gray-500 group-hover:text-clr1"
+									aria-hidden="true"
+								/>
 							</span>
-							<AiFillCaretDown
-								className="flex-shrink-0 w-5 h-5 text-gray-500 group-hover:text-clr1"
+						)}
+					</div>
+				</DropdownMenuTrigger>
+				<DropdownMenuContent className=" w-fit mr-5">
+
+					<DropdownMenuItem className="rounded-t-xl group">
+						<Link to="/wallet" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:rounded-t-lg hover:bg-white hover:text-clr1 hover:font-semibold">
+							<AiOutlineUser
+								className={classNames(
+									" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
+									" flex-shrink-0 h-5 w-5"
+								)}
 								aria-hidden="true"
 							/>
-						</span>
-					)}
-				</div>
-			</DropdownMenuTrigger>
-			<DropdownMenuContent className=" w-fit mr-5">
-
-				<DropdownMenuItem className="rounded-t-xl group">
-					<Link to="/wallet" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:rounded-t-lg hover:bg-white hover:text-clr1 hover:font-semibold">
-						<AiOutlineUser
-							className={classNames(
-								" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
-								" flex-shrink-0 h-5 w-5"
-							)}
-							aria-hidden="true"
-						/>
-						{"Deposit INR"}
-					</Link>
-				</DropdownMenuItem>
-				<DropdownMenuSeparator className="h-px bg-gray-200" />
-				<DropdownMenuItem className="rounded-t-xl group">
-					<Link to="/wallet" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
-						<AiOutlineUser
-							className={classNames(
-								" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
-								"mr-2 flex-shrink-0 h-5 w-5"
-							)}
-							aria-hidden="true"
-						/>
-						<span className="inline whitespace-nowrap">{"Import Funds"}</span>
-					</Link>
-				</DropdownMenuItem>
-				<DropdownMenuSeparator className="h-px bg-gray-200" />
-				<DropdownMenuItem className="rounded-t-xl group">
-					<Link to="/history" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
-						<AiOutlineHistory
-							className={classNames(
-								" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
-								"mr-2 flex-shrink-0 h-5 w-5"
-							)}
-							aria-hidden="true"
-						/>
-						{"History"}
-					</Link>
-				</DropdownMenuItem>
-				<DropdownMenuSeparator className="h-px bg-gray-200" />
-				<DropdownMenuItem className="rounded-t-xl group">
-					<Link to="/kyc" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
-						<AiOutlineForm
-							className={classNames(
-								" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
-								"mr-2 flex-shrink-0 h-5 w-5"
-							)}
-							aria-hidden="true"
-						/>
-						{"KYC"}
-					</Link>
-				</DropdownMenuItem>
-				<DropdownMenuSeparator className="h-px bg-gray-200" />
-				<DropdownMenuItem className="rounded-t-xl group">
-					<Link to="/support" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
-						<AiOutlineUser
-							className={classNames(
-								" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
-								"mr-2 flex-shrink-0 h-5 w-5"
-							)}
-							aria-hidden="true"
-						/>
-						<span className="inline whitespace-nowrap">{"Support"}</span>
-					</Link>
-				</DropdownMenuItem>
-				<DropdownMenuSeparator className="h-px bg-gray-200" />
-				<DropdownMenuItem className="rounded-t-xl group">
-					<Link to="/settings" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer  hover:bg-white hover:text-clr1 hover:font-semibold">
-						<AiFillSetting
-							className={classNames(
-								" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
-								"mr-2 flex-shrink-0 h-5 w-5"
-							)}
-							aria-hidden="true"
-						/>
-						{"Settings"}
-					</Link>
-				</DropdownMenuItem>
-				<DropdownMenuSeparator className="h-px bg-gray-200" />
-				<DropdownMenuItem className="rounded-t-xl group">
-					<Link to="/referral" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer  hover:bg-white hover:text-clr1 hover:font-semibold">
-						<AiOutlineUserAdd
-							className={classNames(
-								" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
-								"mr-2 flex-shrink-0 h-5 w-5"
-							)}
-							aria-hidden="true"
-						/>
-						{"Referral"}
-					</Link>
-				</DropdownMenuItem>
-				<DropdownMenuSeparator className="h-px bg-gray-200" />
-				{/* <DropdownMenuItem className=" group">
+							{"Deposit INR"}
+						</Link>
+					</DropdownMenuItem>
+					<DropdownMenuSeparator className="h-px bg-gray-200" />
+					<DropdownMenuItem className="rounded-t-xl group">
+						<Link to="/wallet" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
+							<AiOutlineUser
+								className={classNames(
+									" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
+									"mr-2 flex-shrink-0 h-5 w-5"
+								)}
+								aria-hidden="true"
+							/>
+							<span className="inline whitespace-nowrap">{"Import Funds"}</span>
+						</Link>
+					</DropdownMenuItem>
+					<DropdownMenuSeparator className="h-px bg-gray-200" />
+					<DropdownMenuItem className="rounded-t-xl group">
+						<Link to="/history" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
+							<AiOutlineHistory
+								className={classNames(
+									" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
+									"mr-2 flex-shrink-0 h-5 w-5"
+								)}
+								aria-hidden="true"
+							/>
+							{"History"}
+						</Link>
+					</DropdownMenuItem>
+					<DropdownMenuSeparator className="h-px bg-gray-200" />
+					<DropdownMenuItem className="rounded-t-xl group">
+						<Link to="/kyc" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
+							<AiOutlineForm
+								className={classNames(
+									" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
+									"mr-2 flex-shrink-0 h-5 w-5"
+								)}
+								aria-hidden="true"
+							/>
+							{"KYC"}
+						</Link>
+					</DropdownMenuItem>
+					<DropdownMenuSeparator className="h-px bg-gray-200" />
+					<DropdownMenuItem className="rounded-t-xl group">
+						<Link to="/support" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
+							<AiOutlineUser
+								className={classNames(
+									" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
+									"mr-2 flex-shrink-0 h-5 w-5"
+								)}
+								aria-hidden="true"
+							/>
+							<span className="inline whitespace-nowrap">{"Support"}</span>
+						</Link>
+					</DropdownMenuItem>
+					<DropdownMenuSeparator className="h-px bg-gray-200" />
+					<DropdownMenuItem className="rounded-t-xl group">
+						<Link to="/settings" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer  hover:bg-white hover:text-clr1 hover:font-semibold">
+							<AiFillSetting
+								className={classNames(
+									" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
+									"mr-2 flex-shrink-0 h-5 w-5"
+								)}
+								aria-hidden="true"
+							/>
+							{"Settings"}
+						</Link>
+					</DropdownMenuItem>
+					<DropdownMenuSeparator className="h-px bg-gray-200" />
+					<DropdownMenuItem className="rounded-t-xl group">
+						<Link to="/referral" className="flex items-center gap-x-2 px-4 py-2 text-lg cursor-pointer  hover:bg-white hover:text-clr1 hover:font-semibold">
+							<AiOutlineUserAdd
+								className={classNames(
+									" text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
+									"mr-2 flex-shrink-0 h-5 w-5"
+								)}
+								aria-hidden="true"
+							/>
+							{"Referral"}
+						</Link>
+					</DropdownMenuItem>
+					<DropdownMenuSeparator className="h-px bg-gray-200" />
+					{/* <DropdownMenuItem className=" group">
           <Link to="/change-Password" className="flex px-4 py-2 text-xl cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
               <KeyIcon
                 className={classNames(
@@ -455,8 +459,8 @@ function UserDropdown({ small }: { small?: boolean }) {
               {"Change Pin"}
           </Link>
         </DropdownMenuItem> */}
-				{/* <DropdownMenuSeparator className="h-px bg-gray-200" /> */}
-				{/* <DropdownMenuItem className=" group">
+					{/* <DropdownMenuSeparator className="h-px bg-gray-200" /> */}
+					{/* <DropdownMenuItem className=" group">
           <Link to="/support" className="flex px-4 py-2 text-xl cursor-pointer hover:bg-white hover:text-clr1 hover:font-semibold">
               <SupportIcon
                 className={classNames(
@@ -468,24 +472,47 @@ function UserDropdown({ small }: { small?: boolean }) {
               {"Support"}
           </Link>
         </DropdownMenuItem> */}
-				{/* <HelpMenuItemDynamic /> */}
-				{/* <DropdownMenuSeparator className="h-px bg-gray-200" /> */}
-				<DropdownMenuItem className="rounded-b-xl group">
-					<p
-						onClick={() => signOut({ callbackUrl: "/auth/login" })}
-						className="flex px-4 items-center gap-x-2 py-2 text-lg cursor-pointer hover:rounded-b-lg hover:bg-white hover:text-clr1 hover:font-semibold"
-					>
-						<AiOutlineLogout
-							className={classNames(
-								"text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
-								"mr-2 flex-shrink-0 h-5 w-5"
-							)}
-							aria-hidden="true"
-						/>
-						{"Log Out"}
-					</p>
-				</DropdownMenuItem>
-			</DropdownMenuContent>
-		</Dropdown>
+					{/* <HelpMenuItemDynamic /> */}
+					{/* <DropdownMenuSeparator className="h-px bg-gray-200" /> */}
+					<DropdownMenuItem className="rounded-b-xl group">
+						<p
+							onClick={() =>
+								setLogoutModelOpen(true)
+								// signOut({callbackUrl: "/auth/login" })
+							}
+							className="flex px-4 items-center gap-x-2 py-2 text-lg cursor-pointer hover:rounded-b-lg hover:bg-white hover:text-clr1 hover:font-semibold"
+						>
+							<AiOutlineLogout
+								className={classNames(
+									"text-white text-lg group-hover:text-clr1 hover:text-clr1 hover:font-semibold",
+									"mr-2 flex-shrink-0 h-5 w-5"
+								)}
+								aria-hidden="true"
+							/>
+							{"Log Out"}
+						</p>
+					</DropdownMenuItem>
+				</DropdownMenuContent>
+			</Dropdown >
+			{
+				logoutModelOpen &&
+				<Modal show={logoutModelOpen} onHide={() => setLogoutModelOpen(false)}>
+					<Modal.Header closeButton>
+						<Modal.Title>Are You Sure Want To LogOut</Modal.Title>
+					</Modal.Header>
+					<Modal.Footer>
+						<Button onClick={() => setLogoutModelOpen(false)}>
+							No
+						</Button>
+						<Button onClick={() => {
+							signOut({ callbackUrl: "/auth/login" })
+							setLogoutModelOpen(false)
+						}}>
+							Yes
+						</Button>
+					</Modal.Footer>
+				</Modal>
+			}
+		</>
 	);
 }
