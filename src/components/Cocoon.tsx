@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Modal } from 'react-bootstrap';
 import { Button } from './styled/ui';
+import LogoutModal from './modals/LogoutModal';
 
 function useRedirectToLoginIfUnauthenticated(isPublic = false) {
 	//Logic Here
@@ -280,10 +281,10 @@ export default function Cocoon({ }: CocoonProps) {
 
 
 function UserDropdown({ small }: { small?: boolean }) {
-	const [logoutModelOpen, setLogoutModelOpen] = useState(false)
+	const [logoutModalOpen, setLogoutModalOpen] = useState(false)
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	console.log(logoutModelOpen)
+	console.log(logoutModalOpen)
 
 	const signOut = async ({ callbackUrl }: { callbackUrl: string }) => {
 		try {
@@ -477,7 +478,7 @@ function UserDropdown({ small }: { small?: boolean }) {
 					<DropdownMenuItem className="rounded-b-xl group">
 						<p
 							onClick={() =>
-								setLogoutModelOpen(true)
+								setLogoutModalOpen(true)
 								// signOut({callbackUrl: "/auth/login" })
 							}
 							className="flex px-4 items-center gap-x-2 py-2 text-lg cursor-pointer hover:rounded-b-lg hover:bg-white hover:text-clr1 hover:font-semibold"
@@ -494,25 +495,11 @@ function UserDropdown({ small }: { small?: boolean }) {
 					</DropdownMenuItem>
 				</DropdownMenuContent>
 			</Dropdown >
-			{
-				logoutModelOpen &&
-				<Modal show={logoutModelOpen} onHide={() => setLogoutModelOpen(false)}>
-					<Modal.Header closeButton>
-						<Modal.Title>Are You Sure Want To LogOut</Modal.Title>
-					</Modal.Header>
-					<Modal.Footer>
-						<Button onClick={() => setLogoutModelOpen(false)}>
-							No
-						</Button>
-						<Button onClick={() => {
-							signOut({ callbackUrl: "/auth/login" })
-							setLogoutModelOpen(false)
-						}}>
-							Yes
-						</Button>
-					</Modal.Footer>
-				</Modal>
-			}
+			{logoutModalOpen && <LogoutModal onClose={()=>setLogoutModalOpen(false)} onLogout={()=>{
+				signOut({ callbackUrl: "/auth/login" })
+				setLogoutModalOpen(false)
+			}} />}
+			
 		</>
 	);
 }

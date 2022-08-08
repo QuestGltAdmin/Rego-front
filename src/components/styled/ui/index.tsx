@@ -51,6 +51,24 @@ export const Input = styled('input', {
 	'&:focus': { boxShadow: `0 0 0 2px ${indigo.indigo8}` },
 });
 
+export const IconButton = styled('button', {
+	all: 'unset',
+	fontFamily: 'inherit',
+	borderRadius: '100%',
+	height: 25,
+	width: 25,
+	display: 'inline-flex',
+	alignItems: 'center',
+	justifyContent: 'center',
+	color: indigo.indigo11,
+	position: 'absolute',
+	top: 10,
+	right: 10,
+  
+	'&:hover': { backgroundColor: indigo.indigo4 },
+	'&:focus': { boxShadow: `0 0 0 2px ${indigo.indigo7}` },
+  }); 
+
 export const Button = styled('button', {
 	all: 'unset',
 	display: 'inline-flex',

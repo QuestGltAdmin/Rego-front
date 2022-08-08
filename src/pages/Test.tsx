@@ -1,6 +1,8 @@
 import * as Tabs from '@radix-ui/react-tabs';
+import DialogDemo from 'components/styled/Dialog';
 export const Test = () => (
 
+  <>
   <Tabs.Root defaultValue="tab1" orientation="vertical">
 
     <Tabs.List aria-label="tabs example">
@@ -20,5 +22,7 @@ export const Test = () => (
     <Tabs.Content value="tab3">Tab three content</Tabs.Content>
 
   </Tabs.Root>
+  <DialogDemo/>
+  </>
 
 );
