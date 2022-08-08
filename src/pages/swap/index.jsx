@@ -7,9 +7,14 @@ import { AiFillAccountBook, AiFillAlert, AiFillAlipayCircle } from 'react-icons/
 import { Select, SelectContent, SelectIcon, SelectItem, SelectItemIndicator, SelectItemText, SelectTrigger, SelectValue, SelectViewport } from 'components/styled/Select';
 import { CheckIcon, ChevronDownIcon } from '@radix-ui/react-icons';
 import axiosMain from 'lib/http/axios';
+import { useSelector } from 'react-redux';
 
 function Swap() {
-  const [nfts, setNfts] = useState<any[]>([])
+  const { user } = useSelector((state) => state.auth)
+  const { InrwalletObj, array: cryptowalletObj } = useSelector(
+    (state) => state.wallet.userWallet
+  );
+  const [nfts, setNfts] = useState([])
 
   const fetchData = async () => {
     const res = await axiosMain.get('users/Swap')
@@ -20,14 +25,14 @@ function Swap() {
     fetchData();
   }, [])
 
-  const [fromCoin, setFromCoin] = useState<{ name: string, ticker: string, icon: SVGComponent, value: string }>({
+  const [fromCoin, setFromCoin] = useState({
     name: "Bitcoin",
     ticker: "BTC",
     icon: AiFillAccountBook,
     value: "BTC"
   })
 
-  const [toCoin, setToCoin] = useState<{ name: string, ticker: string, icon: SVGComponent, value: string }>({
+  const [toCoin, setToCoin] = useState({
     name: "Bitcoin",
     ticker: "BTC",
     icon: AiFillAccountBook,
@@ -56,15 +61,16 @@ function Swap() {
     }
   ]
 
-  const handleCoinChange = (e: string, type: "TO" | "FROM") => {
-    let newCoin = coins.filter((coin) => coin.value === e)
+  const handleCoinChange = (e, type) => {
+    let newCoin = cryptowalletObj.filter((coin) => coin.crypt_name === e)
     type === "TO"
       ? setToCoin(newCoin[0])
       : setFromCoin(newCoin[0]);
   }
 
+  console.log(cryptowalletObj )
   return (
-    <Box css={{borderColor:violet.violet8}} className=" p-3 md:w-5/6 lg:w-4/6 xl:w-3/6 border  mx-auto rounded-xl">
+    <Box css={{ borderColor: violet.violet8 }} className=" p-3 md:w-5/6 lg:w-4/6 xl:w-3/6 border  mx-auto rounded-xl">
       <Heading4 css={{ marginBottom: 2 }} className="text-center">Bitshares to Tether Price</Heading4>
       <Heading2 className="text-center" >BTS To USDT Converter</Heading2>
       <Flex className="justify-between px-4">
@@ -92,9 +98,9 @@ function Swap() {
               </SelectTrigger>
               <SelectContent>
                 <SelectViewport>
-                  {coins.map((coin) => (
+                  {cryptowalletObj?.map((coin) => (
                     <SelectItem key={coin.value} value={coin?.value} >
-                      <SelectItemText>{coin?.name}</SelectItemText>
+                      <SelectItemText>{coin?.crypt_name}</SelectItemText>
                       <SelectItemIndicator>
                         <CheckIcon />
                       </SelectItemIndicator>
@@ -102,7 +108,6 @@ function Swap() {
                   ))}
                 </SelectViewport>
               </SelectContent>
-
             </Select>
           </Flex>
         </Box>
@@ -134,7 +139,7 @@ function Swap() {
             </Select>
           </Flex>
         </Box>
-        <Button css={{width:"20rem"}} className="align-right">Convert</Button>
+        <Button css={{ width: "20rem" }} className="align-right">Convert</Button>
       </Flex>
     </Box>
   )

@@ -15,9 +15,9 @@ import HelpAndSupport from './pages/support'
 import UserCocoon from 'components/Cocoon';
 import Dashboard from './pages/dashboard';
 import History from './pages/history';
-import BuyCrypto from './pages/buy-crypto';
+// import BuyCrypto from './pages/buy-crypto';
 import NFT from './pages/nft'
-import Swap from './pages/swap';
+// import Swap from './pages/swap';
 // import FixedDeposit from './pages/fixed-deposit';
 import BasketSip from './pages/basket-sip';
 import ProTrading from '././pages/pro-trading';
@@ -31,6 +31,8 @@ import { Test } from './pages/Test';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";  
 import FixedDeposit from 'pages/fixed-deposit';
+import BuyCrypto from 'pages/buy-crypto';
+import Swap from 'pages/swap';
 
 function App() {
   return (
