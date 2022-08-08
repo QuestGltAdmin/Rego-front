@@ -9,6 +9,8 @@ export default function ReferralModal({ onClose }) {
 		<>
 			<Dialog open={true}>
 				<DialogContent>
+					<div className='w-72'>
+
 					<DialogTitle>
 						Share And Refer ...
 					</DialogTitle>
@@ -29,12 +31,13 @@ export default function ReferralModal({ onClose }) {
 						</WhatsappShareButton>
 					</div>
 
-					{/* <DialogClose > */}
+					<DialogClose asChild>
 					<IconButton onClick={() => onClose()} aria-label="Close">
 
 						<Cross2Icon />
 					</IconButton>
-					{/* </DialogClose> */}
+					</DialogClose>
+					</div>
 				</DialogContent>
 			</Dialog>
 		</>

@@ -32,10 +32,11 @@ const StyledContent = styled(DialogPrimitive.Content, {
   position: 'fixed',
   top: '50%',
   left: '50%',
+  minWidth:"300px",
   transform: 'translate(-50%, -50%)',
-  width: '90vw',
-  maxWidth: '450px',
-  maxHeight: '85vh',
+  // width: '90vw',
+  maxWidth: '90%',
+  maxHeight: '90%',
   padding: 25,
   '@media (prefers-reduced-motion: no-preference)': {
     animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
@@ -169,7 +170,10 @@ const DialogDemo = () => (
     <DialogTrigger asChild>
       <Button>Edit profile</Button>
     </DialogTrigger>
-    <DialogContent >
+    
+
+    <DialogContent>
+    <div className="w-full">
       <DialogTitle>Edit profile</DialogTitle>
       <DialogDescription>
         Make changes to your profile here. Click save when you're done.
@@ -192,6 +196,7 @@ const DialogDemo = () => (
           <Cross2Icon />
         </IconButton>
       </DialogClose>
+    </div>
     </DialogContent>
   </Dialog>
 );

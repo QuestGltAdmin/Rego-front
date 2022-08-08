@@ -1,4 +1,6 @@
 import * as Tabs from '@radix-ui/react-tabs';
+import BuySellWarningModal from 'components/modals/BuySellWarningModal';
+import CreateSipModal from 'components/modals/CreateSipModal';
 import DialogDemo from 'components/styled/Dialog';
 export const Test = () => (
 
@@ -23,6 +25,8 @@ export const Test = () => (
 
   </Tabs.Root>
   <DialogDemo/>
+  <CreateSipModal/>
+  <BuySellWarningModal/>
   </>
 
 );
