@@ -1,6 +1,6 @@
 import { Cross2Icon, ExclamationTriangleIcon } from '@radix-ui/react-icons'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger, DialogClose } from 'components/styled/Dialog'
-import { Button,Text, IconButton,Flex } from 'components/styled/ui'
+import { Button, Text, IconButton, Flex } from 'components/styled/ui'
 import React from 'react'
 
 export default function BuySellWarningModal() {
@@ -11,17 +11,17 @@ export default function BuySellWarningModal() {
 					<Button>Show Warning</Button>
 				</DialogTrigger>
 				<DialogContent className="overflow-auto">
-					<div className=""> 
+					<div className="">
 
-					
-					<DialogTitle>
-						ATTENTION
-					</DialogTitle>
-					<DialogDescription>
-						Some Description regarding warning!
-					</DialogDescription>
-					
-					<ExclamationTriangleIcon className="mx-auto w-24 h-24 text-red-500 my-2" />
+
+						<DialogTitle>
+							ATTENTION
+						</DialogTitle>
+						<DialogDescription>
+							Some Description regarding warning!
+						</DialogDescription>
+
+						<ExclamationTriangleIcon className="mx-auto w-24 h-24 text-red-500 my-2" />
 						<Text>
 							Trading in Crypto Intruments involves a high degree of risk with potential for both great profits and significant lossess.
 						</Text>
@@ -33,15 +33,15 @@ export default function BuySellWarningModal() {
 
 						<Flex className="justify-center mt-2">
 
-						<Button>I Understand/Agree</Button>
+							<Button>I Understand/Agree</Button>
 						</Flex>
-				<DialogClose asChild>
+						<DialogClose asChild>
 
-				<IconButton>
-					<Cross2Icon />
-				</IconButton>
-				</DialogClose>
-				</div>
+							<IconButton>
+								<Cross2Icon />
+							</IconButton>
+						</DialogClose>
+					</div>
 				</DialogContent>
 			</Dialog>
 		</>
