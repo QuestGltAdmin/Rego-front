@@ -41,6 +41,7 @@ function Nft() {
                 name={items.title}
                 username={items.category}
                 price={items.price}
+                type={1}
               />
             )
           }

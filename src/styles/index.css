@@ -15,3 +15,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Loader animation */
+#love{
+	width:150px;
+	height:150px;
+}
+#love{
+	animation:rot 5s;
+  -webkit-animation:rot 5s;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+}
+@keyframes rot
+{
+	from{  transform:rotateY(0deg);}
+	to {  transform:rotateY(360deg);}
+}
+@-webkit-keyframes rot
+{
+	from{  -webkit-transform:rotateY(0deg);}
+	to { -webkit-transform:rotateY(360deg);}
+}

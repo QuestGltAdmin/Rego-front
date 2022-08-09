@@ -1,10 +1,42 @@
+import axios from 'axios';
 import AnimatePage from 'HOCs/Animate';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import NftAvatar from 'components/NftAvatar';
+import BlogAvatar from 'components/BlogAvatar';
 
-function index() {
+
+function Index() {
+
+  const [nfts, setNfts] = useState<any[]>([])
+
+  const fetchData = async () => {
+    const res = await axios.post('http://nft.regoex.com:3001/users/content/')
+    console.log(res.data.data.content)
+    setNfts(res.data.data.content)
+  }
+  useEffect(() => {
+    fetchData();
+  }, [])
+
   return (
-    <div>Blog News</div>
+    <>
+    <div className="grid grid-cols-2 pb-4 mt-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 auto-cols-auto gap-y-6 sm:pb-0">
+        {nfts.map((items, index) => {
+          
+            return (
+              // <NftCard key={index} name="Cartoon NFT" imageSrc='/images/nft.png' price={10} userProfilePic="/images/profile.png" username='@clouty' />
+              <BlogAvatar
+                _id={items._id}
+                key={index}
+                imageSrc={`${"http://nft.regoex.com:3001/content/"}${items.image}`}
+                title={items.title}
+                // category={items.category}
+              />
+            )
+        })}
+      </div>
+    </>
   )
 }
 
-export default AnimatePage(index);
+export default AnimatePage(Index);
