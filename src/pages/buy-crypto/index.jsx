@@ -9,6 +9,7 @@ import { SVGComponent } from 'lib/types/SVGComponent';
 import { useDispatch, useSelector } from 'react-redux';
 import { Select, SelectContent, SelectIcon, SelectItem, SelectItemIndicator, SelectItemText, SelectTrigger, SelectValue, SelectViewport } from 'components/styled/Select';
 import { CheckIcon, ChevronDownIcon, DoubleArrowRightIcon } from '@radix-ui/react-icons';
+import { getWalletSaga } from 'store/reducers/walletReducer'
 import { coins, INR } from "assets/coins/coins"
 import { upperCase } from 'lodash'
 import axios from 'axios';
@@ -114,18 +115,20 @@ function Index() {
     (async () => {
       await getCoinRate(selectedCoin?.coin_ID);
       await getCoinChart(selectedCoin?.coin_ID);
+      setBuyTabForm({
+        ...buyTabForm,
+        iHaveValue: "",
+        iWantValue: "",
+        iWantSellTab: "",
+        iHaveSellTab: "",
+      });
     })()
   }, [selectedCoin])
 
   useEffect(() => {
-    setBuyTabForm({
-      ...buyTabForm,
-      iHaveValue: "",
-      iWantValue: "",
-      iWantSellTab: "",
-      iHaveSellTab: "",
-    });
-  }, [selectedCoin]);
+    const payload = { email: user.email }
+    dispatch(getWalletSaga(payload));
+  }, []);
 
   //Coin Chart Logic and Options
   const cryptoTimestamp = [];
@@ -272,7 +275,7 @@ function Index() {
     console.log("buy/sell success", res);
     if (res.status === 200) {
       toast.success("Transaction Successfull", {
-        autoClose: 1500,
+        autoClose: 1000,
         pauseOnHover: false,
       });
       navigate('/history');

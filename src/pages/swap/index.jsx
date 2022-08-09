@@ -68,8 +68,10 @@ function Swap() {
       : setFromCoin(newCoin[0]);
   }
 
-  console.log(cryptowalletObj)
+  const cryptoPrice = cryptowalletObj?.map((item) => item?.value)
+  console.log(cryptoPrice)
   console.log({ user })
+  console.log(cryptowalletObj)
   return (
     <Box css={{ borderColor: violet.violet8 }} className=" p-3 md:w-5/6 lg:w-4/6 xl:w-3/6 border  mx-auto rounded-xl">
       <Heading4 css={{ marginBottom: 2 }} className="text-center">Bitshares to Tether Price</Heading4>
@@ -98,7 +100,7 @@ function Swap() {
                 </SelectIcon>
               </SelectTrigger>
               <SelectContent>
-                <SelectViewport>
+                {/* <SelectViewport> */}
                   {cryptowalletObj?.map((coin) => (
                     <SelectItem key={coin.value} value={coin?.value} >
                       <SelectItemText>{coin?.crypt_name}</SelectItemText>
@@ -107,7 +109,7 @@ function Swap() {
                       </SelectItemIndicator>
                     </SelectItem>
                   ))}
-                </SelectViewport>
+                {/* </SelectViewport> */}
               </SelectContent>
             </Select>
           </Flex>
