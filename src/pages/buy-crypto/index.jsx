@@ -65,7 +65,6 @@ const options = {
 function Index() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   //Chart States
   const [coinChartData, setCoinChartData] = useState([]);
   const [coinRate, setCoinRate] = useState(null);
@@ -87,7 +86,9 @@ function Index() {
   const { InrwalletObj, array: cryptowalletObj } = useSelector(
     (state) => state.wallet.userWallet
   );
-  console.log({ InrwalletObj, cryptowalletObj });
+  // console.log({ InrwalletObj, cryptowalletObj });
+  console.log({ selectedCoin })
+  console.log({ coinRate })
   //Input Fields
   const [buyTabForm, setBuyTabForm] = useState({
     iHaveValue: "",
@@ -221,7 +222,7 @@ function Index() {
 
       let inrValue = +iHaveValue;
       payload = {
-        email: user.user.email,
+        email: user.email,
         type: "Buy",
         shortcode: selectedCoin.name.toUpperCase(),
         inrValue,
@@ -274,6 +275,7 @@ function Index() {
         autoClose: 1500,
         pauseOnHover: false,
       });
+      navigate('/history');
       dispatch(updateINRBalance({ balance: payload.inrValue }))
       dispatch(
         updateUserCryptoBalance({
@@ -281,9 +283,7 @@ function Index() {
           balance: payload?.cryptoValue,
         })
       );
-      setTimeout(() => {
-        navigate("/history");
-      }, 2000);
+      // window.location.pathname = "/history"
     } else {
       toast.error("something went wrong", {
         autoClose: 1500,
@@ -368,7 +368,7 @@ function Index() {
                       iHaveValue: e.target.value,
                       iWantValue:
                         iHaveValue !== 0 || iHaveValue.length !== 0
-                          ? (e.target.value / Number(coinRate.inr)).toFixed(8)
+                          ? (e.target.value / Number(coinRate)).toFixed(8)
                           : 0,
                     })
                   }
@@ -435,7 +435,7 @@ function Index() {
                     setBuyTabForm({
                       ...buyTabForm,
                       iWantValue: e.target.value,
-                      iHaveValue: e.target.value * Number(coinRate.inr),
+                      iHaveValue: e.target.value * Number(coinRate),
                     })
                   } />
               </Flex>
@@ -483,7 +483,7 @@ function Index() {
                     setBuyTabForm({
                       ...buyTabForm,
                       iHaveSellTab: e.target.value,
-                      iWantSellTab: e.target.value * Number(coinRate.inr),
+                      iWantSellTab: e.target.value * Number(coinRate),
                     })
                   }
                 />

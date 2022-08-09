@@ -68,7 +68,8 @@ function Swap() {
       : setFromCoin(newCoin[0]);
   }
 
-  console.log(cryptowalletObj )
+  console.log(cryptowalletObj)
+  console.log({ user })
   return (
     <Box css={{ borderColor: violet.violet8 }} className=" p-3 md:w-5/6 lg:w-4/6 xl:w-3/6 border  mx-auto rounded-xl">
       <Heading4 css={{ marginBottom: 2 }} className="text-center">Bitshares to Tether Price</Heading4>
