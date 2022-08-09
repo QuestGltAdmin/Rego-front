@@ -16,7 +16,7 @@ import UserCocoon from 'components/Cocoon';
 import Dashboard from './pages/dashboard';
 import History from './pages/history';
 // import BuyCrypto from './pages/buy-crypto';
-import NFT from './pages/nft'
+import NFT from './pages/nft';
 // import Swap from './pages/swap';
 // import FixedDeposit from './pages/fixed-deposit';
 import BasketSip from './pages/basket-sip';
