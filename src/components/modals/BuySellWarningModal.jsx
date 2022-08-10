@@ -12,8 +12,6 @@ export default function BuySellWarningModal() {
 				</DialogTrigger>
 				<DialogContent className="overflow-auto">
 					<div className="">
-
-
 						<DialogTitle>
 							ATTENTION
 						</DialogTitle>
@@ -26,7 +24,7 @@ export default function BuySellWarningModal() {
 							Trading in Crypto Intruments involves a high degree of risk with potential for both great profits and significant lossess.
 						</Text>
 						<Text>
-							Please be aware that in the event of extreme price movement, there is a chance that all your locaked balance may be liquidated. Before deciding to participate in the crypto Futures market, we advise you to carefully consider your investments objectives, level of experience and risk appetitt.
+							Please be that sometime there is need of the hour and you get it right at any cost not matter what will be the consequence of an action that is being performed for a greater good aware that in the event of extreme price movement, there is a chance that all your locaked balance may be liquidated. Before deciding to participate in the crypto Futures market, we advise you to carefully consider your investments objectives, level of experience and risk appetitt.
 						</Text>
 						<hr />
 						<h3 className="my-2 font-semibold">I hereby confirm that i/we do not come under any restricted pr sanctioned list as outlined in the Customer Acceptance Term of the Regoex Policy.</h3>

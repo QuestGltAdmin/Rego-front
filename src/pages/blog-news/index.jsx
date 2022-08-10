@@ -8,25 +8,26 @@ import RegoLoader from 'components/RegoLoader';
 
 function Index() {
 
-  const [nfts, setNfts] = useState()
+  const [blogs, setBlogs] = useState();
 
-  const fetchData = async () => {
-    const res = await axios.post('http://nft.regoex.com:3001/users/content/')
-    console.log(res.data.data.content)
-    setNfts(res.data.data.content)
-  }
   useEffect(() => {
     fetchData();
   }, [])
 
+
+  const fetchData = async () => {
+    const res = await axios.post('http://nft.regoex.com:3001/users/content/')
+    console.log(res.data.data.content)
+    setBlogs(res.data.data.content)
+  }
+  
   return (
     <>
-        {!nfts && <RegoLoader loaderAutoResize={false} className=" h-72" />}
-    {nfts && <div className="grid grid-cols-2 pb-4 mt-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 auto-cols-auto gap-y-6 sm:pb-0">
-        {nfts?.map((items, index) => {
+        {!blogs && <RegoLoader loaderAutoResize={false} className=" h-72" />}
+    {blogs && <div className="grid grid-cols-2 pb-4 mt-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 auto-cols-auto gap-y-6 sm:pb-0">
+        {blogs?.map((items, index) => {
           
             return (
-              // <NftCard key={index} name="Cartoon NFT" imageSrc='/images/nft.png' price={10} userProfilePic="/images/profile.png" username='@clouty' />
               <BlogAvatar
                 _id={items._id}
                 key={index}

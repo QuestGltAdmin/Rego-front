@@ -1,6 +1,7 @@
 // import { useWindowDimensions } from "lib/hooks/useWindowDimensions";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import NFTDetailsModal from "./modals/NFTDetailsModal";
 // import { DemoCardModal } from "./DemoCardModal";
 
 export type NftAvatarProps = {
@@ -17,31 +18,27 @@ export type NftAvatarProps = {
   price?: number;
 };
 
-export default function NftAvatar(props: NftAvatarProps) {
 
+export default function NftAvatar(props: NftAvatarProps) {
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isBlockedUsers =
-    location.pathname === "/blocked-Demos" ? true : false;
-  const [showDemoCardModal, setShowDemoCardModal] = useState(false);
-  const [showMobDemoCardModal, setShowMobDemoCardModal] = useState(false);
-  //   const { width } = useWindowDimensions();
-  //   const PhotoUrlPrefix = `${BASE_/PHOTO_URL}/${props?.userId}`
+  const [showNftModal, setShowNftModal] = useState(false);
 
   if (props.type == 1) {
 
     return (
+      <>
       <div className='flex flex-col m-3 bg-white rounded-lg h-72 w-52'>
         <div className='m-2'>
-          <div className='w-48 h-48 p-1 rounded-full bg-blue-800 hover:shadow-2xl hover:shadow-clr1'>
-            <img className="object-cover w-full h-full rounded-full" src={props.imageSrc} alt="Demo Avatar" />
+          <div onClick={()=>setShowNftModal(true)} className='w-48 h-48 p-1 rounded-full bg-blue-800 hover:shadow-2xl hover:shadow-clr1'>
+            <img className="object-cover w-full h-full rounded-full" src={props?.imageSrc} alt="Demo Avatar" />
           </div>
           <div className='flex flex-col pt-3'>
             <div>
               <h1 className="text-lg font-semibold text-center text-blue-800 lg:text-xl">
-                {props.name}
+                {props?.name}
               </h1>
             </div>
             <div className="flex justify-center items-center gap-x-2">
@@ -54,6 +51,15 @@ export default function NftAvatar(props: NftAvatarProps) {
         </div>
 
       </div>
+      {showNftModal && (
+        <NFTDetailsModal
+          title={props?.name}
+          description={props?.name}
+          imageSrc={props?.imageSrc}
+          onClose={()=>setShowNftModal(false)}
+        />
+      )}
+      </>
     )
 
   }
@@ -67,7 +73,7 @@ export default function NftAvatar(props: NftAvatarProps) {
       <div
         className=" w-48 h-48 p-1 bg-blue-800 rounded-2xl hover:shadow-2xl hover:shadow-clr1"
         onClick={() => {
-          setShowDemoCardModal(true)
+          setShowNftModal(true)
         }}
       >
         <img
@@ -84,22 +90,23 @@ export default function NftAvatar(props: NftAvatarProps) {
       <div className="flex flex-col">
         <div>
           <h1 className="text-lg font-semibold text-center text-blue-800 lg:text-xl">
-            {props.name}
+            {props?.name}
           </h1>
         </div>
         <div className="flex justify-center items-center gap-x-2">
           <h1 className="font-light text-center text-gray-500 lg:text-lg">
             {"28.00 BNB"}
           </h1>
-          <span className="text-gray-500 font-light text-base">{`(${'$'}${props.price})`}</span>
+          <span className="text-gray-500 font-light text-base">{`(${'$'}${props?.price})`}</span>
         </div>
       </div>
-      {showDemoCardModal && !isBlockedUsers && (
-        // <DemoCardModal
-        //   userId={props.userId}
-        //   onClose={() => setShowDemoCardModal(false)}
-        // />
-        <></>
+      {showNftModal && (
+        <NFTDetailsModal
+          title={props?.name}
+          description={props?.name}
+          imageSrc={props?.imageSrc}
+          onClose={()=>setShowNftModal(false)}
+        />
       )}
     </div>
   );

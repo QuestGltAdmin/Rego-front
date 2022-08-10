@@ -31,7 +31,7 @@ export const Test = () => (
   <CreateSipModal/>
   <BuySellWarningModal/>
   <BlogAndNewsModal/>
-  <NFTDetailsModal/>
+  {/* <NFTDetailsModal onClose={()=>console.log("close nft modal")}/> */}
   <RegoLoader loaderAutoResize={false}/> 
   <RegoLoaderFullScreen/>
   

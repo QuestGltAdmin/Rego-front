@@ -7,6 +7,8 @@ export default function BlogAndNewsModal() {
   return (
     <>
       <Dialog>
+        {/* If we use this by passing a trigger component from parent than overlay trigger works */}
+        {/* Or we can use normally using callback function as a prop */}
         <DialogTrigger asChild>
           <Button>BlogAndNews Dialog</Button>
         </DialogTrigger>
@@ -14,6 +16,7 @@ export default function BlogAndNewsModal() {
           <DialogTitle>
             BlogAndNewsModal
           </DialogTitle>
+          {/* Description goes here */}
           <DialogDescription>
             Some Descriptiton about the blog
           </DialogDescription>

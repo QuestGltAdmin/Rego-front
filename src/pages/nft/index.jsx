@@ -6,8 +6,10 @@ import { AiOutlineRightCircle } from 'react-icons/ai';
 import NftAvatar from 'components/NftAvatar';
 import axios from 'axios';
 import RegoLoader from 'components/RegoLoader';
+import NFTDetailsModal from 'components/modals/NFTDetailsModal';
 function Nft() {
-  const [nfts, setNfts] = useState()
+  const [nfts, setNfts] = useState();
+  
 
   const fetchData = async () => {
     const res = await axios.post('http://nft.regoex.com:3001/users/content/')
@@ -17,6 +19,8 @@ function Nft() {
   useEffect(() => {
     fetchData();
   }, [])
+
+  
   return (
     <>
 
@@ -32,7 +36,7 @@ function Nft() {
       />
 
       {!nfts && <RegoLoader loaderAutoResize={false} className="h-72" />}
-      {nfts && <div className="grid grid-cols-2 pb-4 mt-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 auto-cols-auto gap-y-4 sm:pb-0">
+      {nfts && <div className="grid grid-cols-2 pb-4 mt-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 auto-cols-auto gap-y-4 sm:pb-0">
         {nfts?.map((items, index) => {
           if (items.status === "approved") {
             return (
@@ -76,6 +80,8 @@ function Nft() {
           }
         })}
       </div>
+
+      
     </>
   )
 }
