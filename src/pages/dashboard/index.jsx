@@ -89,11 +89,11 @@ function Index() {
 
             <Box className="p-3 rounded-xl mt-4">
               <table className="w-full">
-                <thead>
-                  <tr className='bg-violet-300 '>
-                    <th className='  whitespace-nowrap'>Asset Type</th>
-                    <th className="whitespace-nowrap">Available Balance</th>
-                  </tr>
+                <thead className="border-b border-gray-500 pb-2 h-10">
+                  {/* <tr className='bg-violet-300 '> */}
+                    <th className='  whitespace-nowrap text-left text-base font-semibold text-blue-800'>Asset Type</th>
+                    <th className="whitespace-nowrap text-left text-base font-semibold text-blue-800">Available Balance</th>
+                  {/* </tr> */}
                 </thead>
                 <tbody>
                   {cryptowalletObj?.length > 0 &&

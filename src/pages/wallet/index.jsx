@@ -66,14 +66,13 @@ function Index() {
         <Box className='p-3 rounded-xl lg:col-span-2 h-max'>
           <Box css={{ borderColor: violet.violet8 }} className="p-2 mb-2 rounded-xl border">
             <table className="w-full">
-              <thead>
-                <tr style={{ padding: 25 }} className='bg-violet-500'>
-                  <th style={{ width: "20%" }} className="text-start" scope="col">Asset Type</th>
-                  <th style={{ width: "20%" }} className="text-start" scope="col">Total Balance</th>
+              <thead  className="border-b border-gray-500 pb-2 h-10">
+                
+                  <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
+                  <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
                   {/* <th style={{ width: "20%" }} className="text-start" scope="col">Asset Value</th> */}
                   {/* <th style={{ width: "20%" }} className="text-start" scope="col">Interest Earned</th> */}
                   {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
-                </tr>
               </thead>
               <tbody>
 
@@ -104,14 +103,12 @@ function Index() {
           </Box>
           <Box css={{ borderColor: violet.violet8 }} className="p-2 rounded-xl border">
             <table className="w-full">
-              <thead>
-                <tr style={{ padding: 25 }} className='bg-violet-500'>
-                  <th style={{ width: "20%" }} className="text-start" scope="col">Asset Type</th>
-                  <th style={{ width: "30%" }} className="text-start" scope="col">Total Balance</th>
-                  <th style={{ width: "25%" }} className="text-start" scope="col">Asset Value</th>
-                  <th style={{ width: "25%" }} className="text-start" scope="col">Interest Earned</th>
+              <thead className="border-b border-gray-500 pb-2 h-10">
+                  <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
+                  <th style={{ width: "30%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
+                  <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Value</th>
+                  <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Interest Earned</th>
                   {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
-                </tr>
               </thead>
               <tbody>
                 {cryptowalletObj?.map((item) => (
@@ -149,18 +146,15 @@ function Index() {
               <TabsTrigger value="SEND">Send</TabsTrigger>
             </TabsList>
             <TabsContent value="DEPOSIT">
-              <Text>Make changes to your account here. Click save when you're done.</Text>
+              <Text>Deposit money into your wallet by scanning QR Code or using using below address.</Text>
               <Fieldset>
-                <Label htmlFor="name">Name</Label>
+                <Label htmlFor="name"></Label>
                 <Input id="name" defaultValue="Pedro Duarte" />
               </Fieldset>
               <Fieldset>
-                <Label htmlFor="username">Username</Label>
-                <Input id="username" defaultValue="@peduarte" />
+                <Label htmlFor="address">Address</Label>
+                <Input id="address" readonly defaultValue="" />
               </Fieldset>
-              <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
-                <Button variant="green">Save changes</Button>
-              </Flex>
             </TabsContent>
             <TabsContent value="SEND">
               <Text>Change your password here. After saving, you'll be logged out.</Text>

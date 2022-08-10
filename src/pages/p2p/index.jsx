@@ -1,7 +1,7 @@
 import { MagnifyingGlassIcon, UpdateIcon } from '@radix-ui/react-icons';
 import { CocoonSubHeading } from 'components/Cocoon';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from 'components/styled/Tabs';
-import { Button, Fieldset, Flex, Input, Label } from 'components/styled/ui';
+import { Button, Flex, Input, Label } from 'components/styled/ui';
 import AnimatePage from 'HOCs/Animate';
 import classNames from 'lib/classNames';
 import React, { useState } from 'react'
@@ -14,7 +14,6 @@ function Index() {
     <>
       {/* <CocoonSubHeading title="Binance P2P" subtitle="Buy/Sell Your Crypto Locally"/> */}
       <div className="flex flex-col gap-2">
-
         <Flex className="gap-2 p-2 rounded-full justify-center overflow-x-auto">
           {coins?.map((item, index) => {
             return (

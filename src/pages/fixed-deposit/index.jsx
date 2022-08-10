@@ -212,17 +212,15 @@ function FixedDeposit() {
           </Flex>
         </Flex>
         <Box css={{ borderColor: violet.violet8 }} className="p-2 rounded-xl border col-span-2">
-          <Text>Fixed Deposits</Text>
+          <p className="text-base font-semibold tetx-gray-500">Fixed Deposits</p>
           <table className="w-full">
-            <thead>
-              <tr style={{ padding: 25 }} className='bg-violet-500'>
-                <th style={{ width: "15%" }} className="text-start" scope="col">Token</th>
-                <th style={{ width: "15%" }} className="text-start" scope="col">Est. APY</th>
-                <th style={{ width: "30%" }} className="text-start" scope="col">Duration(days)</th>
-                <th style={{ width: "20%" }} className="text-start" scope="col">Minimum Locked Amount</th>
-                <th style={{ width: "20%" }} className="text-start" scope="col">Amount Fixed</th>
-                <th style={{ width: "20%" }} className="text-start" scope="col">Status</th>
-              </tr>
+            <thead className='border-b border-gray-400'>
+              <th style={{ width: "15%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Token</th>
+              <th style={{ width: "10%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Est. APY</th>
+              <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Duration(days)</th>
+              <th style={{ width: "30%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Minimum Locked Amount</th>
+              <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Amount Fixed</th>
+              <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Status</th>
             </thead>
             <tbody>
               {history?.Stakes?.map((item, index) => (

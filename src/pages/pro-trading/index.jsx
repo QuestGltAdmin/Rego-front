@@ -434,17 +434,16 @@ function Index() {
             </TabsList>
             <TabsContent value="OPEN_ORDERS">
               <table className="w-full">
-                <thead>
-                  <tr style={{ padding: 25 }} className='bg-violet-500'>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Date</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Pair</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Type</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Side</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Price</th>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Amount</th>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Filled</th>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Total</th>
-                  </tr>
+                <thead className="border-b border-gray-500 pb-2 h-10">
+                  
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Date</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Pair</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Type</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Side</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Price</th>
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Amount</th>
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Filled</th>
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Total</th>
                 </thead>
                 <tbody>
 
@@ -486,17 +485,16 @@ function Index() {
             </TabsContent>
             <TabsContent value="ORDER_HISTORY">
               <table className="w-full">
-                <thead>
-                  <tr style={{ padding: 25 }} className='bg-violet-500'>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Date</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Pair</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Type</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Side</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Price</th>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Amount</th>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">status</th>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Total</th>
-                  </tr>
+                <thead className="border-b border-gray-500 pb-2 h-10">
+                 
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Date</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Pair</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Type</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Side</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Price</th>
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Amount</th>
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">status</th>
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Total</th>
                 </thead>
                 <tbody>
 
@@ -538,17 +536,17 @@ function Index() {
             </TabsContent>
             <TabsContent value="TRADE_HISTORY">
               <table className="w-full">
-                <thead>
-                  <tr style={{ padding: 25 }} className='bg-violet-500'>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Date</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Pair</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Type</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Side</th>
-                    <th style={{ width: "10%" }} className="text-start" scope="col">Price</th>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Amount</th>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Filled</th>
-                    <th style={{ width: "15%" }} className="text-start" scope="col">Total</th>
-                  </tr>
+                <thead className="border-b border-gray-500 pb-2 h-10">
+                  
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Date</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Pair</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Type</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Side</th>
+                    <th style={{ width: "10%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Price</th>
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Amount</th>
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Filled</th>
+                    <th style={{ width: "15%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Total</th>
+              
                 </thead>
                 <tbody>
 
@@ -593,13 +591,13 @@ function Index() {
         </Box>
         <Box css={{ borderColor: violet.violet8 }} className="p-3 min-w-96 rounded-xl border">
           <table className="w-full">
-            <thead>
-              <tr style={{ padding: 25 }} className='bg-violet-500'>
-                <th style={{ width: "25%" }} className="text-start" scope="col">Price</th>
-                <th style={{ width: "25%" }} className="text-start" scope="col">Amount</th>
-                <th style={{ width: "25%" }} className="text-start" scope="col">Volume</th>
-                <th style={{ width: "25%" }} className="text-start" scope="col">Total</th>
-              </tr>
+            <thead className="border-b border-gray-500 pb-2 h-10">
+              
+                <th style={{ width: "25%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Price</th>
+                <th style={{ width: "25%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Amount</th>
+                <th style={{ width: "25%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Volume</th>
+                <th style={{ width: "25%" }} className="text-left text-base font-semibold text-blue-800" scope="col">Total</th>
+          
             </thead>
             <tbody>
 
