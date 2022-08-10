@@ -55,7 +55,7 @@ export default function CreateSipModal() {
 						<Separator className=" border border-blue-800 my-4" />
 						<h3 className="font-semibold text-base text-blue-800">Review Orders</h3>
 						<table className='w-full'>
-							<thead >
+							<thead className="border-b border-gray-400 h-12" >
 								<tr>
 									<th className="text-left text-base font-semibold text-gray-500 w-4/12">Constituents</th>
 									<th className="text-left text-base font-semibold text-gray-500 w-2/12">Current Price($)</th>
@@ -63,22 +63,17 @@ export default function CreateSipModal() {
 									<th className="text-left text-base font-semibold text-gray-500 w-2/12">Quantity</th>
 									<th className="text-left text-base font-semibold text-gray-500 w-2/12">Order Type</th>
 								</tr>
-								<tr className="border-b border-gray-400">
-								<hr className="my-2 border-none" />
-								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr className="h-10 border-b border-gray-300">
 									<td>Nippon India Nifty 50 ETF</td>
 									<td>189.5</td>
 									<td>67.5</td>
 									<td>1</td>
 									<td>BUY</td>
 								</tr>
-								<tr className="border-b border-gray-300">
-								<hr className="my-1 border-none" />
-								</tr>
-								<tr>
+								
+								<tr className="h-10 border-b border-gray-300">
 									<td>Nippon India Nifty 50 ETF</td>
 									<td>189.5</td>
 									<td>67.5</td>

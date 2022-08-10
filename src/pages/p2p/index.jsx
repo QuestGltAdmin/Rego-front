@@ -52,23 +52,20 @@ function Index() {
               </div>
               <div className="">
                 <table className='w-full'>
-                  <thead>
-                    <tr>
+                  <thead className="border-b border-gray-500 pb-2 h-14">
+                    
                       <th className="text-left text-base font-semibold text-gray-500 w-3/12">Advertisers</th>
                       <th className="text-left text-base font-semibold text-gray-500 w-1/12">Price</th>
                       <th className="text-left text-base font-semibold text-gray-500 w-3/12">Limit/Available</th>
                       <th className="text-left text-base font-semibold text-gray-500 w-2/12">Payment</th>
                       <th className="text-left text-base font-semibold text-gray-500 w-2/12">Trade</th>
-                    </tr>
-                    <tr className="border-b border-gray-400">
-                      <hr className='my-1 border-none' />
-                    </tr>
+                    
                   </thead>
                   <tbody>
                     {coins?.map((item) => {
                       return (
-                        <>
-                          <tr className='h-16'>
+                    
+                          <tr className='h-16 border-b border-gray-400'>
                             <td className="pl-2">
                               <div className="flex gap-2">
                                 <img src={"/images/profile.png"} className="w-6 h-6 rounded-full" />
@@ -102,10 +99,8 @@ function Index() {
                               </div>
                             </td>
                           </tr>
-                          <tr className="border-b border-gray-300">
-                            <hr className="my-1 border-none" />
-                          </tr>
-                        </>
+                          
+                      
                       )
                     })}
                   </tbody>
@@ -129,7 +124,7 @@ function Index() {
               </div>
               <div className="">
                 <table className='w-full'>
-                  <thead>
+                  <thead className=" h-14 border-b border-gray-400">
                     <tr>
                       <th className="text-left text-base font-semibold text-gray-500 w-3/12">Advertisers</th>
                       <th className="text-left text-base font-semibold text-gray-500 w-1/12">Price</th>
@@ -137,15 +132,13 @@ function Index() {
                       <th className="text-left text-base font-semibold text-gray-500 w-2/12">Payment</th>
                       <th className="text-left text-base font-semibold text-gray-500 w-2/12">Trade</th>
                     </tr>
-                    <tr className="border-b border-gray-400">
-                      <hr className='my-1 border-none' />
-                    </tr>
+                    
                   </thead>
                   <tbody>
                     {coins?.map((item) => {
                       return (
-                        <>
-                          <tr className='h-16'>
+                        
+                          <tr className='h-16 border-b border-gray-400'>
                             <td className="pl-2">
                               <div className="flex gap-2">
                                 <img src={"/images/profile.png"} className="w-6 h-6 rounded-full" />
@@ -179,10 +172,7 @@ function Index() {
                               </div>
                             </td>
                           </tr>
-                          <tr className="border-b border-gray-300">
-                            <hr className="my-1 border-none" />
-                          </tr>
-                        </>
+                          
                       )
                     })}
                   </tbody>
