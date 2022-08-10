@@ -100,7 +100,6 @@ function Index() {
                     cryptowalletObj?.map((item, index) => {
                       if (!loading)
                         return (
-
                           <tr className="" key={item?._id}>
                             <td className=""><div className="flex"><img src={item?.image} /> {item?.crypt_name}</div></td>
                             <td><div className=""><i className="fa fa-rupee-sign" /> {item?.balance}</div></td>

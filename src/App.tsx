@@ -21,7 +21,7 @@ import NFT from './pages/nft';
 // import FixedDeposit from './pages/fixed-deposit';
 import BasketSip from './pages/basket-sip';
 import ProTrading from '././pages/pro-trading';
-import P2P from './pages/p2p';
+// import P2P from './pages/p2p';
 import BlogNews from './pages/blog-news';
 import Kyc from './pages/kyc';
 import Wallet from './pages/wallet';
@@ -33,6 +33,8 @@ import "react-toastify/dist/ReactToastify.css";
 import FixedDeposit from 'pages/fixed-deposit';
 import BuyCrypto from 'pages/buy-crypto';
 import Swap from 'pages/swap';
+import P2P from 'pages/p2p';
+
 
 function App() {
   return (

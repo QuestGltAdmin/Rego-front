@@ -136,11 +136,6 @@ function Index() {
                     <td>
                       <p>{item?.interest_earned}</p>
                     </td>
-                    {/* <td>
-                      <div className="flex justify-between p-1">
-                        <Button variant="green">Buy More</Button>
-                      </div>
-                    </td> */}
                   </tr>
                 ))}
               </tbody>
