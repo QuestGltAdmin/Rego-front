@@ -5,9 +5,13 @@ import { violet } from '@radix-ui/colors';
 import { upperCase } from 'lodash';
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
+import { QRCodeSVG } from 'qrcode.react'
 import { Box, Text, Flex, Button } from 'components/styled/ui';
 import { coins as AllCoins, INR } from 'assets/coins/coins';
 import { getWalletSaga, updateWalletBalance } from 'store/reducers/walletReducer';
+import { Select, SelectContent, SelectIcon, SelectItem, SelectItemIndicator, SelectItemText, SelectTrigger, SelectValue, SelectViewport } from 'components/styled/Select';
+import { CheckIcon, ChevronDownIcon, ClipboardIcon } from '@radix-ui/react-icons';
+import RegoLoader from 'components/RegoLoader';
 
 function Index() {
   const navigate = useNavigate();
@@ -20,13 +24,15 @@ function Index() {
 
   //Selected Coin State
   const [selectedCoin, setSelectedCoin] = useState();
+  const [depositAddress, setDepositAddress] = useState("");
+  const [receiverAddress, setReceiverAddress] = useState("");
 
 
-  useEffect(()=>{
-    if(user?.email){
+  useEffect(() => {
+    if (user?.email) {
       getWalletData()
     }
-  },[])
+  }, [])
 
 
   //Dispatch Saga to get wallet Data
@@ -58,7 +64,14 @@ function Index() {
     }
   }
 
-  // console.log(user, cryptowalletObj)
+  console.log(user, cryptowalletObj)
+
+  //Helper Function to handle copying of wallet address
+  const handleCopyToClipboard = () => {
+    //it'll only work with https
+    console.log(depositAddress);
+  }
+
 
   return (
     <>
@@ -66,13 +79,16 @@ function Index() {
         <Box className='p-3 rounded-xl lg:col-span-2 h-max'>
           <Box css={{ borderColor: violet.violet8 }} className="p-2 mb-2 rounded-xl border">
             <table className="w-full">
-              <thead  className="border-b border-gray-500 pb-2 h-10">
-                
-                  <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
-                  <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
-                  {/* <th style={{ width: "20%" }} className="text-start" scope="col">Asset Value</th> */}
-                  {/* <th style={{ width: "20%" }} className="text-start" scope="col">Interest Earned</th> */}
-                  {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
+              <thead className="border-b border-gray-500 pb-2 h-10">
+                <tr>
+
+
+                <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
+                <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
+                {/* <th style={{ width: "20%" }} className="text-start" scope="col">Asset Value</th> */}
+                {/* <th style={{ width: "20%" }} className="text-start" scope="col">Interest Earned</th> */}
+                {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
+                </tr>
               </thead>
               <tbody>
 
@@ -104,17 +120,21 @@ function Index() {
           <Box css={{ borderColor: violet.violet8 }} className="p-2 rounded-xl border">
             <table className="w-full">
               <thead className="border-b border-gray-500 pb-2 h-10">
-                  <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
-                  <th style={{ width: "30%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
-                  <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Value</th>
-                  <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Interest Earned</th>
-                  {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
+                <tr>
+
+                <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
+                <th style={{ width: "30%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
+                <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Value</th>
+                <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Interest Earned</th>
+                </tr>
+                {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
               </thead>
               <tbody>
+                
                 {cryptowalletObj?.map((item) => (
                   <tr
-                    key={item?._id}
-                    // value={item.value}
+                  key={item?._id}
+                  // value={item.value}
 
                     className="hover:bg-violet-100 h-16"
                   >
@@ -137,6 +157,9 @@ function Index() {
                 ))}
               </tbody>
             </table>
+            {cryptowalletObj.length===0 && <div className='flex justify-center pt-10'>
+               <RegoLoader  loaderAutoResize={false} />
+            </div>}
           </Box>
         </Box>
         <Box css={{}} className="p-3 h-max rounded-xl">
@@ -146,32 +169,108 @@ function Index() {
               <TabsTrigger value="SEND">Send</TabsTrigger>
             </TabsList>
             <TabsContent value="DEPOSIT">
+              {/* Here we have options to deposit money using wallet address or by scanning the QR Code */}
               <Text>Deposit money into your wallet by scanning QR Code or using using below address.</Text>
-              <Fieldset>
-                <Label htmlFor="name"></Label>
-                <Input id="name" defaultValue="Pedro Duarte" />
-              </Fieldset>
+              <div className="flex gap-2 justify-between items-center">
+
+                {/* Dropdown for selecting coin */}
+                <Select
+                  onValueChange={(e) => {
+                    let coin = cryptowalletObj.filter((item) => item._id === e)[0];
+                    setSelectedCoin(coin)
+                    console.log(coin, e)
+                    setDepositAddress(coin.wallet_address)
+                  }}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select Coin" />
+                    <SelectIcon>
+                      <ChevronDownIcon />
+                    </SelectIcon>
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectViewport>
+                      {cryptowalletObj?.map((item) => {
+                        return (
+                          <SelectItem key={item?._id} value={item?._id}>
+                            <SelectItemText>{item?.crypt_name}</SelectItemText>
+                            <SelectItemIndicator>
+                              <CheckIcon />
+                            </SelectItemIndicator>
+                          </SelectItem>
+                        )
+                      })
+                      }
+                    </SelectViewport>
+                  </SelectContent>
+                </Select>
+                {/* QR Code for the wallet address */}
+                <QRCodeSVG value={depositAddress} />
+              </div>
+
+              {/* User's Crypto address for depositing the crypto coins into   */}
               <Fieldset>
                 <Label htmlFor="address">Address</Label>
-                <Input id="address" readonly defaultValue="" />
+                <div className="flex relative">
+
+                  <Input css={{ paddingInlineEnd: 30 }} id="address" readOnly defaultValue={depositAddress} />
+                  <ClipboardIcon onClick={() => handleCopyToClipboard()} className="hover:text-blue-800  cursor-pointer absolute h-6 w-6 top-1 right-0 ml-1  " />
+                </div>
               </Fieldset>
             </TabsContent>
             <TabsContent value="SEND">
-              <Text>Change your password here. After saving, you'll be logged out.</Text>
-              <Fieldset>
-                <Label htmlFor="currentPassword">Current password</Label>
-                <Input id="currentPassword" type="password" />
-              </Fieldset>
-              <Fieldset>
-                <Label htmlFor="newPassword">New password</Label>
-                <Input id="newPassword" type="password" />
-              </Fieldset>
-              <Fieldset>
-                <Label htmlFor="confirmPassword">Confirm password</Label>
-                <Input id="confirmPassword" type="password" />
-              </Fieldset>
-              <Flex css={{ marginTop: 20, justifyContent: 'flex-end' }}>
-                <Button variant="green">Change password</Button>
+              <Flex className="flex-col">
+
+                <Text>Select coin, enter amount with receiver address to send coins .</Text>
+                <div className="flex items-center justify-around">
+                  <img className='w-10 h-10' src={selectedCoin?.image || "/images/profile.png"} />
+                  {/* Dropdown for selecting coin */}
+                  <Select
+                    onValueChange={(e) => {
+                      let coin = cryptowalletObj.filter((item) => item._id === e)[0];
+                      setSelectedCoin(coin)
+                      // console.log(coin, e)
+                      // setDepositAddress(coin.wallet_address)
+                    }}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select Coin" />
+                      <SelectIcon>
+                        <ChevronDownIcon />
+                      </SelectIcon>
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectViewport>
+                        {cryptowalletObj?.map((item) => {
+                          return (
+                            <SelectItem key={item?._id} value={item?._id}>
+                              <SelectItemText>{item?.crypt_name}</SelectItemText>
+                              <SelectItemIndicator>
+                                <CheckIcon />
+                              </SelectItemIndicator>
+                            </SelectItem>
+                          )
+                        })
+                        }
+                      </SelectViewport>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <Fieldset>
+                  <Label htmlFor="amount">Amount</Label>
+                  <Input id="amount" placeholder="Enter Amount" type="number" />
+                  <div className="mt-1 flex gap-1 justify-end ">
+                    <Button>25%</Button>
+                    <Button>50%</Button>
+                    <Button>75%</Button>
+                    <Button>100%</Button>
+                  </div>
+                </Fieldset>
+                <Fieldset>
+                  <Label htmlFor="receiver_wallet_address">Receiver's Wallet Address</Label>
+                  <Input id="receiver_wallet_address" placeholder="Enter Receiver's Wallet Address" value={receiverAddress} onChange={(e) => setReceiverAddress(e.target.value)} type="text" />
+                </Fieldset>
+                <Button>Send</Button>
               </Flex>
             </TabsContent>
           </Tabs>

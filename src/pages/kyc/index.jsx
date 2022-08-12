@@ -9,7 +9,6 @@ import api from 'lib/http/axios';
 import docIcon from "assets/images/svg-icons/id-card.svg";
 
 
-
 function Index() {
   const { user, kycstatus } = useSelector((state) => state.auth)
   const [frontImg, setFrontImg] = useState(null);

@@ -1,10 +1,113 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'components/styled/Tabs';
 import AnimatePage from 'HOCs/Animate';
 import React from 'react'
+import { indigo } from '@radix-ui/colors';
+import { Box, Flex, Text, Heading3, Fieldset, Input, Label, Button } from 'components/styled/ui'
 
-function index() {
+function Index() {
   return (
-    <div>Settings</div>
+    /**
+     * Setting Page Requirements
+     * 
+     * edit name
+     * 
+     * 
+     */
+    <>
+      <Box css={{ borderColor: indigo.indigo8 }} className='p-3 rounded-xl h-max border'>
+      <Heading3>Settings</Heading3>
+        <Tabs className="flex-col xl:flex-row w-full" defaultValue='PROFILE' >
+          <TabsList className="xl:flex-col p-2">
+            <TabsTrigger css={{
+              marginBottom: 10,
+              padding: 10,
+              borderRadius: 6,
+              '&:hover': { backgroundColor: indigo.indigo3 },
+              justifyContent: "center",
+              height: "fit-content",
+              maxHeight: "1.5rem"
+
+            }} value="PROFILE">
+              <Flex css={{ backgroundColor: "transparent" }} className="items-center gap-2 justify-items-start">
+                {/* <img src={coin?.url} /> */}
+                {/* <coin.url /> */}
+                <p className='text-gray-500 text-lg font-semibold'>{"Profile"}</p>
+              </Flex>
+            </TabsTrigger>
+            <TabsTrigger css={{
+              marginBottom: 10,
+              padding: 10,
+              borderRadius: 6,
+              '&:hover': { backgroundColor: indigo.indigo3 },
+              justifyContent: "center",
+              height: "fit-content",
+              maxHeight: "1.5rem"
+
+            }} value="SECURITY">
+              <Flex css={{ backgroundColor: "transparent" }} className="items-center gap-2 justify-items-start">
+                {/* <img src={coin?.url} /> */}
+                {/* <coin.url /> */}
+                <p className='text-gray-500 text-lg font-semibold'>{"Security"}</p>
+              </Flex>
+            </TabsTrigger>
+            <TabsTrigger css={{
+              marginBottom: 10,
+              padding: 10,
+              borderRadius: 6,
+              '&:hover': { backgroundColor: indigo.indigo3 },
+              justifyContent: "center",
+              height: "fit-content",
+              maxHeight: "1.5rem"
+
+            }} value="OTHER">
+              <Flex css={{ backgroundColor: "transparent" }} className="items-center gap-2 justify-items-start">
+                {/* <img src={coin?.url} /> */}
+                {/* <coin.url /> */}
+                <p className='text-gray-500 text-lg font-semibold'>{"Other"}</p>
+              </Flex>
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="PROFILE">
+            <div className="flex flex-col gap-2 max-w-96 mx-auto p-4 border border-blue-800 rounded-xl">
+              <Fieldset>
+                <Label htmlFor="fullname" >Name</Label>
+                <Input id="fullname" placeholder="Fullname" />
+              </Fieldset>
+              <Fieldset>
+                <Label htmlFor="email" >Email</Label>
+                <Input id="email" placeholder="Email" />
+              </Fieldset>
+              <Fieldset>
+                <Label htmlFor="phone_no" >Phone Number</Label>
+                <Input id="phone_no" placeholder="Phone Number" />
+              </Fieldset>
+              <Button>Save Changes</Button>
+            </div>
+          </TabsContent>
+          <TabsContent value="SECURITY">
+          <div className="flex flex-col gap-2 max-w-96 mx-auto p-4 border border-blue-800 rounded-xl">
+              <Fieldset>
+                <Label htmlFor="current_password" >Current Password</Label>
+                <Input id="current_password" placeholder="Enter Current Password" />
+              </Fieldset>
+              <Fieldset>
+                <Label htmlFor="new_password" >New Password</Label>
+                <Input id="new_password" placeholder="Enter New Password" />
+              </Fieldset>
+              <Fieldset>
+                <Label htmlFor="confirm_password" >Confirm password</Label>
+                <Input id="confirm_password" placeholder="Confirm Password" />
+              </Fieldset>
+              <Button>Change Password</Button>
+            </div>
+          </TabsContent>
+          <TabsContent value="OTHER">
+            Other
+          </TabsContent>
+        </Tabs>
+      </Box>
+    </>
   )
 }
 
-export default AnimatePage(index);
+export default AnimatePage(Index);

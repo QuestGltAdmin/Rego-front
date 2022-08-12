@@ -49,7 +49,6 @@ function App() {
           <Route path="/auth/error" element={<>Auth Error</>} />
           <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
-          <Route path="/support" element={<HelpAndSupport />} />
 
 
           {/* User Public Routes */}
@@ -58,6 +57,7 @@ function App() {
           {/* User Private Routes */}
           <Route path="/" element={<UserCocoon />}>
 
+            <Route path="support" element={<HelpAndSupport />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="history" element={<History />} />
             <Route path="buy-crypto" element={<BuyCrypto />} />

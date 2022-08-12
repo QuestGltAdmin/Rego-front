@@ -163,7 +163,7 @@ module.exports = {
         "clr3" : "#692a42",
       },
       backgroundImage: {
-        'sideNav': "url('/public/side-nav.png')",
+        'referral-img': "url('/public/assets/images/svg-icons/referral_bg.2ab5a07e9ae2e24c2d80.png')",
         'loginBackground': "url('/public/bg.jpg')",
       },
       fontFamily: {

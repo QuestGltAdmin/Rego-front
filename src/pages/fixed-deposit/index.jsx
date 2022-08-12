@@ -12,6 +12,7 @@ import axios from 'axios';
 import { updateWalletBalance } from 'store/reducers/walletReducer';
 import { historySaga } from 'store/reducers/historyReducer';
 import { compareAsc, format } from 'date-fns';
+import RegoLoader from 'components/RegoLoader';
 
 const coinOptions = coins
   .map((item) => {
@@ -275,6 +276,9 @@ function FixedDeposit() {
               ))}
             </tbody>
           </table>
+          {isLoading && <div className="pt-4">
+            <RegoLoader loaderAutoResize={false}/>
+            </div>}
         </Box>
 
 

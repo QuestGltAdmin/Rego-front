@@ -7,19 +7,54 @@ import { Modal } from 'react-bootstrap';
 import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 import ReferralModal from 'components/modals/ReferralModal';
 
+
 function Index() {
   const { user } = useSelector((state) => state.auth);
   const [refferalModel, setRefferalModel] = useState(false);
-  console.log("USER",user)
+  console.log("USER", user);
 
   return (
     <>
-      <Box css={{ borderColor: violet.violet8 }} className="p-3 rounded-xl border">
+      <Box css={{ borderColor: violet.violet8 }} className="p-3 rounded-xl border bg-cover bg-referral-img ">
         <Text css={{ marginBottom: 2 }}>{"Invite Friends &"}</Text>
         <Heading3>{"Start Earning"}</Heading3>
         <Text>Invite a friend to rego and enjoy a lifetime of earnings from their activity.Earn</Text>
         <div className="flex flex-col lg:grid lg:grid-cols-3 p-3 gap-2">
-          <div className="lg:col-span-2">Data</div>
+          <div className="lg:col-span-2">
+            <div className="flex">
+            <div className=" justify-center p-2 w-36 h-36">
+                <p className=" text-lg text-center text-blue-800 font-semibold">40%</p>
+                <p className="text-sm text-center text-gray-500 font-normal">of their trading fees under pro trading</p>
+              </div>
+              <div className=" justify-center p-2 w-36 h-36">
+                <p className=" text-lg text-center text-blue-800 font-semibold">5%</p>
+                <p className="text-sm text-center text-gray-500 font-normal">Of the interest paid out on the assets</p>
+              </div>
+              <div className=" justify-center p-2 w-36 h-36">
+                <p className=" text-lg text-center text-blue-800 font-semibold">5%</p>
+                <p className="text-sm text-center text-gray-500 font-normal">Of the interest accured on their loans</p>
+              </div>
+              
+            </div>
+            <div className="flex gap-4">
+              <div className="flex flex-col justify-center p-2 w-32 h-32 drop-shadow-2xl shadow-xl">
+                <p className="text-base text-center text-blue-800 font-semibold">0.00</p>
+                <p className="text-sm text-center text-gray-500 font-normal">Total Referral Earnings</p>
+              </div>
+              <div className="flex flex-col justify-center p-2 w-32 h-32 shadow-xl">
+                <p className="text-base text-center text-blue-800 font-semibold">0.00</p>
+                <p className="text-sm text-center text-gray-500 font-normal">Total Referred Users</p>
+              </div>
+              <div className="flex flex-col justify-center p-2 w-32 h-32 shadow-xl">
+                <p className="text-base text-center text-blue-800 font-semibold">0.00</p>
+                <p className="text-sm text-center text-gray-500 font-normal">Earnings passed on as kickbacks</p>
+              </div>
+              <div className="flex flex-col justify-center p-2 w-32 h-32 shadow-xl">
+                <p className="text-base text-center text-blue-800 font-semibold">0.00</p>
+                <p className="text-sm text-center text-gray-500 font-normal">Earning Received As Kickbacks</p>
+              </div>
+            </div>
+          </div>
           <Box css={{ borderColor: violet.violet8 }} className="rounded-xl p-3 border">
             <Flex className='flex-col w-4/5 gap-3 mx-auto'>
               <Heading3 className="text-center">Your Default Campaign</Heading3>
@@ -39,8 +74,8 @@ function Index() {
           </Box>
         </div>
       </Box>
-      
-      {refferalModel && <ReferralModal onClose={()=>setRefferalModel(false)} />}
+
+      {refferalModel && <ReferralModal onClose={() => setRefferalModel(false)} />}
     </>
   )
 }
