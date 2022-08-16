@@ -13,6 +13,7 @@ import { toast } from 'react-toastify';
 import { Button, Input } from './styled/ui';
 import LogoutModal from './modals/LogoutModal';
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import SearchModal from './modals/SearchModal';
 
 function useRedirectToLoginIfUnauthenticated(isPublic = false) {
 	//Logic Here
@@ -145,7 +146,8 @@ const Layout = (props: LayoutProps) => {
 							<span className="group flex items-center rounded-full p-2.5 text-sm font-medium text-neutral-500 hover:bg-gray-50 hover:text-neutral-900 lg:hidden">
 								{/* <KBarTrigger /> */}
 								<div>
-									<MagnifyingGlassIcon className='h-6 w-6 text-gray-400 hover:text-blue-800 cursor-pointer'/>
+									<SearchModal/>
+									{/* <MagnifyingGlassIcon className='h-6 w-6 text-gray-400 hover:text-blue-800 cursor-pointer'/> */}
 								</div>
 							</span>
 							<button className="rounded-full bg-white p-2 text-gray-400 hover:bg-gray-50 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">

@@ -1,5 +1,6 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import BlogAndNewsModal from 'components/modals/BlogAndNewsModal';
+import BuyAndSellModal from 'components/modals/BuyAndSellModal';
 import BuySellWarningModal from 'components/modals/BuySellWarningModal';
 import CreateSipModal from 'components/modals/CreateSipModal';
 import NFTDetailsModal from 'components/modals/NFTDetailsModal';
@@ -33,6 +34,8 @@ export const Test = () => (
   <BuySellWarningModal/>
   <BlogAndNewsModal/>
   <SearchModal/>
+  <BuyAndSellModal type={"BUY"} />
+  <BuyAndSellModal type={"SELL"} />
   {/* <NFTDetailsModal onClose={()=>console.log("close nft modal")}/> */}
   <RegoLoader loaderAutoResize={false}/> 
   <RegoLoaderFullScreen/>

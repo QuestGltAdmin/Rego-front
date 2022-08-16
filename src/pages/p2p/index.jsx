@@ -1,5 +1,6 @@
 import { MagnifyingGlassIcon, UpdateIcon } from '@radix-ui/react-icons';
 import { CocoonSubHeading } from 'components/Cocoon';
+import BuyAndSellModal from 'components/modals/BuyAndSellModal';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from 'components/styled/Tabs';
 import { Button, Flex, Input, Label } from 'components/styled/ui';
 import AnimatePage from 'HOCs/Animate';
@@ -8,8 +9,11 @@ import React, { useState } from 'react'
 
 function Index() {
 
-  const coins = ["btc", "eth", "ltc", "bnb", "etc", "tron", "eos"]
+  const coins = ["usdt","btc", "eth", "ltc", "bnb", "etc", "tron", "eos"]
   const [selectedCoin, setSelectedCoin] = useState(coins[0]);
+
+
+  
   return (
     <>
       {/* <CocoonSubHeading title="Binance P2P" subtitle="Buy/Sell Your Crypto Locally"/> */}
@@ -52,54 +56,55 @@ function Index() {
               <div className="">
                 <table className='w-full'>
                   <thead className="border-b border-gray-500 pb-2 h-14">
-                    
-                      <th className="text-left text-base font-semibold text-gray-500 w-3/12">Advertisers</th>
-                      <th className="text-left text-base font-semibold text-gray-500 w-1/12">Price</th>
-                      <th className="text-left text-base font-semibold text-gray-500 w-3/12">Limit/Available</th>
-                      <th className="text-left text-base font-semibold text-gray-500 w-2/12">Payment</th>
-                      <th className="text-left text-base font-semibold text-gray-500 w-2/12">Trade</th>
-                    
+
+                    <th className="text-left text-base font-semibold text-gray-500 w-3/12">Advertisers</th>
+                    <th className="text-left text-base font-semibold text-gray-500 w-1/12">Price</th>
+                    <th className="text-left text-base font-semibold text-gray-500 w-3/12">Limit/Available</th>
+                    <th className="text-left text-base font-semibold text-gray-500 w-2/12">Payment</th>
+                    <th className="text-left text-base font-semibold text-gray-500 w-2/12">Trade</th>
+
                   </thead>
                   <tbody>
                     {coins?.map((item) => {
                       return (
-                    
-                          <tr className='h-16 border-b border-gray-400'>
-                            <td className="pl-2">
-                              <div className="flex gap-2">
-                                <img src={"/images/profile.png"} className="w-6 h-6 rounded-full" />
-                                <p className="text-base font-semibold">SKP Trades</p>
-                              </div>
-                              <p className="text-base text-gray-500 font-normal">97 orders 100.00% completion</p>
-              
-                            </td>
-                            <td>
-                              <p className='text-lg font-semibold'>80.0 INR</p>
-                            </td>
-                            <td>
-                              <div className="flex gap-2">
-                                <p className="text-base text-gray-500">Available :</p>
-                                <p>5144 USDT</p>
-                              </div>
-                              <div className="flex gap-2">
-                                <p className="text-base text-gray-500">Limit :</p>
-                                <p>1000 USDT - 2000 USDT</p>
-                              </div>
-                            </td>
-                            <td>
-                              <div className="flex gap-2">
-                                <div className="px-2 text-base font-medium text-blue-800 rounded-sm bg-gray-100">UPI</div>
-                                <div className="px-2 text-base font-medium text-blue-800 rounded-sm bg-gray-100">IMPS</div>
-                              </div>
-                            </td>
-                            <td>
-                              <div>
-                                <Button variant="green" >Buy USDT</Button>
-                              </div>
-                            </td>
-                          </tr>
-                          
-                      
+
+                        <tr className='h-16 border-b border-gray-400'>
+                          <td className="pl-2">
+                            <div className="flex gap-2">
+                              <img src={"/images/profile.png"} className="w-6 h-6 rounded-full" />
+                              <p className="text-base font-semibold">SKP Trades</p>
+                            </div>
+                            <p className="text-base text-gray-500 font-normal">97 orders 100.00% completion</p>
+
+                          </td>
+                          <td>
+                            <p className='text-lg font-semibold'>80.0 INR</p>
+                          </td>
+                          <td>
+                            <div className="flex gap-2">
+                              <p className="text-base text-gray-500">Available :</p>
+                              <p>5144 USDT</p>
+                            </div>
+                            <div className="flex gap-2">
+                              <p className="text-base text-gray-500">Limit :</p>
+                              <p>1000 USDT - 2000 USDT</p>
+                            </div>
+                          </td>
+                          <td>
+                            <div className="flex gap-2">
+                              <div className="px-2 text-base font-medium text-blue-800 rounded-sm bg-gray-100">UPI</div>
+                              <div className="px-2 text-base font-medium text-blue-800 rounded-sm bg-gray-100">IMPS</div>
+                            </div>
+                          </td>
+                          <td>
+                            <div>
+                              <BuyAndSellModal type={"BUY"} currency={selectedCoin} />
+                              {/* <Button variant="green" >Buy USDT</Button> */}
+                            </div>
+                          </td>
+                        </tr>
+
+
                       )
                     })}
                   </tbody>
@@ -108,7 +113,7 @@ function Index() {
             </div>
           </TabsContent>
           <TabsContent value='SELL'>
-          <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <div>
                   {/* <Label htmlFor="amount_search">Amount</Label> */}
@@ -131,47 +136,47 @@ function Index() {
                       <th className="text-left text-base font-semibold text-gray-500 w-2/12">Payment</th>
                       <th className="text-left text-base font-semibold text-gray-500 w-2/12">Trade</th>
                     </tr>
-                    
+
                   </thead>
                   <tbody>
                     {coins?.map((item) => {
                       return (
-                        
-                          <tr className='h-16 border-b border-gray-400'>
-                            <td className="pl-2">
-                              <div className="flex gap-2">
-                                <img src={"/images/profile.png"} className="w-6 h-6 rounded-full" />
-                                <p className="text-base font-semibold">SKP Trades</p>
-                              </div>
-                              <p className="text-base text-gray-500 font-normal">97 orders 100.00% completion</p>
-              
-                            </td>
-                            <td>
-                              <p className='text-lg font-semibold'>80.0 INR</p>
-                            </td>
-                            <td>
-                              <div className="flex gap-2">
-                                <p className="text-base text-gray-500">Available :</p>
-                                <p>5144 USDT</p>
-                              </div>
-                              <div className="flex gap-2">
-                                <p className="text-base text-gray-500">Limit :</p>
-                                <p>1000 USDT - 2000 USDT</p>
-                              </div>
-                            </td>
-                            <td>
-                              <div className="flex gap-2">
-                                <div className="px-2 text-base font-medium text-blue-800 rounded-sm bg-gray-100">UPI</div>
-                                <div className="px-2 text-base font-medium text-blue-800 rounded-sm bg-gray-100">IMPS</div>
-                              </div>
-                            </td>
-                            <td>
-                              <div>
-                                <Button variant="red" >Sell USDT</Button>
-                              </div>
-                            </td>
-                          </tr>
-                          
+
+                        <tr className='h-16 border-b border-gray-400'>
+                          <td className="pl-2">
+                            <div className="flex gap-2">
+                              <img src={"/images/profile.png"} className="w-6 h-6 rounded-full" />
+                              <p className="text-base font-semibold">SKP Trades</p>
+                            </div>
+                            <p className="text-base text-gray-500 font-normal">97 orders 100.00% completion</p>
+
+                          </td>
+                          <td>
+                            <p className='text-lg font-semibold'>80.0 INR</p>
+                          </td>
+                          <td>
+                            <div className="flex gap-2">
+                              <p className="text-base text-gray-500">Available :</p>
+                              <p>5144 USDT</p>
+                            </div>
+                            <div className="flex gap-2">
+                              <p className="text-base text-gray-500">Limit :</p>
+                              <p>1000 USDT - 2000 USDT</p>
+                            </div>
+                          </td>
+                          <td>
+                            <div className="flex gap-2">
+                              <div className="px-2 text-base font-medium text-blue-800 rounded-sm bg-gray-100">UPI</div>
+                              <div className="px-2 text-base font-medium text-blue-800 rounded-sm bg-gray-100">IMPS</div>
+                            </div>
+                          </td>
+                          <td>
+                            <div>
+                              <BuyAndSellModal type={"SELL"} currency={selectedCoin} />
+                            </div>
+                          </td>
+                        </tr>
+
                       )
                     })}
                   </tbody>
