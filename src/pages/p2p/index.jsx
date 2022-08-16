@@ -46,7 +46,7 @@ function Index() {
                   </span>
                 </div>
                 <div>
-                  <Button>Refresh <UpdateIcon className="mx-1" /> </Button>
+                  <Button onClick={() => window.location.reload(false)}>Refresh <UpdateIcon className="mx-1" /> </Button>
                 </div>
               </div>
               <div className="">

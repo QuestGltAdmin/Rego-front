@@ -21,14 +21,14 @@ function Index() {
   const handleCopyToClipboard = () => {
     //it'll only work with https
     copy(link);
-    toast(`Copied to Clipboard`, {
+    toast(`Refferal Link Copied to Clipboard`, {
       autoClose: 1000,
     });
   }
   const handleCopyToClipboard1 = () => {
     //it'll only work with https
     copy(code);
-    toast(`Copied to Clipboard`, {
+    toast(`Refferal Code Copied to Clipboard`, {
       autoClose: 1000,
     });
   }

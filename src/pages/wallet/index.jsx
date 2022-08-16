@@ -76,7 +76,7 @@ function Index() {
     //it'll only work with https
     setDisabled(true)
     copy(depositAddress);
-    toast(`Copied to Clipboard`, {
+    toast(`Wallet Address Copied to Clipboard`, {
       autoClose: 1000,
     });
   }
