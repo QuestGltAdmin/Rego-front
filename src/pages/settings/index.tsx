@@ -3,6 +3,7 @@ import AnimatePage from 'HOCs/Animate';
 import React from 'react'
 import { indigo } from '@radix-ui/colors';
 import { Box, Flex, Text, Heading3, Fieldset, Input, Label, Button } from 'components/styled/ui'
+import ChangePassword from 'components/settings/ChangePassword';
 
 function Index() {
   return (
@@ -98,19 +99,7 @@ function Index() {
           </TabsContent>
           <TabsContent value="SECURITY">
             <div className="flex flex-col gap-2 max-w-96 mx-auto p-4 border border-blue-800 rounded-xl">
-              <Fieldset>
-                <Label htmlFor="current_password" >Current Password</Label>
-                <Input id="current_password" placeholder="Enter Current Password" />
-              </Fieldset>
-              <Fieldset>
-                <Label htmlFor="new_password" >New Password</Label>
-                <Input id="new_password" placeholder="Enter New Password" />
-              </Fieldset>
-              <Fieldset>
-                <Label htmlFor="confirm_password" >Confirm password</Label>
-                <Input id="confirm_password" placeholder="Confirm Password" />
-              </Fieldset>
-              <Button>Change Password</Button>
+              <ChangePassword/>
             </div>
           </TabsContent>
           <TabsContent value="OTHER">
