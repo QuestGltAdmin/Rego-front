@@ -53,7 +53,7 @@ function Index() {
   //Send Handler
   const sendHandler = () => {
     try {
-
+      console.log("first")
     } catch (err) {
       console.log(err)
     }
@@ -62,6 +62,7 @@ function Index() {
   //Deposit Handler
   const depositHandler = () => {
     try {
+      console.log("first")
 
     } catch (err) {
       console.log(err);
@@ -91,11 +92,11 @@ function Index() {
                 <tr>
 
 
-                <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
-                <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
-                {/* <th style={{ width: "20%" }} className="text-start" scope="col">Asset Value</th> */}
-                {/* <th style={{ width: "20%" }} className="text-start" scope="col">Interest Earned</th> */}
-                {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
+                  <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
+                  <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
+                  {/* <th style={{ width: "20%" }} className="text-start" scope="col">Asset Value</th> */}
+                  {/* <th style={{ width: "20%" }} className="text-start" scope="col">Interest Earned</th> */}
+                  {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -130,19 +131,19 @@ function Index() {
               <thead className="border-b border-gray-500 pb-2 h-10">
                 <tr>
 
-                <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
-                <th style={{ width: "30%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
-                <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Value</th>
-                <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Interest Earned</th>
+                  <th style={{ width: "20%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Type</th>
+                  <th style={{ width: "30%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Total Balance</th>
+                  <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Asset Value</th>
+                  <th style={{ width: "25%" }} className="text-left text-base font-semibold text-gray-500" scope="col">Interest Earned</th>
                 </tr>
                 {/* <th style={{ width: "20%" }} className="text-start" scope="col">Actions</th> */}
               </thead>
               <tbody>
-                
+
                 {cryptowalletObj?.map((item) => (
                   <tr
-                  key={item?._id}
-                  // value={item.value}
+                    key={item?._id}
+                    // value={item.value}
 
                     className="hover:bg-violet-100 h-16"
                   >
@@ -165,8 +166,8 @@ function Index() {
                 ))}
               </tbody>
             </table>
-            {cryptowalletObj.length===0 && <div className='flex justify-center pt-10'>
-               <RegoLoader  loaderAutoResize={false} />
+            {cryptowalletObj.length === 0 && <div className='flex justify-center pt-10'>
+              <RegoLoader loaderAutoResize={false} />
             </div>}
           </Box>
         </Box>
