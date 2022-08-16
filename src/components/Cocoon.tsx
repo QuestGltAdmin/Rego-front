@@ -10,9 +10,9 @@ import { blue, indigo, violet } from '@radix-ui/colors'
 import { logout } from '../store/reducers/authReducer.js'
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { Modal } from 'react-bootstrap';
-import { Button } from './styled/ui';
+import { Button, Input } from './styled/ui';
 import LogoutModal from './modals/LogoutModal';
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
 function useRedirectToLoginIfUnauthenticated(isPublic = false) {
 	//Logic Here
@@ -137,11 +137,16 @@ const Layout = (props: LayoutProps) => {
 						<Link to="/dashboard" className=''>
 							<Logo />
 						</Link>
-						<div className="hidden md:flex">Search</div>
+						<div className=" relative hidden md:flex items-center">
+						<input className="p-2 pl-10  rounded-full w-96 border border-blue-800" placeholder='Search ...'/>
+						<MagnifyingGlassIcon className=" absolute left-0 h-6 w-6 ml-2 text-gray-400 " />
+						</div>
 						<div className="flex items-center gap-2 self-center">
 							<span className="group flex items-center rounded-full p-2.5 text-sm font-medium text-neutral-500 hover:bg-gray-50 hover:text-neutral-900 lg:hidden">
 								{/* <KBarTrigger /> */}
-								<div>Search</div>
+								<div>
+									<MagnifyingGlassIcon className='h-6 w-6 text-gray-400 hover:text-blue-800 cursor-pointer'/>
+								</div>
 							</span>
 							<button className="rounded-full bg-white p-2 text-gray-400 hover:bg-gray-50 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
 								<span className="sr-only">{"Wallet"}</span>

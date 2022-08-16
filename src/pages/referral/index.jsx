@@ -3,15 +3,23 @@ import AnimatePage from 'HOCs/Animate';
 import { Box, Flex, Button, Heading3, Input, Text, Fieldset, Label } from 'components/styled/ui';
 import { violet } from '@radix-ui/colors';
 import { useSelector } from 'react-redux';
-import { Modal } from 'react-bootstrap';
 import { FacebookIcon, FacebookShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 import ReferralModal from 'components/modals/ReferralModal';
-
+import { ClipboardIcon } from '@radix-ui/react-icons'
 
 function Index() {
   const { user } = useSelector((state) => state.auth);
   const [refferalModel, setRefferalModel] = useState(false);
   console.log("USER", user);
+
+
+
+  //Helper Function to handle copying of wallet address
+  const handleCopyToClipboard = () => {
+    //it'll only work with https
+    console.log(depositAddress);
+  }
+
 
   return (
     <>
@@ -64,7 +72,10 @@ function Index() {
               </Fieldset>
               <Fieldset>
                 <Label htmlFor="code" >Code</Label>
+                <div className="relative flex ">
                 <Input id="code" name="code" readOnly type="text" value={user.ref_code} />
+                <ClipboardIcon onClick={() => handleCopyToClipboard()} className="hover:text-blue-800  cursor-pointer absolute h-6 w-6 top-1 right-0 ml-1  "/>
+                </div>
               </Fieldset>
               <Button
                 onClick={() => {
