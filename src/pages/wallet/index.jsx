@@ -12,6 +12,8 @@ import { getWalletSaga, updateWalletBalance } from 'store/reducers/walletReducer
 import { Select, SelectContent, SelectIcon, SelectItem, SelectItemIndicator, SelectItemText, SelectTrigger, SelectValue, SelectViewport } from 'components/styled/Select';
 import { CheckIcon, ChevronDownIcon, ClipboardIcon } from '@radix-ui/react-icons';
 import RegoLoader from 'components/RegoLoader';
+import copy from "copy-to-clipboard";
+import { toast } from 'react-toastify';
 
 function Index() {
   const navigate = useNavigate();
@@ -22,10 +24,12 @@ function Index() {
 
   const [coins, setCoins] = useState(AllCoins);
 
+
   //Selected Coin State
   const [selectedCoin, setSelectedCoin] = useState();
   const [depositAddress, setDepositAddress] = useState("");
   const [receiverAddress, setReceiverAddress] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
 
   useEffect(() => {
@@ -69,7 +73,11 @@ function Index() {
   //Helper Function to handle copying of wallet address
   const handleCopyToClipboard = () => {
     //it'll only work with https
-    console.log(depositAddress);
+    setDisabled(true)
+    copy(depositAddress);
+    toast(`Copied to Clipboard`, {
+      autoClose: 1000,
+    });
   }
 
 
