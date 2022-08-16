@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { updateWalletBalance } from "../store/reducers/walletReducer";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import svgImages from "../assets/images/svg-icons/svgImages";
 import Switch from "react-switch";
 
@@ -35,6 +35,121 @@ const coinOptions = coins
 
 
 const FixedDeposit = () => {
+
+
+
+
+  let selectedCryptoObj;
+  const dispatch = useDispatch();
+  const {
+    user: { user },
+  } = useSelector((state) => state.auth);
+  const { array: cryptowalletObj } = useSelector(
+    (state) => state.wallet.userWallet
+  );
+
+
+
+  const [autoRenew, setAutoRenew] = useState(false);
+  const [balanceError, setBalanceError] = useState(false);
+  const [formData, setFormData] = useState({
+    selectedCoin: coinOptions[0].name,
+    inputAmount: "",
+    payoutAmount: "",
+  });
+  const { inputAmount, payoutAmount, selectedCoin } = formData;
+
+  const handleAutoRenew = () => {
+    setAutoRenew(!autoRenew);
+  };
+
+
+
+
+  function interest(amt) {
+    if (!amt) return 0.0;
+
+    if (amt > Number(selectedCryptoObj?.balance)) {
+      console.log("less balance check block");
+      setBalanceError(true);
+    } else {
+      setBalanceError(false);
+    }
+
+    let total_days = 30;
+    total_days = parseFloat(total_days);
+
+    let interest_rate = 12;
+    interest_rate = parseFloat(interest_rate);
+    interest_rate = interest_rate / 365;
+
+    let interest = (amt * interest_rate * 1) / 100;
+    let total_interest = interest * total_days;
+    let amount = amt;
+
+    amount = parseFloat(amount);
+    total_interest = total_interest + amount;
+    return total_interest.toFixed(5);
+  }
+
+
+
+  const selectedCryptoIndex = cryptowalletObj?.findIndex(
+    (item) => item.name.toLowerCase() === selectedCoin
+  );
+
+  if (selectedCryptoIndex !== -1) {
+    selectedCryptoObj = cryptowalletObj && cryptowalletObj[selectedCryptoIndex];
+  }
+
+  const createFixedDeposit = async () => {
+    const startDate = new Date();
+    const endDate = new Date(startDate);
+    endDate.setDate(startDate.getDate() + 30);
+
+    if (balanceError) {
+      toast.error("Insufficient Balance");
+      return;
+    }
+
+    if (!inputAmount || !Number(inputAmount)) {
+      toast.error("Enter Valid Amount");
+      return;
+    }
+
+  
+  
+    const payload = {
+      amount: inputAmount,
+      email: user.email,
+      currency: selectedCoin,
+      enddate: endDate,
+      payoutAmount: payoutAmount,
+    };
+
+    const res = await axios.post("/users/create-stake", payload);
+
+    if (res.data.status) {
+      toast.success("Money Deposited");
+      dispatch(
+        updateWalletBalance({
+          name: selectedCoin,
+          balance: inputAmount,
+        })
+      );
+    }
+  };
+
+
+  console.log({
+    balanceError,
+    selectedCoin,
+    selectedCryptoObj,
+    selectedCryptoIndex,
+  });
+
+
+
 
 
 
@@ -270,7 +385,20 @@ const FixedDeposit = () => {
                                               <p>Available Amount 0.0 BTC</p>
                                           </div>
                                           <form action="">
-                                            <input type="email"  maxlength="50" required placeholder="Enter your email address"/>
+                                            <input 
+                                             type="text"
+                                             maxlength="50" 
+                                             className="form-control"
+                                             placeholder="Enter Amount"
+                                             value={inputAmount}
+                                             onChange={(e) => {
+                                               const value = e.target.value;
+                                               setFormData({
+                                                 ...formData,
+                                                 inputAmount: value,
+                                                 payoutAmount: interest(value),     
+                                               });
+                                             }}/>
                                             <div class="text-block">
                                               <p>BTC | Max</p>
                                             </div>
@@ -282,7 +410,21 @@ const FixedDeposit = () => {
                                               <p>Available Amount 0.0 BTC</p>
                                           </div>
                                           <form action="">
-                                            <input type="email"  maxlength="50" required placeholder="Enter your email address"/>
+                                            <input
+                                             
+                                              type="text"
+                                              maxlength="50" 
+                                              className="form-control"
+                                              placeholder="Enter Amount"
+                                              value={inputAmount}
+                                              onChange={(e) => {
+                                                const value = e.target.value;
+                                                setFormData({
+                                                  ...formData,
+                                                  inputAmount: value,
+                                                  payoutAmount: interest(value),     
+                                                });
+                                              }}/>
                                             <div class="text-block">
                                               <p>BTC | Max</p>
                                             </div>
@@ -294,7 +436,21 @@ const FixedDeposit = () => {
                                               <p>Available Amount 0.0 BTC</p>
                                           </div>
                                           <form action="">
-                                            <input type="email"  maxlength="50" required placeholder="Enter your email address"/>
+                                            <input 
+                                            type="text"
+                                            maxlength="50" 
+                                            className="form-control"
+                                            placeholder="Enter Amount"
+                                            value={inputAmount}
+                                            onChange={(e) => {
+                                              const value = e.target.value;
+                                              setFormData({
+                                                ...formData,
+                                                inputAmount: value,
+                                                payoutAmount: interest(value),     
+                                              });
+                                            }}
+                                            />
                                             <div class="text-block">
                                               <p>BTC | Max</p>
                                             </div>
@@ -380,7 +536,7 @@ const FixedDeposit = () => {
                                 <label for="checkbox">I have read and agree to <a href="">Rego Stacking Services Agreement</a></label>
                               </div>
                               <div class="buy-btn" >
-                                <a  href="" >Buy</a>
+                                <Button onClick={() => createFixedDeposit()}>Buy</Button>
                               </div>
                             </div>
                           </div>

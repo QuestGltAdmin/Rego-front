@@ -46,7 +46,7 @@ const NFT = () => {
                     {users?.data?.content?.map(post=>(
                     <div className="cards" key={post._id.value}>
                       <div className="img">
-                        <img src={`${"http://nft.regoex.com:3001/"}${post.image}`} />
+                        <img src={`${"http://nft.regoex.com:3001/content/"}${post.image}`} />
                       </div>   
                       <div className="profile-flex">
                         <img src={nftprofile} />

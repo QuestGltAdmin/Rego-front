@@ -608,3 +608,7 @@ const BuyCrypto = () => {
 };
 
 export default SetAnimationPage(BuyCrypto);
+
+
+
+

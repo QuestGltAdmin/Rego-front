@@ -278,7 +278,7 @@ const SwapCrypto = () => {
                         </option>
                       );
                     }
-                  })}
+                  })}                            
                 </select>
               </div>
               <div className="currency flex-1">
@@ -316,3 +316,12 @@ const SwapCrypto = () => {
 };
 
 export default SwapCrypto;
+
+
+
+
+
+
+
+
+
