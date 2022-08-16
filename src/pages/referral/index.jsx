@@ -17,7 +17,7 @@ function Index() {
   //Helper Function to handle copying of wallet address
   const handleCopyToClipboard = () => {
     //it'll only work with https
-    console.log(depositAddress);
+    console.log("depositAddress");
   }
 
 
