@@ -76,13 +76,13 @@ function Index() {
               </div>
             </div>
           </div>
-          <Box css={{ borderColor: violet.violet8 }} className="rounded-xl p-3 border">
-            <Flex className='flex-col w-4/5 gap-3 mx-auto'>
+          <div css={{ backgroundColor:"transparent" }} className="rounded-xl p-3">
+            <div className='flex flex-col w-4/5 gap-3 mx-auto'>
               <Heading3 className="text-center">Your Default Campaign</Heading3>
               <Fieldset>
                 <Label htmlFor='link' >Link</Label>
                 <div className="relative flex ">
-                  <Input id="link" name="link" readOnly type="text"
+                  <Input css={{paddingInlineEnd:30}} id="link" name="link" readOnly type="text"
                     value={`https://regoex.com/signup?code=${user?.ref_code}`}
                   />
                   <ClipboardIcon
@@ -94,7 +94,7 @@ function Index() {
               <Fieldset>
                 <Label htmlFor="code" >Code</Label>
                 <div className="relative flex ">
-                  <Input id="code" name="code" readOnly type="text" value={user.ref_code} />
+                  <Input css={{paddingInlineEnd:30}} id="code" name="code" readOnly type="text" value={user.ref_code} />
                   <ClipboardIcon onClick={handleCopyToClipboard1} className="text-gray-400 hover:text-blue-800  cursor-pointer absolute h-6 w-6 top-1 right-0 ml-1  " />
                 </div>
               </Fieldset>
@@ -102,8 +102,8 @@ function Index() {
                 onClick={() => {
                   setRefferalModel(true)
                 }}>Share</Button>
-            </Flex>
-          </Box>
+            </div>
+          </div>
         </div>
       </Box>
 
