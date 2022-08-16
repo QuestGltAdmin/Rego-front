@@ -3,6 +3,7 @@ import BlogAndNewsModal from 'components/modals/BlogAndNewsModal';
 import BuySellWarningModal from 'components/modals/BuySellWarningModal';
 import CreateSipModal from 'components/modals/CreateSipModal';
 import NFTDetailsModal from 'components/modals/NFTDetailsModal';
+import SearchModal from 'components/modals/SearchModal';
 import RegoLoader, { RegoLoaderFullScreen } from 'components/RegoLoader';
 import DialogDemo from 'components/styled/Dialog';
 export const Test = () => (
@@ -31,9 +32,11 @@ export const Test = () => (
   <CreateSipModal/>
   <BuySellWarningModal/>
   <BlogAndNewsModal/>
+  <SearchModal/>
   {/* <NFTDetailsModal onClose={()=>console.log("close nft modal")}/> */}
   <RegoLoader loaderAutoResize={false}/> 
   <RegoLoaderFullScreen/>
+  
   
   </>
 

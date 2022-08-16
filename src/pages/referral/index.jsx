@@ -74,7 +74,7 @@ function Index() {
                 <Label htmlFor="code" >Code</Label>
                 <div className="relative flex ">
                 <Input id="code" name="code" readOnly type="text" value={user.ref_code} />
-                <ClipboardIcon onClick={() => handleCopyToClipboard()} className="hover:text-blue-800  cursor-pointer absolute h-6 w-6 top-1 right-0 ml-1  "/>
+                <ClipboardIcon onClick={() => handleCopyToClipboard()} className="text-gray-400 hover:text-blue-800  cursor-pointer absolute h-6 w-6 top-1 right-0 ml-1  "/>
                 </div>
               </Fieldset>
               <Button

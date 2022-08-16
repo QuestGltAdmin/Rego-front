@@ -214,7 +214,7 @@ function Index() {
                 <div className="flex relative">
 
                   <Input css={{ paddingInlineEnd: 30 }} id="address" readOnly defaultValue={depositAddress} />
-                  <ClipboardIcon onClick={() => handleCopyToClipboard()} className="hover:text-blue-800  cursor-pointer absolute h-6 w-6 top-1 right-0 ml-1  " />
+                  <ClipboardIcon onClick={() => handleCopyToClipboard()} className="text-gray-400 hover:text-blue-800  cursor-pointer absolute h-6 w-6 top-1 right-0 ml-1  " />
                 </div>
               </Fieldset>
             </TabsContent>
