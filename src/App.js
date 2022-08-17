@@ -101,14 +101,6 @@ function App() {
             }
           />
 
-<Route
-            path="/abc"
-            element={
-              <PrivateRoute>
-                <abc/>
-              </PrivateRoute>
-            }
-          />
 
             <Route
             path="/swap"

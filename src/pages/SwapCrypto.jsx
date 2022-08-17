@@ -210,7 +210,7 @@ const SwapCrypto = () => {
             <div className="flex mt-1 mb-2 items-center shadow-md">
               <div className="currency w-1/3 text-center">
                 <img
-                  src={selectedCoin.url}
+                  src={selectedCoin.url}   
                   width={25}
                   height={25}
                   className="inline mr-3"
