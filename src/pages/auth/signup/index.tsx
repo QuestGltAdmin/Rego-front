@@ -72,7 +72,8 @@ export default function Index() {
         </form>
         <Flex className='gap-x-2'>
         <Text>Already have an acount?</Text>
-        <Link to="/auth/login">Login</Link>
+        {/* <Link to="/auth/login">Login</Link> */}
+        <Link to="/">Login</Link>
         </Flex>
     </Box>
     </div>

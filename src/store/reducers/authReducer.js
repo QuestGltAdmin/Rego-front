@@ -117,6 +117,28 @@ const authSlice = createSlice({
         ...state,
         isLoading: false,
       };
+    },
+    updateFormSaga: (state, action) => {
+      return { ...state };
+    },
+
+    updateFormStart: (state, action) => {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    },
+    updateFormSuccess: (state, action) => {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    },
+    updateFormFail: (state, action) => {
+      return {
+        ...state,
+        isLoading: false,
+      };
     }
     // login: (state, action) => {
     //   state.value = action.payload;
@@ -138,5 +160,10 @@ export const {
   singupStart,
   singupSuccess,
   singupFail,
+  updateFormSaga,
+  updateFormStart,
+  updateFormSuccess,
+  updateFormFail,
+
 } = authSlice.actions;
 export default authSlice.reducer;

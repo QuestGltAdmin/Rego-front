@@ -8,10 +8,15 @@ export const PublicRoutes = [
         // component: React.lazy(() => import("pages/public")),
     },
     {
-        path:"/auth/login",
+        path:"/",
         name:"Login",
         // component: React.lazy(() => import("pages/public")),
     },
+    // {
+    //     path:"/auth/login",
+    //     name:"Login",
+    //     // component: React.lazy(() => import("pages/public")),
+    // },
     {
         path:"/auth/signup",
         name:"Signup",

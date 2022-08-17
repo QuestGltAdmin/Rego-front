@@ -25,15 +25,17 @@ import ProTrading from '././pages/pro-trading';
 import BlogNews from './pages/blog-news';
 import Kyc from './pages/kyc';
 import Wallet from './pages/wallet';
-import Settings from './pages/settings'
+// import Settings from './pages/settings'
 import Referral from 'pages/referral';
 import { Test } from './pages/Test';
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";  
+import "react-toastify/dist/ReactToastify.css";
 import FixedDeposit from 'pages/fixed-deposit';
 import BuyCrypto from 'pages/buy-crypto';
 import Swap from 'pages/swap';
 import P2P from 'pages/p2p';
+import PrivateRoute from 'pages/PrivateRoutes';
+import Settings from 'pages/settings';
 
 
 function App() {
@@ -41,14 +43,23 @@ function App() {
     <>
       <ToastContainer />
       <AnimatePresence exitBeforeEnter>
-        <Routes>
+        <Routes>q
           {/* Public Routes */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/auth/login" element={<LoginPage />} />
+          {/* <Route path="/" element={<HomePage />} /> */}
+          <Route path="/" element={<LoginPage />} />
+          {/* <Route path="/auth/login" element={<LoginPage />} /> */}
           <Route path="/auth/signup" element={<SignupPage />} />
           <Route path="/auth/error" element={<>Auth Error</>} />
-          <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
-          <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+          <Route path='/privacy-policy' element={
+            <PrivateRoute>
+              <PrivacyPolicyPage />
+            </PrivateRoute>
+          } />
+          <Route path="/terms-and-conditions" element={
+            <PrivateRoute>
+              <TermsAndConditionsPage />
+            </PrivateRoute>
+          } />
 
 
           {/* User Public Routes */}
@@ -57,25 +68,85 @@ function App() {
           {/* User Private Routes */}
           <Route path="/" element={<UserCocoon />}>
 
-            <Route path="support" element={<HelpAndSupport />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="history" element={<History />} />
-            <Route path="buy-crypto" element={<BuyCrypto />} />
-            <Route path="nft" element={<NFT />} />
-            <Route path="swap" element={<Swap />} />
-            <Route path="fixed-deposit" element={<FixedDeposit />} />
-            <Route path="basket-sip" element={<BasketSip />} />
-            <Route path="pro-trading" element={<ProTrading />} />
-            <Route path="p2p" element={<P2P />} />
-            <Route path="blog-news" element={<BlogNews />} />
-            <Route path="kyc" element={<Kyc />} />
-            <Route path="wallet" element={<Wallet />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="referral" element={<Referral/>} />
+            <Route path="support" element={
+              <PrivateRoute>
+                <HelpAndSupport />
+              </PrivateRoute>
+            } />
+            <Route path="dashboard" element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            } />
+            <Route path="history" element={
+              <PrivateRoute>
+                <History />
+              </PrivateRoute>
+            } />
+            <Route path="buy-crypto" element={
+              <PrivateRoute>
+                <BuyCrypto />
+              </PrivateRoute>
+            } />
+            <Route path="nft" element={
+              <PrivateRoute>
+                <NFT />
+              </PrivateRoute>
+            } />
+            <Route path="swap" element={
+              <PrivateRoute>
+                <Swap />
+              </PrivateRoute>
+            } />
+            <Route path="fixed-deposit" element={
+              <PrivateRoute>
+                <FixedDeposit />
+              </PrivateRoute>
+            } />
+            <Route path="basket-sip" element={
+              <PrivateRoute>
+                <BasketSip />
+              </PrivateRoute>
+            } />
+            <Route path="pro-trading" element={
+              <PrivateRoute>
+                <ProTrading />
+              </PrivateRoute>
+            } />
+            <Route path="p2p" element={
+              <PrivateRoute>
+                <P2P />
+              </PrivateRoute>
+            } />
+            <Route path="blog-news" element={
+              <PrivateRoute>
+                <BlogNews />
+              </PrivateRoute>
+            } />
+            <Route path="kyc" element={
+              <PrivateRoute>
+                <Kyc />
+              </PrivateRoute>
+            } />
+            <Route path="wallet" element={
+              <PrivateRoute>
+                <Wallet />
+              </PrivateRoute>
+            } />
+            <Route path="settings" element={
+              <PrivateRoute>
+                <Settings />
+              </PrivateRoute>
+            } />
+            <Route path="referral" element={
+              <PrivateRoute>
+                <Referral />
+              </PrivateRoute>
+            } />
           </Route>
 
           {/* Testing Route */}
-          <Route path="/test" element={<Test/>} />
+          <Route path="/test" element={<Test />} />
 
           {/* Wild Card Route */}
           <Route path="*" element={<Redirect to="/" />} />

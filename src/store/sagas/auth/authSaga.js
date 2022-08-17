@@ -8,6 +8,8 @@ import {
   loginFail,
   singupStart,
   singupSuccess,
+  updateFormStart,
+  updateFormSuccess,
 } from "../../reducers/authReducer";
 
 function* setItemToLocalStorage(key, value) {
@@ -66,7 +68,43 @@ export function* singupSaga(action) {
           autoClose: 2000,
           hideProgressBar: true,
         });
-        navigate('/auth/login');
+        navigate('/');
+        // navigate('/auth/login');
+      }
+      // window.location.reload();
+      // modalCloseRef.current.click();
+      // window.location.pathname = "/dashboard-new";
+    } else {
+      yield put(loginFail(response.data.message));
+      if (toast) {
+        toast.error(response.data.message, {
+          autoClose: 3500,
+          hideProgressBar: true,
+          position: "top-center",
+        });
+      }
+      // yield put(loginFail("Something went wrong! Please try again."));
+    }
+  } catch (error) {
+    yield call(catchHandler, error, loginFail);
+  }
+}
+export function* updateFormSaga(action) {
+  yield put(updateFormStart());
+  try {
+    const { formData, toast, navigate } = action.payload;
+    console.log(formData)
+    const response = yield axios.post(`users/api/v1/user/edit-profile`, formData);
+    console.log(response.status);
+    if (response.data.status) {
+      yield put(updateFormSuccess(response.data.data));
+      if (toast) {
+        toast.success("Update Successful", {
+          autoClose: 2000,
+          hideProgressBar: true,
+        });
+        navigate('/settings');
+        // navigate('/auth/login');
       }
       // window.location.reload();
       // modalCloseRef.current.click();
