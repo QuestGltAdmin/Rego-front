@@ -8,7 +8,7 @@ const NavigationTabs = () => {
         <NavLink
           to="/dashboard"
           className={({ isActive }) => (isActive ? "active-link" : "")}
-        >
+        >                                  
           Dashboard
         </NavLink>
       </li>

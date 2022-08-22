@@ -147,12 +147,12 @@ const FixedDeposit = () => {
     selectedCryptoObj,
     selectedCryptoIndex,
   });
+ 
 
 
 
 
-
-
+  
   return (
 
 
@@ -483,7 +483,6 @@ const FixedDeposit = () => {
                                       <div class="flex">
                                         <h3>Stake Date</h3>
                                         <p>2022-04-17 18:17</p>
-                                        
                                       </div>
                                     </div>
                                     <div class="timeline-item">

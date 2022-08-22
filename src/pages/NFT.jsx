@@ -14,7 +14,7 @@ import { useEffect } from "react";
 
 
 const NFT = () => {
-
+     
 
   const { user } = useSelector((state) => state.auth);
   const [users, setUsers]=useState([])

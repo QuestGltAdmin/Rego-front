@@ -35,7 +35,7 @@ const GoogleLogin = ({ setUserState, changeSection }) => {
           className="form-control"
           placeholder="Your Email Address"
           onChange={(e) => setEmail(e.target.value)}
-        />
+        />               
       </div>
       <div>
         <a className="common-btn" onClick={proceedToLoginHandler}>

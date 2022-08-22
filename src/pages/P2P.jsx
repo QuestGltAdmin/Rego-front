@@ -298,7 +298,7 @@ const P2P = () => {
                                     <th>Trade <span className="green">0 Fee</span></th>
                                   </tr>
                                 </thead>
-                                <tbody>
+                                <tbody> 
                                   <tr>
                                     <td>
                                       <div className="one">

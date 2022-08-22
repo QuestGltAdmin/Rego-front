@@ -236,7 +236,7 @@ const History = () => {
                             <td>{item.status}</td>
                             {/* <td>0.0000</td> */}
                           </tr>
-                        ))}
+                        ))}        
                     </tbody>
                   </table>
                   {!isLoading &&

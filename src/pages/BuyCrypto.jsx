@@ -31,7 +31,7 @@ const chartButtons = [
   { id: 1, url: svgImages.graphChart, name: "Graph Chart" },
 ];
 
-ChartJS.register(
+ChartJS.register(     
   CategoryScale,
   LinearScale,
   PointElement,

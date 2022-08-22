@@ -153,7 +153,7 @@ const NewDashboardNoNav = () => {
       
       console.log(res.data)
       setUsers(res.data)
-      }
+      } 
     useEffect(()=>{
     fetchData();
         
