@@ -16,7 +16,7 @@ const GoogleLogin = ({ setUserState, changeSection }) => {
     }
 
     setUserState((prevState) => ({ ...prevState, email }));
-    changeSection("login");
+    changeSection("login");           
   };
 
   return (

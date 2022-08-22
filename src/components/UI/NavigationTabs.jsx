@@ -10,7 +10,7 @@ const NavigationTabs = () => {
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >                                  
           Dashboard
-        </NavLink>
+        </NavLink>   
       </li>
       <li>
         <NavLink
@@ -37,7 +37,7 @@ const NavigationTabs = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink
+        <NavLink        
           to="/fixed-deposit"
           className={({ isActive }) => (isActive ? "active-link" : "")}
         >

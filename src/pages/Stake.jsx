@@ -197,7 +197,7 @@ function FixedDeposit() {
 
               <Button onClick={() => setDays(30)}>30</Button>
               <Button onClick={() => setDays(90)}>90</Button>
-              <Button onClick={() => setDays(180)}>180</Button>
+              <Button onClick={() => setDays(180)}>180</Button>         
               <Button onClick={() => setDays(360)}>360</Button>
             </Flex>
           </Flex>

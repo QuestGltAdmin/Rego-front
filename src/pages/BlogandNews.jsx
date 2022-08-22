@@ -73,10 +73,10 @@ const BlogandNews = () => {
                         <img src={blog4} />
                         <div className="bottom-right">
                           <h5>What is Blockchain? What is Cryptocurrency?</h5>
-                        </div>
+                        </div>       
                       </div>
                     </a>
-                  </div>
+                  </div>              
                 </div>
                 <div className="card-flex">
                   <div className="card">

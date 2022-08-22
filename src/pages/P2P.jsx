@@ -280,7 +280,7 @@ const P2P = () => {
                                       </div>
                                     </td>
                                   </tr>
-                                </tbody>
+                                </tbody>            
                               </table>
                             </div>
                           </div>

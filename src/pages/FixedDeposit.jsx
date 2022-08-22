@@ -102,7 +102,7 @@ const FixedDeposit = () => {
     selectedCryptoObj = cryptowalletObj && cryptowalletObj[selectedCryptoIndex];
   }
 
-  const createFixedDeposit = async () => {
+  const createFixedDeposit = async () => {              
     const startDate = new Date();
     const endDate = new Date(startDate);
     endDate.setDate(startDate.getDate() + 30);
