@@ -8,7 +8,7 @@ import RegoLoader from 'components/RegoLoader';
 
 function Index() {
 
-  const [blogs, setBlogs] = useState();
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -16,26 +16,26 @@ function Index() {
 
 
   const fetchData = async () => {
-    const res = await axios.post('http://nft.regoex.com:3001/users/content/')
-    console.log(res.data.data.content)
-    setBlogs(res.data.data.content)
+    const res = await axios.get(`http://3.128.190.203:3001/users/blogsList`)
+    setBlogs(res.data.data)
   }
-  
+  console.log(blogs);
   return (
     <>
-        {!blogs && <RegoLoader loaderAutoResize={false} className=" h-72" />}
-    {blogs && <div className="grid grid-cols-2 pb-4 mt-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 auto-cols-auto gap-y-6 sm:pb-0">
+      {!blogs && <RegoLoader loaderAutoResize={false} className=" h-72" />}
+      {blogs && <div className="grid grid-cols-2 pb-4 mt-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 auto-cols-auto gap-y-6 sm:pb-0">
         {blogs?.map((items, index) => {
-          
-            return (
-              <BlogAvatar
-                _id={items._id}
-                key={index}
-                imageSrc={`${"http://nft.regoex.com:3001/content/"}${items.image}`}
-                title={items.title}
-                // category={items.category}
-              />
-            )
+          console.log(items)
+          return (
+            <BlogAvatar
+              _id={items?._id}
+              key={index}
+              imageSrc={items?.blogimage}
+              title={items?.title}
+              subheading={items?.subheading}
+            // category={items.category}
+            />
+          )
         })}
       </div>}
     </>

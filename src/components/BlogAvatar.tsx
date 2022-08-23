@@ -10,6 +10,7 @@ export type BlogAvatarProps = {
   alt?: string;
   gravatarFallbackMd5?: string;
   type?: number;
+  subheading?: string;
 };
 
 export default function BlogAvatar(props: BlogAvatarProps) {
@@ -24,6 +25,12 @@ export default function BlogAvatar(props: BlogAvatarProps) {
           setShowBlogAndNewsModal(true);
         }}
       >
+        <div className=" absolute bottom-2 flex flex-col p-2">
+          <span className="text-white font-semibold text-base">{props?.subheading}</span>
+          {props?.category && <h1 className="text-lg font-light text-left text-blue-800 lg:text-xl">
+            {"Name"}
+          </h1>}
+        </div>
         <img
           className="object-cover w-full h-full rounded-2xl"
           src={
@@ -31,7 +38,7 @@ export default function BlogAvatar(props: BlogAvatarProps) {
           alt="Demo Avatar"
         />
       <div className=" absolute bottom-2 flex flex-col p-2">
-        <span className="text-white font-semibold text-base">{`Is Crypto falling??`}</span>
+        <span className="text-white font-semibold text-base">{props?.title}</span>
         {props?.category && <h1 className="text-lg font-light text-left text-blue-800 lg:text-xl">
           {"Name"}
         </h1>}
