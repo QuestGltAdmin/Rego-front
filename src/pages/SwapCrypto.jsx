@@ -194,7 +194,7 @@ const SwapCrypto = () => {
                 }
               })}
             </div>
-          </div>
+          </div>     
           <div className="col-lg-10">
             <Line options={options} data={data} />
           </div>

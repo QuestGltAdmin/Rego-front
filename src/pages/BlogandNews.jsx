@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavigationTabs from "../components/UI/NavigationTabs";
 // import '../assets/css/custom.css';
 // import '../assets/css/style.css';
@@ -8,10 +8,36 @@ import blog1 from '../assets/images/blog1.png'
 import blog2 from '../assets/images/blog2.png'
 import blog3 from '../assets/images/blog3.png'
 import blog4 from '../assets/images/blog4.png'
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 
 
 const BlogandNews = () => {
+
+
+
+
+
+  const { user } = useSelector((state) => state.auth);
+  const [blogs, setBlogs]=useState([])
+    const fetchData = async () => {
+      const res = await axios.get("http://3.128.190.203:3001/users/blogsList")
+      console.log(res.data)
+      setBlogs(res.data)
+      }
+   useEffect(()=>{
+    fetchData();
+
+    },[])
+
+
+
+
+
+
+
+
   return (
     <section className="dashboard-sec">
       <div className="container">
@@ -22,18 +48,20 @@ const BlogandNews = () => {
               <div className="row blogs">
               <div className="col-lg-12">
                 <div className="card-flex">
-                  <div className="card">
+                {blogs?.data?.map(post=>(
+                  <div className="card" key={post._id.value}>
                     <a href>
                       <div className="img-cont">
                         <div className="overlay" />
-                        <img src={blog1} />
+                        <img src={post.blogimage} />
                         <div className="bottom-right">
-                          <h5>What is Blockchain? What is Cryptocurrency?</h5>
+                          <h5>{post.title}</h5>
                         </div>
                       </div>
                     </a>
                   </div>
-                  <div className="card">
+                ))}
+                  {/* <div className="card">
                     <a href>
                       <div className="img-cont">
                         <div className="overlay" />
@@ -133,7 +161,7 @@ const BlogandNews = () => {
                         </div>
                       </div>
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
