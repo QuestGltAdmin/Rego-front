@@ -257,7 +257,6 @@ function Index() {
                         />
                       ) : (
                         <img
-                          // src={require("E:/quest glt/Rego ty new/rego-front/src/assets/images/other/profile.png")}
                           className=" h-24 w-24"
                           alt="user"
                         />
