@@ -23,7 +23,6 @@ import { toast } from "react-toastify";
 import { updateWalletBalance } from "../store/reducers/walletReducer";
 import { Button, Card } from "react-bootstrap";
 import svgImages from "../assets/images/svg-icons/svgImages";
-import Switch from "react-switch";
 
 
 
