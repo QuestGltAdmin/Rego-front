@@ -76,10 +76,10 @@ function Index() {
      * 
      */
     <>
-      {/* <Box css={{ borderColor: indigo.indigo8 }} className='p-3 rounded-xl h-max border'>
+      {/* <Box css={{ borderColor: indigo.indigo8 }} className='p-3 border rounded-xl h-max'>
         <Heading3>Settings</Heading3> */}
       <Tabs className="flex-col w-full" defaultValue='PROFILE' >
-        <TabsList className="flex gap-5 justify-around">
+        <TabsList className="flex justify-around gap-5">
           <TabsTrigger css={{
             marginBottom: 10,
             padding: 10,
@@ -93,7 +93,7 @@ function Index() {
             <Flex css={{ backgroundColor: "transparent" }} className="items-center gap-2 justify-items-start">
               {/* <img src={coin?.url} /> */}
               {/* <coin.url /> */}
-              <p className='text-gray-500 text-lg font-semibold'>{"Profile"}</p>
+              <p className='text-lg font-semibold text-gray-500'>{"Profile"}</p>
             </Flex>
           </TabsTrigger>
           <TabsTrigger css={{
@@ -109,7 +109,7 @@ function Index() {
             <Flex css={{ backgroundColor: "transparent" }} className="items-center gap-2 justify-items-start">
               {/* <img src={coin?.url} /> */}
               {/* <coin.url /> */}
-              <p className='text-gray-500 text-lg font-semibold'>{"Security"}</p>
+              <p className='text-lg font-semibold text-gray-500'>{"Security"}</p>
             </Flex>
           </TabsTrigger>
           <TabsTrigger css={{
@@ -125,7 +125,7 @@ function Index() {
             <Flex css={{ backgroundColor: "transparent" }} className="items-center gap-2 justify-items-start">
               {/* <img src={coin?.url} /> */}
               {/* <coin.url /> */}
-              <p className='text-gray-500 text-lg font-semibold'>{"Other"}</p>
+              <p className='text-lg font-semibold text-gray-500'>{"Other"}</p>
             </Flex>
           </TabsTrigger>
         </TabsList>
@@ -147,7 +147,7 @@ function Index() {
             }) => (
               <form onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-2 max-w-[600px] mx-auto p-4 border border-blue-800 rounded-xl">
-                  <div className="sm:flex gap-3">
+                  <div className="gap-3 sm:flex">
                     <Fieldset>
                       <Label htmlFor="fullname" >Name</Label>
                       <Input
@@ -196,7 +196,7 @@ function Index() {
                       </div>
                     </Fieldset>
                   </div>
-                  <div className="sm:flex gap-3">
+                  <div className="gap-3 sm:flex">
                     <Fieldset>
                       <Label htmlFor="phone_no" >Phone Number</Label>
                       <Input
@@ -244,7 +244,7 @@ function Index() {
                       </div>
                     </Fieldset>
                   </div>
-                  <div className="sm:flex items-center w-fit gap-4">
+                  <div className="items-center gap-4 sm:flex w-fit">
                     <Fieldset>
                       <Label>Preview</Label>
                       {profilePic !== null ? (
@@ -252,17 +252,17 @@ function Index() {
                           src={
                             profilePicURL !== '' ? profilePicURL : `${profilePic}`
                           }
-                          className=" h-24 w-24"
+                          className="w-24 h-24 "
                           alt="user"
                         />
                       ) : (
                         <img
-                          src={require("E:/quest glt/Rego ty new/rego-front/src/assets/images/other/profile.png")}
-                          className=" h-24 w-24"
+                          src={require("../../assets/images/other/profile.png")}
+                          className="w-24 h-24 "
                           alt="user"
                         />
                       )}
-                      {/* <img src={"/images/profile.png"} className=" h-24 w-24" /> */}
+                      {/* <img src={"/images/profile.png"} className="w-24 h-24 " /> */}
                     </Fieldset>
                     <Fieldset>
                       <Label>Upload Profile Pic</Label>
@@ -280,7 +280,7 @@ function Index() {
           </Formik>
         </TabsContent>
         <TabsContent value="SECURITY">
-          <div className="flex flex-col gap-2 max-w-96 mx-auto p-4 border border-blue-800 rounded-xl">
+          <div className="flex flex-col gap-2 p-4 mx-auto border border-blue-800 max-w-96 rounded-xl">
             <ChangePassword />
           </div>
         </TabsContent>
