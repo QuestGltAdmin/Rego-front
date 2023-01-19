@@ -1,4 +1,4 @@
-export const INR = {
+export const INR ={
   id: 0,
   name: "inr",
   url: require("./inr.svg").default,
@@ -9,9 +9,8 @@ export const INR = {
   neft: require("../icons/neft.svg").default,
   upi: require("../icons/upi.svg").default,
 }
-
-export const coins = [
-  
+export const coins = 
+[
   {
     id: 1,
     coin_ID: "bitcoin",
