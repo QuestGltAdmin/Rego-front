@@ -20,7 +20,7 @@ export function* loginSaga(action) {
   yield put(loginStart());
   try {
     const { formData, toast, closeModalRef } = action.payload;
-    const response = yield axios.post(`/users/login`, formData);
+    const response = yield axios.post(`/auth/login`, formData);
     console.log(response.data.status);
     if (response.data.status) {
       yield put(loginSuccess(response.data));

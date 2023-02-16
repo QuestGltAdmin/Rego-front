@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const axiosMain = axios.create({             
-  baseURL: "http://3.128.190.203:3001/",
-  // process.env.NODE_ENV === 'development'
-  //   ? process.env.REACT_APP_END_POINT_URL_DEV
-  //   : process.env.REACT_APP_END_POINT_URL_PROD,
+  baseURL:process.env.NODE_ENV === 'development'
+    ? process.env.REACT_APP_END_POINT_URL_DEV
+    : process.env.REACT_APP_END_POINT_URL_PROD,
   headers: {
     "Content-Type": "application/json",
   },

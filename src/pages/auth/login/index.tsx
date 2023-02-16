@@ -37,10 +37,10 @@ export default function Index() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <Box css={{ borderColor: violet.violet8 }} className=" p-3 mx-4 rounded-xl w-full md:w-1/2 lg:w-1/3 border" >
+      <Box css={{ borderColor: violet.violet8 }} className="w-full p-3 mx-4 border rounded-xl md:w-1/2 lg:w-1/3" >
         <Heading2 className="text-center">LOGIN</Heading2>
 
-        <Text>Welcome to Rego Exachange</Text>
+        <Text>Welcome to Rego Exchange</Text>
         <form onSubmit={handleSubmit(loginFormSubmitHandler)}>
 
           <Fieldset>
@@ -51,7 +51,7 @@ export default function Index() {
             <Label htmlFor="password">Password</Label>
             <Input {...register("password")} required minLength={6} id="password" type="password" placeholder="Enter Password" />
           </Fieldset>
-          <Flex className=" my-4 justify-center">
+          <Flex className="justify-center my-4 ">
             <Button type="submit" className="px-4 ">Login</Button>
           </Flex>
         </form>
